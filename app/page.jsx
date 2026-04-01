@@ -233,6 +233,44 @@ const unit1Topics = [
         <svg width="90" height="40" viewBox="0 0 90 40"><path d="M 5 35 Q 45 2, 85 35" stroke="#ef4444" strokeWidth="2.5" fill="none"/></svg></Box>}/>
       <W>The data must have EQUAL-LENGTH input intervals for these tests to work! If x goes 1,2,3,4 that's equal. If x goes 1,3,7,10 it's NOT.</W>
     </div>},
+    { title:"Example — Slope of a Secant Line (Points)", content:<div>
+      <Q>Find the slope of the secant line from the point (−1, 4) to the point (1, −2).</Q>
+      <FmUsed>Slope of secant = [f(b) − f(a)] / (b − a)</FmUsed>
+      <WB>
+        <MathLine size={14}>Point 1: (−1, 4) → a = −1, f(a) = 4</MathLine>
+        <MathLine size={14}>Point 2: (1, −2) → b = 1, f(b) = −2</MathLine>
+        <Arrow text="Plug into the slope formula"/>
+        <MathLine>Slope = <span style={{borderBottom:"2px solid #333"}}>f(b) − f(a)</span></MathLine>
+        <MathLine indent={55}>b − a</MathLine>
+        <Arrow text="Substitute values"/>
+        <MathLine indent={42}>= <span style={{borderBottom:"2px solid #333"}}><MathBox color="#6366f1">−2</MathBox> − <MathBox color="#6366f1">4</MathBox></span></MathLine>
+        <MathLine indent={52}>1 − (−1)</MathLine>
+        <Arrow text="Simplify: −2 − 4 = −6 and 1 − (−1) = 1 + 1 = 2"/>
+        <MathLine indent={42}>= <span style={{borderBottom:"2px solid #333"}}>−6</span></MathLine>
+        <MathLine indent={52}>2</MathLine>
+        <Ans>Slope of secant line = −3</Ans>
+      </WB>
+      <Wh>The slope of the secant line IS the average rate of change of the function over the interval [−1, 1]. Same formula, same answer — different name!</Wh>
+    </div>},
+    { title:"Example — Slope of a Secant Line (Function)", content:<div>
+      <Q>For f(x) = (3/2)x² − 3/(2x + 6), find the slope of the secant line from (−1, f(−1)) to (3, f(3)).</Q>
+      <FmUsed>Slope = [f(b) − f(a)] / (b − a)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Find f(−1)</b></MathLine>
+        <MathLine size={14}>f(−1) = (3/2)(−1)² − 3/(2(−1)+6)</MathLine>
+        <MathLine size={14} indent={30}>= (3/2)(1) − 3/(−2+6)</MathLine>
+        <MathLine size={14} indent={30}>= 3/2 − 3/4 = 6/4 − 3/4 = <MathBox>3/4</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Find f(3)</b></MathLine>
+        <MathLine size={14}>f(3) = (3/2)(3)² − 3/(2(3)+6)</MathLine>
+        <MathLine size={14} indent={30}>= (3/2)(9) − 3/(12)</MathLine>
+        <MathLine size={14} indent={30}>= 27/2 − 1/4 = 54/4 − 1/4 = <MathBox>53/4</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Compute slope</b></MathLine>
+        <MathLine size={14}>Slope = (53/4 − 3/4) / (3 − (−1))</MathLine>
+        <MathLine size={14} indent={30}>= (50/4) / 4 = 50/16</MathLine>
+        <Ans>Slope = 50/16 = 25/8 = 3.125</Ans>
+      </WB>
+      <Tp>When the function has fractions, find a common denominator before subtracting. Store intermediate results in your calculator to avoid rounding errors!</Tp>
+    </div>},
     { title:"Example — Proving a Function is Linear", content:<div>
       <Q>Find the AROC over each interval. Is f linear or quadratic?</Q>
       <Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","5","3","1","−1","−3"]]}/>
@@ -321,20 +359,52 @@ const unit1Topics = [
         <MathLine size={14} indent={20}>Coefficient of x³: → LC = <MathBox color="#ec4899">−2</MathBox></MathLine>
       </WB>
     </div>},
-    { title:"Example — Extrema & Inflection", content:<div>
-      <Q>Identify local/global extrema from the graph. Find absolute extrema for p(x) = x⁴ − 5x² + 1.</Q>
+    { title:"Example — Local & Global Extrema from a Graph", content:<div>
+      <Q>From a graph of a polynomial with restricted domain, identify all local minima, local maxima, and the global (absolute) minimum and maximum.</Q>
       <WB>
-        <MathLine size={14} color="#4338ca"><b>Restricted domain graph:</b></MathLine>
-        <MathLine size={14}>Local minima at x = <MathBox color="#3b82f6">−3, 1</MathBox></MathLine>
-        <MathLine size={14}>Local maxima at x = <MathBox color="#ec4899">−2, 2</MathBox></MathLine>
-        <MathLine size={14}>Global min at x = <MathBox color="#3b82f6">1</MathBox><Annotate>lowest valley</Annotate></MathLine>
-        <MathLine size={14}>Global max at x = <MathBox color="#ec4899">−2</MathBox><Annotate color="#ec4899">highest peak</Annotate></MathLine>
-        <MathLine size={14} color="#4338ca"><b>p(x) = x⁴ − 5x² + 1 (graph on calculator):</b></MathLine>
-        <MathLine size={14}>Absolute Maximum = <MathBox>N/A</MathBox><Annotate>both ends → +∞</Annotate></MathLine>
-        <MathLine size={14}>Absolute Minimum = <MathBox>−5.25</MathBox></MathLine>
-        <MathLine size={14} color="#4338ca"><b>Inflection points (A,B,C,D,E graph):</b></MathLine>
-        <MathLine size={14}>Points of inflection at <MathBox color="#f59e0b">B & D</MathBox><Annotate color="#f59e0b">concavity changes here</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Find Local Extrema</b></MathLine>
+        <MathLine size={14}>Where does the function switch from ↓ to ↑? → <B>Local minimum</B></MathLine>
+        <MathLine size={14}>Local minima at x = <MathBox color="#3b82f6">−3</MathBox> and x = <MathBox color="#3b82f6">1</MathBox></MathLine>
+        <MathLine size={14}>Where does the function switch from ↑ to ↓? → <B>Local maximum</B></MathLine>
+        <MathLine size={14}>Local maxima at x = <MathBox color="#ec4899">−2</MathBox> and x = <MathBox color="#ec4899">2</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Find Global Extrema</b></MathLine>
+        <MathLine size={14}>Compare ALL local mins: the SMALLEST output → global min</MathLine>
+        <MathLine size={14}>Global min at x = <MathBox color="#3b82f6">1</MathBox><Annotate>lowest valley of all</Annotate></MathLine>
+        <MathLine size={14}>Compare ALL local maxes: the LARGEST output → global max</MathLine>
+        <MathLine size={14}>Global max at x = <MathBox color="#ec4899">−2</MathBox><Annotate color="#ec4899">highest peak of all</Annotate></MathLine>
       </WB>
+      <Tp>Restricted domains can have global extrema at endpoints too! Always check the endpoints in addition to the peaks and valleys.</Tp>
+    </div>},
+    { title:"Example — Absolute Extrema with Technology", content:<div>
+      <Q>Use technology to graph p(x) = x⁴ − 5x² + 1. Find the absolute maximum value and the absolute minimum value. Write N/A if none exists.</Q>
+      <FmUsed>Graph on calculator → use max/min features to find extreme values</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Determine end behavior</b></MathLine>
+        <MathLine size={14}>Leading term: <MathBox color="#6366f1">x⁴</MathBox> (even degree, + coeff)</MathLine>
+        <MathLine size={14}>Both ends → +∞ → no absolute maximum (keeps going up)</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Use calculator to find minimum</b></MathLine>
+        <MathLine size={14}>Graph p(x) and use the minimum feature</MathLine>
+        <MathLine size={14}>Local minima at x ≈ ±√(5/2) ≈ ±1.581</MathLine>
+        <MathLine size={14}>Minimum output value: p(±√(5/2)) = <MathBox>−5.25</MathBox></MathLine>
+        <Ans>Absolute Maximum = N/A (ends → +∞) · Absolute Minimum = −5.25</Ans>
+      </WB>
+      <W>Even degree with positive leading coefficient: both ends go to +∞, so there is NO absolute max. But there IS an absolute min (the lowest valley).</W>
+    </div>},
+    { title:"Example — Points of Inflection", content:<div>
+      <Q>Five key points are labeled A, B, C, D, and E on the graph of a polynomial. Identify which points are inflection points.</Q>
+      <FmUsed>Inflection point = where concavity changes (concave up ↔ concave down)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Identify concavity in each region</b></MathLine>
+        <MathLine size={14}>Before B: curve is concave <MathBox color="#22c55e">UP</MathBox> (cup shape ☕)</MathLine>
+        <MathLine size={14}>Between B and D: curve is concave <MathBox color="#ef4444">DOWN</MathBox> (frown shape ☹️)</MathLine>
+        <MathLine size={14}>After D: curve is concave <MathBox color="#22c55e">UP</MathBox> again</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Where does concavity change?</b></MathLine>
+        <MathLine size={14}>At B: UP → DOWN → <MathBox color="#f59e0b">inflection point ✓</MathBox></MathLine>
+        <MathLine size={14}>At D: DOWN → UP → <MathBox color="#f59e0b">inflection point ✓</MathBox></MathLine>
+        <MathLine size={14}>A, C, E: no change in concavity → NOT inflection points</MathLine>
+        <Ans>Points of inflection at B and D</Ans>
+      </WB>
+      <Wh>Points of inflection are NOT peaks or valleys — they're where the curve changes its BENDING direction. The rate of change switches from increasing to decreasing (or vice versa).</Wh>
     </div>},
   ]},
   { id:"1.5", name:"Polynomial Functions & Complex Zeros", slides:[
@@ -439,9 +509,25 @@ const unit1Topics = [
         <MathLine size={14}>→ <MathBox color="#22c55e">Degree 3</MathBox> (Cubic)</MathLine>
       </WB>
     </div>},
+    { title:"Example — Even and Odd Functions", content:<div>
+      <Q>Indicate whether each function is even (E) or odd (O). Remember: even = all even exponents, odd = all odd exponents.</Q>
+      <FmUsed>Even: f(−x) = f(x) (y-axis symmetry) · Odd: f(−x) = −f(x) (origin symmetry)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>1.</b> p(x) = x⁵</MathLine>
+        <MathLine size={14} indent={20}>Only exponent: 5 (odd) → <MathBox color="#22c55e">ODD</MathBox></MathLine>
+        <MathLine size={14} indent={20}>Check: p(−x) = (−x)⁵ = −x⁵ = −p(x) ✓</MathLine>
+        <MathLine size={14} color="#4338ca"><b>2.</b> f(x) = x⁴ + 5x² − 6</MathLine>
+        <MathLine size={14} indent={20}>Exponents: 4, 2, 0 (all even) → <MathBox color="#6366f1">EVEN</MathBox></MathLine>
+        <MathLine size={14} indent={20}>Check: f(−x) = x⁴ + 5x² − 6 = f(x) ✓</MathLine>
+        <MathLine size={14} color="#4338ca"><b>3.</b> g(x) = x³ + 4x</MathLine>
+        <MathLine size={14} indent={20}>Exponents: 3, 1 (all odd) → <MathBox color="#22c55e">ODD</MathBox></MathLine>
+        <MathLine size={14} indent={20}>Check: g(−x) = −x³ − 4x = −(x³ + 4x) = −g(x) ✓</MathLine>
+      </WB>
+      <W>If a polynomial has MIXED exponents (like x³ + x²), it is NEITHER even nor odd. All exponents must be the same parity (all even or all odd).</W>
+    </div>},
   ]},
   { id:"1.6", name:"Polynomial Functions & End Behavior", slides:[
-    { title:"Concept & Examples — End Behavior", content:<div>
+    { title:"Concept — End Behavior Rules", content:<div>
       <Fm label="Key Rule">For nonconstant polynomial functions, the values of the LEADING TERM dominate the values of all lower-degree terms as x → ±∞</Fm>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">What Determines End Behavior?</Tt><Sm>
         • The <B c="#4338ca">degree</B> (even or odd) tells you whether the two ends go the SAME direction or OPPOSITE directions<br/>
@@ -452,16 +538,34 @@ const unit1Topics = [
       <Tb h={["Degree","Lead Coeff","x→−∞","x→+∞","Visual"]} r={[["Even","+","+∞","+∞","↑ ↑"],["Even","−","−∞","−∞","↓ ↓"],["Odd","+","−∞","+∞","↓ ↑"],["Odd","−","+∞","−∞","↑ ↓"]]}/>
       <Tp>Quick trick: Look at the RIGHT side first. + coeff → right goes UP. − coeff → right goes DOWN. Then: even = left matches, odd = left is opposite.</Tp>
       <W>Write end behavior using LIMIT NOTATION on the AP exam: lim(x→∞) p(x) = ∞ and lim(x→−∞) p(x) = −∞, NOT just "up" or "down."</W>
-      <Q>Identify leading term, degree, and end behavior of p(x) = −2x³−4x²+5x−3.</Q>
+    </div>},
+    { title:"Example — End Behavior from an Equation", content:<div>
+      <Q>Identify the leading term, degree, and end behavior of p(x) = −2x³ − 4x² + 5x − 3. Write end behavior using limit notation.</Q>
+      <FmUsed>Leading term determines end behavior: degree (even/odd) + sign of LC (±)</FmUsed>
       <WB>
-        <MathLine size={14}>Leading term: <MathBox color="#6366f1">−2x³</MathBox> · Degree: <MathBox color="#6366f1">3</MathBox> (odd) · Coeff: <MathBox color="#ef4444">negative</MathBox></MathLine>
-        <MathLine size={14}>Odd + negative → left UP, right DOWN</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Identify the leading term</b></MathLine>
+        <MathLine size={14}>p(x) = <MathBox color="#6366f1">−2x³</MathBox> − 4x² + 5x − 3</MathLine>
+        <MathLine size={14}>Leading term: −2x³</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Determine degree and sign</b></MathLine>
+        <MathLine size={14}>Degree = <MathBox color="#6366f1">3</MathBox> (odd) · Leading coefficient = <MathBox color="#ef4444">−2</MathBox> (negative)</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Apply the rules</b></MathLine>
+        <MathLine size={14}>Odd degree + negative coeff → left UP, right DOWN</MathLine>
         <Ans>lim(x→−∞) p(x) = +∞ · lim(x→∞) p(x) = −∞</Ans>
       </WB>
-      <Q>From graphs: identify degree, sign, write limits.</Q>
+    </div>},
+    { title:"Example — End Behavior from Graphs", content:<div>
+      <Q>From each graph, determine a possible degree, the sign of the leading coefficient, and write the end behavior using limit notation.</Q>
       <WB>
-        <MathLine size={14}>Graph 1: rises left to right → <MathBox color="#22c55e">odd, + coeff</MathBox> → lim(x→−∞)=−∞, lim(x→∞)=+∞</MathLine>
-        <MathLine size={14}>Graph 2: both sides down → <MathBox color="#ef4444">even, − coeff</MathBox> → lim(x→−∞)=−∞, lim(x→∞)=−∞</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Graph 1: Left end goes down, right end goes up</b></MathLine>
+        <MathLine size={14}>Opposite directions → <MathBox color="#22c55e">odd degree</MathBox></MathLine>
+        <MathLine size={14}>Right side goes UP → <MathBox color="#22c55e">positive leading coefficient</MathBox></MathLine>
+        <MathLine size={14}>Possible degree: 3 (cubic)</MathLine>
+        <Ans>lim(x→−∞) = −∞ · lim(x→∞) = +∞</Ans>
+        <MathLine size={14} color="#4338ca"><b>Graph 2: Both ends go down</b></MathLine>
+        <MathLine size={14}>Same direction → <MathBox color="#ef4444">even degree</MathBox></MathLine>
+        <MathLine size={14}>Both sides go DOWN → <MathBox color="#ef4444">negative leading coefficient</MathBox></MathLine>
+        <MathLine size={14}>Possible degree: 4 (quartic)</MathLine>
+        <Ans>lim(x→−∞) = −∞ · lim(x→∞) = −∞</Ans>
       </WB>
     </div>},
     { title:"Example — End Behavior with SVG Graphs", content:<div>
@@ -503,25 +607,40 @@ const unit1Topics = [
       <W>The HA tells you where the graph LEVELS OFF for very large |x|. But the graph CAN cross a HA in the middle — it just approaches it at the ends!</W>
       <Tp>Quick method: cover everything except the leading terms in num and den. Simplify that fraction. If it's a constant → that's your HA. If it has x → no HA.</Tp>
     </div>},
-    { title:"Example — HA & End Behavior Limits", content:<div>
-      <Q>Find HA and/or end behavior for each rational function.</Q>
+    { title:"Example — Finding Horizontal Asymptotes", content:<div>
+      <Q>Find the horizontal asymptote (if one exists) for each rational function.</Q>
+      <FmUsed>Compare n (degree of numerator) vs d (degree of denominator)</FmUsed>
       <WB>
-        <MathLine size={14} color="#4338ca"><b>HA Examples:</b></MathLine>
-        <MathLine size={14}>(x−2)/(x²−9): n=1{"<"}d=2 → <MathBox color="#3b82f6">HA: y=0</MathBox></MathLine>
-        <MathLine size={14}>(5x²−2)/(7x²−9): n=d=2 → <MathBox color="#ec4899">HA: y=5/7</MathBox></MathLine>
-        <MathLine size={14}>(5x²−2x+3)/(x−9): n=2{">"}d=1 → <MathBox color="#f59e0b">No HA</MathBox></MathLine>
-        <MathLine size={14} color="#4338ca"><b>Leading Term Ratios:</b></MathLine>
-        <MathLine size={14}>(4x³−3x+1)/(2x³+5x+1): 4x³/2x³ = <MathBox>2</MathBox> → HA: y=2</MathLine>
-        <MathLine size={14}>(4x⁵−3x+1)/(2x³+5x+1): 4x⁵/2x³ = <MathBox>2x²</MathBox> → No HA, behaves like 2x²</MathLine>
-        <MathLine size={14} color="#4338ca"><b>End Behavior Limits:</b></MathLine>
-        <MathLine size={14}>(x⁶−3x³+1)/(x³+5x+1): ratio=x³ → lim(x→∞)=∞, lim(x→−∞)=−∞</MathLine>
-        <MathLine size={14}>(−2x³−3x²+6x+1)/(x²+5x+1): ratio=−2x → slant ∥ y=−2x</MathLine>
-        <MathLine size={14} indent={20}>→ lim(x→∞)=−∞, lim(x→−∞)=+∞</MathLine>
+        <MathLine size={14} color="#4338ca"><b>1.</b> f(x) = (x − 2)/(x² − 9)</MathLine>
+        <MathLine size={14} indent={20}>n = 1, d = 2 → n {"<"} d → <MathBox color="#3b82f6">HA: y = 0</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>2.</b> g(x) = (5x² − 2)/(7x² − 9)</MathLine>
+        <MathLine size={14} indent={20}>n = 2, d = 2 → n = d → <MathBox color="#ec4899">HA: y = 5/7</MathBox><Annotate color="#ec4899">ratio of leading coefficients</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>3.</b> h(x) = (5x² − 2x + 3)/(x − 9)</MathLine>
+        <MathLine size={14} indent={20}>n = 2, d = 1 → n {">"} d → <MathBox color="#f59e0b">No HA</MathBox></MathLine>
+      </WB>
+      <Tp>Remember the three cases: n{"<"}d → y=0, n=d → y=ratio of LCs, n{">"}d → no HA.</Tp>
+    </div>},
+    { title:"Example — Leading Term Ratios & End Behavior", content:<div>
+      <Q>Find the quotient of leading terms and use it to describe end behavior.</Q>
+      <FmUsed>Quotient of leading terms = (leading term of num) / (leading term of den)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>1.</b> r(x) = (4x³−3x+1)/(2x³+5x+1)</MathLine>
+        <MathLine size={14} indent={20}>Ratio: 4x³/2x³ = <MathBox color="#6366f1">2</MathBox> (constant) → HA: y = 2</MathLine>
+        <MathLine size={14} indent={20}>lim(x→±∞) r(x) = 2</MathLine>
+        <MathLine size={14} color="#4338ca"><b>2.</b> r(x) = (4x⁵−3x+1)/(2x³+5x+1)</MathLine>
+        <MathLine size={14} indent={20}>Ratio: 4x⁵/2x³ = <MathBox color="#6366f1">2x²</MathBox> (nonconstant) → No HA</MathLine>
+        <MathLine size={14} indent={20}>Behaves like 2x² → both ends → +∞</MathLine>
+        <MathLine size={14} color="#4338ca"><b>3.</b> r(x) = (x⁶−3x³+1)/(x³+5x+1)</MathLine>
+        <MathLine size={14} indent={20}>Ratio: x⁶/x³ = <MathBox color="#6366f1">x³</MathBox> → behaves like cubic</MathLine>
+        <Ans>lim(x→∞) = ∞ · lim(x→−∞) = −∞</Ans>
+        <MathLine size={14} color="#4338ca"><b>4.</b> v(x) = (−2x³−3x²+6x+1)/(x²+5x+1)</MathLine>
+        <MathLine size={14} indent={20}>Ratio: −2x³/x² = <MathBox color="#6366f1">−2x</MathBox> → slant asymptote ∥ y = −2x</MathLine>
+        <Ans>lim(x→∞) = −∞ · lim(x→−∞) = +∞</Ans>
       </WB>
     </div>},
   ]},
   { id:"1.8", name:"Rational Functions & Zeros", slides:[
-    { title:"Concept & Example — Zeros & Inequalities", content:<div>
+    { title:"Concept — Zeros & Rational Inequalities", content:<div>
       <Fm label="Real Zeros of Rational Functions">The zeros of r(x) = p(x)/q(x) correspond to the zeros of the NUMERATOR p(x) where q(x) ≠ 0</Fm>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Finding Zeros — Step by Step</Tt><Sm>
         <B c="#4338ca">1.</B> Factor the numerator completely<br/>
@@ -539,7 +658,10 @@ const unit1Topics = [
         <B c="#dc2626">4.</B> Select intervals matching the inequality
       </Sm></Box>
       <Tp>Denominator zeros are NEVER included in the solution (even for ≤ or ≥) because the function is undefined there!</Tp>
-      <Q>Find zeros of r(x) = (x³−5x²+6x)/(x²−2x−3). Solve r(x)≥0.</Q>
+    </div>},
+    { title:"Example — Finding Zeros & Solving Inequality", content:<div>
+      <Q>Find the real zeros of r(x) = (x³−5x²+6x)/(x²−2x−3). Then solve r(x) ≥ 0.</Q>
+      <FmUsed>Factor num and den. Zeros of num (where den ≠ 0) are real zeros. Use number line for inequality.</FmUsed>
       <WB>
         <MathLine size={14}>Num: x(x−3)(x−2) · Den: (x−3)(x+1)</MathLine>
         <MathLine size={14}>x=3 in BOTH → <MathBox color="#f59e0b">hole</MathBox>, not zero!</MathLine>
@@ -558,7 +680,7 @@ const unit1Topics = [
     </div>},
   ]},
   { id:"1.9", name:"Rational Functions & Vertical Asymptotes", slides:[
-    { title:"Concept & Example — VAs & Limits", content:<div>
+    { title:"Concept — Vertical Asymptotes & Limits", content:<div>
       <Fm label="Vertical Asymptotes">The VA(s) of a rational function correspond to zeros of the DENOMINATOR that are NOT also zeros of the numerator.</Fm>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Finding Vertical Asymptotes</Tt><Sm>
         <B c="#4338ca">1.</B> Factor denominator completely<br/>
@@ -573,16 +695,54 @@ const unit1Topics = [
       </Sm></Box>
       <svg width="100%" height="80" viewBox="0 0 260 80"><line x1="15" y1="40" x2="245" y2="40" stroke="#ddd"/><line x1="130" y1="2" x2="130" y2="78" stroke="#ef4444" strokeWidth="2" strokeDasharray="5,3"/><path d="M 25 38 Q 75 35, 110 78" stroke="#6366f1" strokeWidth="2" fill="none"/><path d="M 150 2 Q 185 45, 240 42" stroke="#6366f1" strokeWidth="2" fill="none"/><text x="138" y="12" fontSize="8" fill="#ef4444" fontWeight="700">x=a (VA)</text></svg>
       <Tp>Use the graph on your calculator to determine whether each side goes to +∞ or −∞. The sign can be different on each side!</Tp>
-      <Q>Find VAs of (x²−8x+7)/(x²+x−6). Find one-sided limits from graphs.</Q>
+    </div>},
+    { title:"Example — Finding Vertical Asymptotes", content:<div>
+      <Q>Find the vertical asymptotes of r(x) = (x²−8x+7)/(x²+x−6).</Q>
+      <FmUsed>Factor num & den → check if den zeros also zero the num</FmUsed>
       <WB>
-        <MathLine size={14}>Factor: (x−7)(x−1)/[(x+3)(x−2)]</MathLine>
-        <MathLine size={14}>Den zeros: x=−3, x=2. Neither makes num=0.</MathLine>
-        <Ans>VAs: x = −3 and x = 2</Ans>
-        <MathLine size={14} color="#4338ca"><b>Limits from graph:</b></MathLine>
-        <MathLine size={14}>lim(x→−2⁺)=−∞ · lim(x→−2⁻)=+∞ · lim(x→4⁺)=+∞ · lim(x→4⁻)=−∞</MathLine>
-        <MathLine size={14} color="#4338ca"><b>v(x)=(x²−5x+4)/(x²+4x−12):</b></MathLine>
-        <MathLine size={14}>lim(x→−6⁺)=−∞ · lim(x→−6⁻)=+∞ · lim(x→2⁺)=−∞ · lim(x→2⁻)=+∞</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Factor numerator</b></MathLine>
+        <MathLine size={14}>x²−8x+7 = (x−7)(x−1)<Annotate>−7×−1=7, −7+(−1)=−8 ✓</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Factor denominator</b></MathLine>
+        <MathLine size={14}>x²+x−6 = (x+3)(x−2)<Annotate>3×(−2)=−6, 3+(−2)=1 ✓</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Check denominator zeros</b></MathLine>
+        <MathLine size={14}>x = −3: num = (−3−7)(−3−1) = (−10)(−4) = 40 ≠ 0 → <MathBox color="#ef4444">VA</MathBox></MathLine>
+        <MathLine size={14}>x = 2: num = (2−7)(2−1) = (−5)(1) = −5 ≠ 0 → <MathBox color="#ef4444">VA</MathBox></MathLine>
+        <Ans>Vertical Asymptotes: x = −3 and x = 2</Ans>
       </WB>
+      <Wh>Both denominator zeros produce non-zero numerator values, so both are VAs (no holes). Always check EACH zero individually!</Wh>
+    </div>},
+    { title:"Example — One-Sided Limits from a Graph", content:<div>
+      <Q>A rational function r(x) has VAs at x = −2 and x = 4. Use the graph to determine the one-sided limits at each VA.</Q>
+      <FmUsed>lim(x→a⁺) = value from the RIGHT · lim(x→a⁻) = value from the LEFT</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>At x = −2:</b></MathLine>
+        <MathLine size={14}>As x → −2 from the right: graph goes DOWN → lim(x→−2⁺) r(x) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
+        <MathLine size={14}>As x → −2 from the left: graph goes UP → lim(x→−2⁻) r(x) = <MathBox color="#22c55e">+∞</MathBox></MathLine>
+        <MathLine size={14} color="#7c3aed">Opposite directions → <b>odd multiplicity VA</b></MathLine>
+        <MathLine size={14} color="#4338ca"><b>At x = 4:</b></MathLine>
+        <MathLine size={14}>As x → 4 from the right: graph goes UP → lim(x→4⁺) r(x) = <MathBox color="#22c55e">+∞</MathBox></MathLine>
+        <MathLine size={14}>As x → 4 from the left: graph goes DOWN → lim(x→4⁻) r(x) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
+        <MathLine size={14} color="#7c3aed">Opposite directions → <b>odd multiplicity VA</b></MathLine>
+      </WB>
+      <Tp>Read the graph near each VA carefully: trace from each side and see if the curve shoots UP (+∞) or DOWN (−∞). Odd multiplicity → opposite directions; even multiplicity → same direction.</Tp>
+    </div>},
+    { title:"Example — Graphing & Limits of a Rational Function", content:<div>
+      <Q>Graph v(x) = (x²−5x+4)/(x²+4x−12) on your calculator. Find the VAs and determine the one-sided limits at each VA.</Q>
+      <FmUsed>Factor → find VAs → use calculator graph for limit directions</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Factor</b></MathLine>
+        <MathLine size={14}>Num: x²−5x+4 = (x−4)(x−1)</MathLine>
+        <MathLine size={14}>Den: x²+4x−12 = (x+6)(x−2)</MathLine>
+        <MathLine size={14}>No common factors → no holes</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Identify VAs</b></MathLine>
+        <MathLine size={14}>Den = 0: x = −6 and x = 2 → <MathBox color="#ef4444">VAs: x = −6 and x = 2</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 3: One-sided limits from graph</b></MathLine>
+        <MathLine size={14}><b>At x = −6:</b></MathLine>
+        <MathLine size={14}>lim(x→−6⁺) v(x) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→−6⁻) v(x) = <MathBox color="#22c55e">+∞</MathBox></MathLine>
+        <MathLine size={14}><b>At x = 2:</b></MathLine>
+        <MathLine size={14}>lim(x→2⁺) v(x) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→2⁻) v(x) = <MathBox color="#22c55e">+∞</MathBox></MathLine>
+      </WB>
+      <Wh>Both VAs have odd multiplicity (each factor appears once in the denominator), so the function goes in opposite directions on each side — confirmed by the calculator graph!</Wh>
     </div>},
     { title:"Concept — VA Multiplicity & Behavior Near Asymptotes", content:<div>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Multiplicity of VA Determines One-Sided Behavior</Tt><Sm>
@@ -603,7 +763,7 @@ const unit1Topics = [
     </div>},
   ]},
   { id:"1.10", name:"Rational Functions & Holes", slides:[
-    { title:"Concept & Example — Holes", content:<div>
+    { title:"Concept — Holes in Rational Functions", content:<div>
       <Fm label="Holes">A hole occurs when the same factor appears in BOTH numerator and denominator and cancels out.</Fm>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Finding Hole Coordinates — Step by Step</Tt><Sm>
         <B c="#4338ca">1.</B> Factor numerator AND denominator completely<br/>
@@ -616,7 +776,10 @@ const unit1Topics = [
         The function is <B c="#7c3aed">undefined</B> at a hole (you'd get 0/0), but the <B c="#7c3aed">limit EXISTS</B>. As x approaches the hole, the outputs approach the y-coordinate: <B c="#7c3aed">lim(x→c) r(x) = L</B>
       </Sm></Box>
       <W>At a hole, plugging into the ORIGINAL function gives 0/0 (undefined). You must use the SIMPLIFIED function to find the y-value!</W>
+    </div>},
+    { title:"Example — Finding a Hole and Its Limit", content:<div>
       <Q>Find the hole in r(x) = (x²−8x+7)/(x²+x−2). Write the limit.</Q>
+      <FmUsed>Factor → cancel common factor → plug into simplified function</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Factor numerator:</b></MathLine>
         <MathLine size={14}>x²−8x+7<Annotate>need: ×7, +(-8)</Annotate></MathLine>
@@ -727,6 +890,34 @@ x − 3  │ x² − 5x + 7`}
       </Sm></Box>
       <Tp>When using a table: g(x) = 4f(x−1)−5. To find g(2): first compute the INSIDE: x−1 = 2−1 = 1. Then look up f(1) in the table. Then multiply by 4 and subtract 5.</Tp>
     </div>},
+    { title:"Example — Describing Transformations", content:<div>
+      <Q>For each function, describe the transformation(s) applied to f.</Q>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>1. g(x) = f(x) + 7</b></MathLine>
+        <MathLine size={14}>+7 is OUTSIDE → <MathBox color="#22c55e">vertical translation UP 7 units</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>2. g(x) = f(x + 7)</b></MathLine>
+        <MathLine size={14}>+7 is INSIDE → <MathBox color="#22c55e">horizontal translation LEFT 7 units</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>3. g(x) = 4f(x)</b></MathLine>
+        <MathLine size={14}>×4 is OUTSIDE → <MathBox color="#ec4899">vertical dilation by factor of 4</MathBox><Annotate color="#ec4899">stretch vertically</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>4. g(x) = f(x/4)</b></MathLine>
+        <MathLine size={14}>÷4 is INSIDE (b = 1/4) → <MathBox color="#ec4899">horizontal dilation by factor of 4</MathBox><Annotate color="#ec4899">stretch horizontally</Annotate></MathLine>
+      </WB>
+      <W>Inside changes (horizontal) go the OPPOSITE direction of the sign. Outside changes (vertical) go the SAME direction. This is the #1 transformation trap on the AP exam!</W>
+    </div>},
+    { title:"Example — Combined Transformation Description", content:<div>
+      <Q>Let g(x) = (1/2)f(x/3) + 4. Describe the transformations in the correct order to construct the graph of g from f.</Q>
+      <FmUsed>g(x) = a·f(b(x − h)) + k → Order: horiz dilation → horiz shift → vert dilation → vert shift</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Identify the constants:</b></MathLine>
+        <MathLine size={14}>a = 1/2 (vertical dilation) · b = 1/3 (horizontal dilation) · k = +4 (vertical shift)</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Apply transformations in order:</b></MathLine>
+        <MathLine size={14}><MathBox color="#6366f1">①</MathBox> Horizontal dilation by factor of |1/b| = |1/(1/3)| = <MathBox color="#6366f1">3</MathBox><Annotate>stretch horizontally ×3</Annotate></MathLine>
+        <MathLine size={14}><MathBox color="#ec4899">②</MathBox> Vertical dilation by factor of |a| = <MathBox color="#ec4899">1/2</MathBox><Annotate color="#ec4899">compress vertically ×(1/2)</Annotate></MathLine>
+        <MathLine size={14}><MathBox color="#22c55e">③</MathBox> Vertical translation <MathBox color="#22c55e">UP 4 units</MathBox></MathLine>
+        <Ans>Horiz stretch ×3 → Vert compress ×(1/2) → Up 4</Ans>
+      </WB>
+      <Tp>Always apply transformations in this order: horizontal dilation, horizontal shift, vertical dilation, vertical shift. Getting the order wrong changes the result!</Tp>
+    </div>},
     { title:"Example — Transformations with a Table", content:<div>
       <Q>g(x) = 4f(x−1)−5 (shift right 1, vert ×4, down 5). Given the table, find g(2).</Q>
       <Tb h={["x","−1","0","1","2"]} r={[["f(x)","−2","2","5","2"]]}/>
@@ -764,7 +955,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
   ]},
   { id:"1.13", name:"Function Model Selection & Assumption Articulation", slides:[
-    { title:"Concept & Examples — Data Types & Geometry", content:<div>
+    { title:"Concept — Model Selection & Geometric Models", content:<div>
       <Fm label="Model Selection">Given data, determine which function model is appropriate based on patterns in the data</Fm>
       <Tb h={["Type","Key Clues","What to Check"]} r={[["Linear","Always ↑ or always ↓, constant slope","1st differences constant"],["Quadratic","Symmetry in outputs, has min/max","2nd differences constant"],["Piecewise Linear","Slope changes at a point","Different constant rates on different intervals"]]}/>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Geometric Models</Tt><Sm>
@@ -779,16 +970,53 @@ x − 3  │ x² − 5x + 7`}
         • <B c="#166534">Range restrictions</B> — compute min/max using domain endpoints<br/>
         • <B c="#166534">Units of measure</B> — ft², in³, etc.
       </Sm></Box>
-      <Q>Pool: l=3w, deck 2ft sides, 3ft ends. Fish tank: w, h=2w, l=4w.</Q>
+    </div>},
+    { title:"Example — Identifying Linear vs Quadratic vs Piecewise Data", content:<div>
+      <Q>For each data set, explain why it models a linear, quadratic, or piecewise linear function.</Q>
       <WB>
-        <MathLine size={14} color="#4338ca"><b>Pool:</b></MathLine>
-        <MathLine size={14}>Total length = 3w + 2(3) = <MathBox color="#6366f1">3w+6</MathBox><Annotate>3ft on each end</Annotate></MathLine>
-        <MathLine size={14}>Total width = w + 2(2) = <MathBox color="#6366f1">w+4</MathBox><Annotate>2ft on each side</Annotate></MathLine>
-        <MathLine size={14}>A = (3w+6)(w+4) = 3w²+12w+6w+24</MathLine>
-        <Ans>A(w) = 3w²+18w+24 ft² · D: (0,20] · R: (24,1584]</Ans>
-        <MathLine size={14} color="#4338ca"><b>Fish Tank:</b></MathLine>
-        <MathLine size={14}>V = <MathBox color="#6366f1">4w</MathBox> · <MathBox color="#ec4899">w</MathBox> · <MathBox color="#f59e0b">2w</MathBox> = 8w³</MathLine>
-        <Ans>V(w) = 8w³ in³ · h≤24→w≤12 · D: (0,12] · R: (0,13824]</Ans>
+        <MathLine size={14} color="#4338ca"><b>Data Set 1:</b></MathLine>
+        <Tb h={["x","−3","−2","−1","0","1"]} r={[["f(x)","4","7","10","13","16"]]}/>
+        <MathLine size={14}>1st differences: 3, 3, 3, 3 → <MathBox color="#22c55e">constant</MathBox></MathLine>
+        <Ans>LINEAR — constant rate of change of 3</Ans>
+        <MathLine size={14} color="#4338ca"><b>Data Set 2:</b></MathLine>
+        <Tb h={["x","−3","−2","−1","0","1"]} r={[["f(x)","0","−1","0","3","8"]]}/>
+        <MathLine size={14}>1st diff: −1, 1, 3, 5 (not constant) · 2nd diff: 2, 2, 2 → <MathBox color="#22c55e">constant</MathBox></MathLine>
+        <Ans>QUADRATIC — constant second difference, output −1 is minimum</Ans>
+        <MathLine size={14} color="#4338ca"><b>Data Set 3:</b></MathLine>
+        <Tb h={["x","−4","−3","−2","−1","0","1","2"]} r={[["f(x)","10","5","0","−5","−3","−1","1"]]}/>
+        <MathLine size={14}>Rate of change: −5 for x∈[−4,−1], then +2 for x∈[−1,2]</MathLine>
+        <Ans>PIECEWISE LINEAR — two different constant rates on different intervals</Ans>
+      </WB>
+    </div>},
+    { title:"Example — Geometric Model: Area (Quadratic)", content:<div>
+      <Q>A pool has length = 3w. A cool deck 2ft wide is placed along the length and 3ft wide on each end. Write A(w) for total area.</Q>
+      <FmUsed>Area = length × width (2 dimensions → quadratic)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Express ALL dimensions in terms of w</b></MathLine>
+        <MathLine size={14}>Pool length = 3w · Pool width = w</MathLine>
+        <MathLine size={14}>Total length = 3w + 3 + 3 = <MathBox color="#6366f1">3w + 6</MathBox><Annotate>3ft deck on each end</Annotate></MathLine>
+        <MathLine size={14}>Total width = w + 2 + 2 = <MathBox color="#6366f1">w + 4</MathBox><Annotate>2ft deck on each side</Annotate></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Multiply for area</b></MathLine>
+        <MathLine size={14}>A = (3w+6)(w+4) = 3w² + 12w + 6w + 24</MathLine>
+        <Ans>A(w) = 3w² + 18w + 24 ft²</Ans>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Domain & Range (w ≤ 20 ft)</b></MathLine>
+        <MathLine size={14}>Domain: 0 {"<"} w ≤ 20 · A(20) = 3(400)+18(20)+24 = 1584</MathLine>
+        <Ans>D: (0, 20] · R: (24, 1584]</Ans>
+      </WB>
+    </div>},
+    { title:"Example — Geometric Model: Volume (Cubic)", content:<div>
+      <Q>A fish tank has width w, height = 2w, and length = 4w (all in inches). Write V(w). If h ≤ 24 in, find domain and range.</Q>
+      <FmUsed>Volume = length × width × height (3 dimensions → cubic)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Express all dimensions</b></MathLine>
+        <MathLine size={14}>Width = <MathBox color="#ec4899">w</MathBox> · Height = <MathBox color="#f59e0b">2w</MathBox> · Length = <MathBox color="#6366f1">4w</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Multiply for volume</b></MathLine>
+        <MathLine size={14}>V = 4w · w · 2w = <MathBox>8w³</MathBox></MathLine>
+        <Ans>V(w) = 8w³ in³</Ans>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Domain & Range</b></MathLine>
+        <MathLine size={14}>h ≤ 24 → 2w ≤ 24 → w ≤ 12</MathLine>
+        <MathLine size={14}>V(12) = 8(12)³ = 8(1728) = 13,824</MathLine>
+        <Ans>D: (0, 12] · R: (0, 13824]</Ans>
       </WB>
     </div>},
     { title:"Concept — Residuals & Model Validation", content:<div>
@@ -816,7 +1044,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
   ]},
   { id:"1.14", name:"Function Model Construction & Application", slides:[
-    { title:"Concept & Examples — Regression & Inverse Variation", content:<div>
+    { title:"Concept — Regression & Inverse Variation", content:<div>
       <Fm label="Regression Models">Enter data into calculator → perform indicated regression → use model to predict</Fm>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Constructing a Model Using Regressions</Tt><Sm>
         <B c="#4338ca">Step 1:</B> Enter the data into calculator lists (STAT → EDIT)<br/>
@@ -829,30 +1057,54 @@ x − 3  │ x² − 5x + 7`}
         • If x is <B c="#92400e">inversely proportional</B> to y, then y = k/x<br/>
         • <B c="#92400e">k = x · y</B> (find k by multiplying a known input-output pair)<br/>
         • As x increases, y decreases (and vice versa)<br/>
-        • The graph is a rational function (hyperbola) with asymptotes at x = 0 and y = 0<br/>
-        • This is a type of <B c="#92400e">rational function model</B>
-      </Sm></Box>
-      <Box bg="#f0fdf4" border="2px solid #86efac"><Tt c="#166534">Real-World Modeling Tips</Tt><Sm>
-        • Always include appropriate <B c="#166534">units of measure</B><br/>
-        • Consider <B c="#166534">domain restrictions</B> (can't have negative time, zero price, etc.)<br/>
-        • Consider <B c="#166534">range restrictions</B> based on context<br/>
-        • Regression models are only valid within the <B c="#166534">contextual domain</B>
+        • The graph is a rational function (hyperbola) with asymptotes at x = 0 and y = 0
       </Sm></Box>
       <W>A regression model gives an approximation, not an exact answer. Don't round intermediate steps — only round your final answer!</W>
-      <Q>Roller coaster cubic regression. Soap company inverse variation. Oyster population.</Q>
+    </div>},
+    { title:"Example — Cubic Regression (Roller Coaster)", content:<div>
+      <Q>A roller coaster's height is recorded at 2-second intervals. Use cubic regression to model the height and predict h(7).</Q>
+      <Tb h={["t (sec)","0","2","4","6","8","10"]} r={[["h (ft)","0","22","23","6","2","17"]]}/>
+      <FmUsed>Enter data → STAT → CALC → CubicReg</FmUsed>
       <WB>
-        <MathLine size={14} color="#4338ca"><b>Roller Coaster:</b></MathLine>
-        <Tb h={["t","0","2","4","6","8","10"]} r={[["h","0","22","23","6","2","17"]]}/>
-        <MathLine size={14}>Cubic reg: h(t) = 0.339t³ − 5.332t² + 21.153t − 0.317</MathLine>
-        <MathLine size={14}>h(7) = <MathBox>2.790 feet</MathBox></MathLine>
-        <MathLine size={14} color="#4338ca"><b>Soap Company:</b></MathLine>
-        <MathLine size={14}>k = 8 × 100 = <MathBox color="#6366f1">800</MathBox> → b(x) = 800/x</MathLine>
-        <MathLine size={14}>At $6: 800/6 ≈ <MathBox>133 bars</MathBox></MathLine>
-        <MathLine size={14}>If 125 sold: 800/125 = <MathBox>$6.40</MathBox></MathLine>
-        <MathLine size={14} color="#4338ca"><b>Oysters:</b> P(t) = 200t/(0.002t+1)+300</MathLine>
-        <MathLine size={14}>P(1) ≈ <MathBox>499 oysters</MathBox></MathLine>
-        <MathLine size={14}>AROC t=2→4: ≈ <MathBox>−197 oysters/month</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Enter data into L1 and L2</b></MathLine>
+        <MathLine size={14}>L1 = {"{"}0, 2, 4, 6, 8, 10{"}"} · L2 = {"{"}0, 22, 23, 6, 2, 17{"}"}</MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Perform cubic regression</b></MathLine>
+        <MathLine size={14}>STAT → CALC → 6: CubicReg</MathLine>
+        <Ans>h(t) = 0.339t³ − 5.332t² + 21.153t − 0.317</Ans>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Predict h(7)</b></MathLine>
+        <MathLine size={14}>h(7) = 0.339(343) − 5.332(49) + 21.153(7) − 0.317</MathLine>
+        <MathLine size={14} indent={24}>= 116.277 − 261.268 + 148.071 − 0.317</MathLine>
+        <Ans>h(7) ≈ 2.790 feet</Ans>
       </WB>
+    </div>},
+    { title:"Example — Inverse Variation (Soap Company)", content:<div>
+      <Q>A soap company finds that bar sales are inversely proportional to price. At $8/bar, they sell 100 bars. Find k, write the model, predict sales at $6, and find the price if 125 bars are sold.</Q>
+      <FmUsed>Inverse variation: b(x) = k/x where k = price × quantity</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Find k</b></MathLine>
+        <MathLine size={14}>k = price × quantity = 8 × 100 = <MathBox color="#6366f1">800</MathBox></MathLine>
+        <Ans>b(x) = 800/x</Ans>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Predict sales at $6</b></MathLine>
+        <MathLine size={14}>b(6) = 800/6 ≈ <MathBox>133 bars</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Step 3: Find price for 125 bars</b></MathLine>
+        <MathLine size={14}>125 = 800/x → x = 800/125 = <MathBox>$6.40</MathBox></MathLine>
+      </WB>
+    </div>},
+    { title:"Example — Rational Function Model (Oysters)", content:<div>
+      <Q>Oysters are modeled by P(t) = 200t/(0.002t+1) + 300 where t is months after harvesting stops. Find P(1) and the AROC from t=2 to t=4.</Q>
+      <FmUsed>P(t) = 200t/(0.002t+1) + 300 · AROC = [P(b)−P(a)]/(b−a)</FmUsed>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>Step 1: Find P(1)</b></MathLine>
+        <MathLine size={14}>P(1) = 200(1)/(0.002(1)+1) + 300</MathLine>
+        <MathLine size={14} indent={24}>= 200/(1.002) + 300 ≈ 199.6 + 300</MathLine>
+        <Ans>P(1) ≈ 499 oysters</Ans>
+        <MathLine size={14} color="#4338ca"><b>Step 2: Find AROC from t=2 to t=4</b></MathLine>
+        <MathLine size={14}>P(2) = 200(2)/(0.004+1) + 300 ≈ 398.4 + 300 = 698.4</MathLine>
+        <MathLine size={14}>P(4) = 200(4)/(0.008+1) + 300 ≈ 793.7 + 300 = 1093.7</MathLine>
+        <MathLine size={14}>AROC = (1093.7 − 698.4)/(4 − 2) = 395.3/2</MathLine>
+        <Ans>AROC ≈ +197 oysters/month</Ans>
+      </WB>
+      <Wh>The positive AROC means the oyster population is increasing — which makes sense since harvesting has stopped!</Wh>
     </div>},
   ]},
 ];
@@ -1070,6 +1322,20 @@ const unit2Topics = [
       </Sm></Box>
       <Wh>This is a HUGE AP exam strategy: when a table doesn't seem to be linear, quadratic, OR exponential — try subtracting a constant from each output and check the ratios again!</Wh>
     </div>},
+    { title:"Example — Evaluating & Graphing Exponential Functions", content:<div>
+      <Q>For f(x) = 3·2ˣ, evaluate f(−1), f(0), f(1), f(2). Is f always increasing or decreasing? Concave up or down? State domain and range.</Q>
+      <FmUsed>f(x) = a·bˣ → f(0) = a, f(1) = a·b, f(−1) = a/b</FmUsed>
+      <WB>
+        <MathLine size={14}>f(−1) = 3·2⁻¹ = 3·(1/2) = <MathBox color="#22c55e">3/2</MathBox></MathLine>
+        <MathLine size={14}>f(0) = 3·2⁰ = 3·1 = <MathBox color="#22c55e">3</MathBox><Annotate>y-intercept is always a</Annotate></MathLine>
+        <MathLine size={14}>f(1) = 3·2¹ = <MathBox color="#22c55e">6</MathBox></MathLine>
+        <MathLine size={14}>f(2) = 3·2² = <MathBox color="#22c55e">12</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>Properties:</b></MathLine>
+        <MathLine size={14}>a = 3 {">"} 0, b = 2 {">"} 1 → exponential GROWTH</MathLine>
+        <MathLine size={14}>Always <MathBox color="#22c55e">increasing</MathBox> · Always <MathBox color="#22c55e">concave up</MathBox></MathLine>
+        <Ans>Domain: all reals · Range: (0, ∞) · HA: y = 0</Ans>
+      </WB>
+    </div>},
     { title:"Example — Showing Outputs are Proportional", content:<div>
       <Q>Show that the output values of f and g are proportional over equal-length input intervals.</Q>
       <WB>
@@ -1090,7 +1356,7 @@ const unit2Topics = [
       </WB>
       <Tp>Even though h(x) values (7,9,13,21,37) don't look proportional, subtracting the constant reveals the exponential underneath!</Tp>
     </div>},
-    { title:"Concept & Example — End Behavior", content:<div>
+    { title:"Concept — End Behavior of Exponential Functions", content:<div>
       <Fm label="End Behavior of f(x) = abˣ">Depends on the sign of a AND whether b {">"} 1 or 0 {"<"} b {"<"} 1</Fm>
       <Tb h={["Function","a","b","lim x→−∞","lim x→+∞","Description"]} r={[
         ["a·bˣ","+","b>1","0","∞","Growth, above x-axis"],
@@ -1098,6 +1364,11 @@ const unit2Topics = [
         ["a·bˣ","+","0<b<1","∞","0","Decay, above x-axis"],
         ["a·bˣ","−","0<b<1","−∞","0","Decay, below x-axis"],
       ]}/>
+      <Wh>The HA y=0 is always on the side where the base "shrinks." Growth: HA on left. Decay: HA on right. Negative a flips everything upside down.</Wh>
+    </div>},
+    { title:"Example — End Behavior of Exponential Functions", content:<div>
+      <Q>For each exponential function, identify growth/decay, then write the end behavior using limit notation.</Q>
+      <FmUsed>f(x) = a·bˣ → check sign of a and whether b {">"} 1 or 0 {"<"} b {"<"} 1</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(x) = 4·2ˣ</b> (a{">"}0, b{">"}1 → growth)</MathLine>
         <MathLine size={14}>lim(x→−∞) 4·2ˣ = <MathBox color="#3b82f6">0</MathBox> · lim(x→+∞) 4·2ˣ = <MathBox color="#3b82f6">∞</MathBox></MathLine>
@@ -1108,7 +1379,6 @@ const unit2Topics = [
         <MathLine size={14} color="#4338ca"><b>k(x) = −2·(1/3)ˣ</b> (a{"<"}0, 0{"<"}b{"<"}1 → reflected decay)</MathLine>
         <MathLine size={14}>lim(x→−∞) = <MathBox color="#f59e0b">−∞</MathBox> · lim(x→+∞) = <MathBox color="#f59e0b">0</MathBox></MathLine>
       </WB>
-      <Wh>The HA y=0 is always on the side where the base "shrinks." Growth: HA on left. Decay: HA on right. Negative a flips everything upside down.</Wh>
     </div>},
   ]},
   { id:"2.4", name:"Exponential Function Manipulation", slides:[
@@ -1599,7 +1869,7 @@ const unit2Topics = [
         <B>Additive Transformation:</B> g(x) = f(x + k) — if the input values of g are proportional over equal-length output intervals, then f is logarithmic (even if g itself doesn't look logarithmic).
       </Sm></Box>
     </div>},
-    { title:"Concept & Example — End Behavior of Log Functions", content:<div>
+    { title:"Concept — End Behavior of Log Functions", content:<div>
       <Fm label="End Behavior">VA at x = 0. As x → 0⁺: ±∞. As x → ∞: ±∞.</Fm>
       <Tb h={["Function","a","b","lim x→0⁺","lim x→∞"]} r={[
         ["a·log_b(x)","+","b>1","−∞","+∞"],
@@ -1607,6 +1877,11 @@ const unit2Topics = [
         ["a·log_b(x)","+","0<b<1","+∞","−∞"],
         ["a·log_b(x)","−","0<b<1","−∞","+∞"],
       ]}/>
+      <Wh>Log functions always have a VA at x = 0 (domain: x {">"} 0). The sign of a and whether b {">"} 1 or 0 {"<"} b {"<"} 1 determine which direction each limit goes.</Wh>
+    </div>},
+    { title:"Example — End Behavior of Log Functions", content:<div>
+      <Q>For each logarithmic function, write the end behavior limits.</Q>
+      <FmUsed>Check sign of a and base b → use the end behavior table</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(x) = 4·log₅(x)</b> (a{">"}0, b{">"}1)</MathLine>
         <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox></MathLine>
@@ -1614,6 +1889,8 @@ const unit2Topics = [
         <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
         <MathLine size={14} color="#4338ca"><b>h(x) = 3·log_(1/2)(x)</b> (a{">"}0, 0{"<"}b{"<"}1)</MathLine>
         <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
+        <MathLine size={14} color="#4338ca"><b>k(x) = −2·log_(1/4)(x)</b> (a{"<"}0, 0{"<"}b{"<"}1)</MathLine>
+        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox></MathLine>
       </WB>
     </div>},
     { title:"Example — Graphing Log Functions", content:<div>
@@ -1728,17 +2005,35 @@ const unit2Topics = [
       </WB>
       <W>eˣ is ALWAYS positive! So eˣ = −3 has no solution. Always check!</W>
     </div>},
-    { title:"Example — Solving Log Equations & Constructing Inverses", content:<div>
-      <Q>Solve: a) log(x)+log(2)=1  b) Find inverse of f(x) = 3·5⁽ˣ⁺¹⁾ − 4</Q>
+    { title:"Example — Solving Logarithmic Equations", content:<div>
+      <Q>Solve: a) log(x) + log(2) = 1  b) log₃(2x + 1) − log₃(x − 1) = log₃(5). Check for extraneous solutions.</Q>
+      <FmUsed>Product property: log(a) + log(b) = log(ab) · Quotient: log(a) − log(b) = log(a/b)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> log(x) + log(2) = 1</MathLine>
         <MathLine size={14}>log(2x) = 1 → 10¹ = 2x → <MathBox>x = 5</MathBox></MathLine>
-        <MathLine size={14} color="#4338ca"><b>b)</b> f(x) = 3·5⁽ˣ⁺¹⁾ − 4</MathLine>
-        <MathLine size={14}>y + 4 = 3·5⁽ˣ⁺¹⁾</MathLine>
-        <MathLine size={14}>(y+4)/3 = 5⁽ˣ⁺¹⁾</MathLine>
-        <MathLine size={14}>log₅((y+4)/3) = x + 1</MathLine>
+        <MathLine size={14}>Check: log(5) + log(2) = log(10) = 1 ✓</MathLine>
+        <MathLine size={14} color="#4338ca"><b>b)</b> log₃(2x+1) − log₃(x−1) = log₃(5)</MathLine>
+        <MathLine size={14}>log₃((2x+1)/(x−1)) = log₃(5)</MathLine>
+        <Arrow text="Same base logs equal → arguments equal"/>
+        <MathLine size={14}>(2x+1)/(x−1) = 5 → 2x+1 = 5x−5 → 6 = 3x</MathLine>
+        <MathLine size={14}><MathBox>x = 2</MathBox> · Check: x−1 = 1 {">"} 0 ✓ (no extraneous solutions)</MathLine>
+      </WB>
+    </div>},
+    { title:"Example — Constructing Inverses of Exp & Log Functions", content:<div>
+      <Q>Find the inverse of f(x) = 3·5⁽ˣ⁺¹⁾ − 4.</Q>
+      <FmUsed>Swap x and y → undo operations in reverse order</FmUsed>
+      <WB>
+        <MathLine size={14}>y = 3·5⁽ˣ⁺¹⁾ − 4</MathLine>
+        <Arrow text="Swap x and y"/>
+        <MathLine size={14}>x = 3·5⁽ʸ⁺¹⁾ − 4</MathLine>
+        <Arrow text="Add 4, divide by 3"/>
+        <MathLine size={14}>(x+4)/3 = 5⁽ʸ⁺¹⁾</MathLine>
+        <Arrow text="Take log₅ of both sides"/>
+        <MathLine size={14}>log₅((x+4)/3) = y + 1</MathLine>
+        <Arrow text="Subtract 1"/>
         <Ans>f⁻¹(x) = log₅((x+4)/3) − 1</Ans>
       </WB>
+      <Tp>To invert an exponential: use log. To invert a log: use exponential. They're opposite operations!</Tp>
     </div>},
   ]},
   { id:"2.14", name:"Logarithmic Function Context & Data Modeling", slides:[
@@ -1779,6 +2074,23 @@ const unit2Topics = [
         <MathLine size={14} color="#4338ca"><b>When b = 20,000:</b></MathLine>
         <MathLine size={14}>f(20000) = log₂(20000/800) = log₂(25) ≈ <MathBox>4.644 days</MathBox></MathLine>
       </WB>
+    </div>},
+    { title:"Example — Continuous Growth Inverse (Natural Log)", content:<div>
+      <Q>An app's downloads follow D(t) = 50·e^(0.3t) where t is months. Write the inverse t(D) that gives time from downloads. How many months to reach 10,000 downloads?</Q>
+      <FmUsed>D = a·eᵏᵗ → solve for t → t = ln(D/a) / k</FmUsed>
+      <WB>
+        <MathLine size={14}>D = 50·e^(0.3t)</MathLine>
+        <Arrow text="Divide by 50"/>
+        <MathLine size={14}>D/50 = e^(0.3t)</MathLine>
+        <Arrow text="Take ln of both sides"/>
+        <MathLine size={14}>ln(D/50) = 0.3t</MathLine>
+        <Arrow text="Divide by 0.3"/>
+        <Ans>t(D) = ln(D/50) / 0.3</Ans>
+        <MathLine size={14} color="#4338ca"><b>When D = 10,000:</b></MathLine>
+        <MathLine size={14}>t = ln(10000/50) / 0.3 = ln(200) / 0.3 ≈ 5.298 / 0.3</MathLine>
+        <Ans>t ≈ 17.66 months</Ans>
+      </WB>
+      <Wh>For continuous models with base e, the inverse uses ln (natural log). Same idea: exponential → log to solve for the exponent.</Wh>
     </div>},
   ]},
   { id:"2.15", name:"Semi-log Plots", slides:[
@@ -1923,7 +2235,21 @@ const unit1Practice = [
     </WB>}/>,
   ]},
   { id:"1.3", problems:[
-    <PQ key="1" n="1" q={<span>Compute all 4 AROCs over consecutive intervals. Is f linear or quadratic? What is the change in AROC?<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","10","7","4","1","−2"]]}/></span>} a="LINEAR (all AROCs = −3)" e={<WB>
+    <PQ key="1" n="1" q={<span>Find the slope of the secant line from the point (2, 7) to the point (5, −2). Show the slope formula and simplify.</span>} a="Slope = −3" e={<WB>
+      <FmUsed>Slope = [f(b) − f(a)] / (b − a)</FmUsed>
+      <MathLine size={14}>Point 1: (2, 7) · Point 2: (5, −2)</MathLine>
+      <MathLine size={14}>Slope = (−2 − 7) / (5 − 2) = −9/3</MathLine>
+      <Ans>Slope = −3</Ans>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>For g(x) = 2x² + 1/(x + 3), find the slope of the secant line from (−2, g(−2)) to (1, g(1)). Show all work computing g(−2) and g(1) first.</span>} a="Slope = (9/4 − 9) / 3 = −27/12 = −2.25" e={<WB>
+      <MathLine size={14} color="#4338ca"><b>g(−2):</b></MathLine>
+      <MathLine size={14}>= 2(4) + 1/(−2+3) = 8 + 1/1 = <MathBox>9</MathBox></MathLine>
+      <MathLine size={14} color="#4338ca"><b>g(1):</b></MathLine>
+      <MathLine size={14}>= 2(1) + 1/(1+3) = 2 + 1/4 = <MathBox>9/4</MathBox></MathLine>
+      <MathLine size={14}>Slope = (9/4 − 9) / (1 − (−2)) = (−27/4) / 3</MathLine>
+      <Ans>Slope = −27/12 = −9/4 = −2.25</Ans>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>Compute all 4 AROCs over consecutive intervals. Is f linear or quadratic? What is the change in AROC?<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","10","7","4","1","−2"]]}/></span>} a="LINEAR (all AROCs = −3)" e={<WB>
       <MathLine size={14}>[−2,−1]: (7−10)/1 = <MathBox color="#22c55e">−3</MathBox></MathLine>
       <MathLine size={14}>[−1, 0]: (4−7)/1 = <MathBox color="#22c55e">−3</MathBox></MathLine>
       <MathLine size={14}>[ 0, 1]: (1−4)/1 = <MathBox color="#22c55e">−3</MathBox></MathLine>
@@ -1931,7 +2257,7 @@ const unit1Practice = [
       <div style={{margin:"8px 0",padding:8,background:"#eef2ff",borderRadius:8,textAlign:"center",fontFamily:"sans-serif",fontSize:13}}>All AROCs = <b>−3</b> → constant → change in AROC = <b>0</b></div>
       <Ans>f is LINEAR</Ans>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>Compute all 4 AROCs over consecutive intervals, then find the 3 changes between them. Is the change constant? Is g quadratic? Is g concave up or concave down?<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["g(x)","5","0","−1","2","9"]]}/></span>} a="QUADRATIC, concave UP" e={<WB>
+    <PQ key="4" n="4" q={<span>Compute all 4 AROCs over consecutive intervals, then find the 3 changes between them. Is the change constant? Is g quadratic? Is g concave up or concave down?<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["g(x)","5","0","−1","2","9"]]}/></span>} a="QUADRATIC, concave UP" e={<WB>
       <MathLine size={14} color="#4338ca"><b>AROCs:</b></MathLine>
       <MathLine size={14}>(0−5)/1 = <MathBox color="#22c55e">−5</MathBox>, (−1−0)/1 = <MathBox color="#22c55e">−1</MathBox>, (2−(−1))/1 = <MathBox color="#22c55e">3</MathBox>, (9−2)/1 = <MathBox color="#22c55e">7</MathBox></MathLine>
       <MathLine size={14} color="#dc2626"><b>Changes in AROC:</b></MathLine>
@@ -1939,7 +2265,7 @@ const unit1Practice = [
       <MathLine size={14}>Constant change of +4 → <MathBox color="#22c55e">QUADRATIC</MathBox></MathLine>
       <MathLine size={14}>AROCs −5→−1→3→7 are <MathBox color="#22c55e">increasing</MathBox> → concave UP ☕</MathLine>
     </WB>}/>,
-    <PQ key="3" n="3" q={<span>Compute all 4 AROCs over consecutive intervals (each interval has width 2). Are the AROCs increasing or decreasing? Is h concave up or concave down?<br/><Tb h={["x","−6","−4","−2","0","2"]} r={[["h(x)","50","20","2","−4","2"]]}/></span>} a="Increasing → concave UP" e={<WB>
+    <PQ key="5" n="5" q={<span>Compute all 4 AROCs over consecutive intervals (each interval has width 2). Are the AROCs increasing or decreasing? Is h concave up or concave down?<br/><Tb h={["x","−6","−4","−2","0","2"]} r={[["h(x)","50","20","2","−4","2"]]}/></span>} a="Increasing → concave UP" e={<WB>
       <MathLine size={14}>[−6,−4]: (20−50)/2 = <MathBox color="#22c55e">−15</MathBox></MathLine>
       <MathLine size={14}>[−4,−2]: (2−20)/2 = <MathBox color="#22c55e">−9</MathBox></MathLine>
       <MathLine size={14}>[−2, 0]: (−4−2)/2 = <MathBox color="#22c55e">−3</MathBox></MathLine>
@@ -1955,11 +2281,23 @@ const unit1Practice = [
       <MathLine size={14} color="#4338ca"><b>b)</b> Rewrite: <MathBox color="#6366f1">x⁴</MathBox> − 7x² + 12</MathLine>
       <MathLine size={14} indent={20}>Highest power: x⁴ → Degree = <MathBox color="#6366f1">4</MathBox>, LC = <MathBox color="#ec4899">1</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>Graph p(x) = −x⁴ + 3x² − 1 on your calculator. What is the absolute maximum value? What is the absolute minimum value? If the function goes to ±∞ in either direction, write N/A.</span>} a="Abs Max = 1.25, Abs Min = N/A" e={<WB>
+    <PQ key="2" n="2" q={<span>A polynomial with restricted domain has local minima at x = −1 and x = 4 with output values f(−1) = −3 and f(4) = 2. It has local maxima at x = 1 and x = 6 with f(1) = 5 and f(6) = 8. Find the global minimum and global maximum.</span>} a="Global min = −3 (at x=−1), Global max = 8 (at x=6)" e={<WB>
+      <MathLine size={14} color="#4338ca"><b>Local mins:</b> f(−1) = −3, f(4) = 2</MathLine>
+      <MathLine size={14}>Smallest: −3 → Global min at x = <MathBox color="#3b82f6">−1</MathBox>, value = <MathBox color="#3b82f6">−3</MathBox></MathLine>
+      <MathLine size={14} color="#4338ca"><b>Local maxes:</b> f(1) = 5, f(6) = 8</MathLine>
+      <MathLine size={14}>Largest: 8 → Global max at x = <MathBox color="#ec4899">6</MathBox>, value = <MathBox color="#ec4899">8</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>Graph p(x) = −x⁴ + 3x² − 1 on your calculator. What is the absolute maximum value? What is the absolute minimum value? If the function goes to ±∞ in either direction, write N/A.</span>} a="Abs Max = 1.25, Abs Min = N/A" e={<WB>
       <MathLine size={14}>Leading term: <MathBox color="#ef4444">−x⁴</MathBox> → both ends → −∞<Annotate color="#ef4444">even degree, neg coeff</Annotate></MathLine>
       <MathLine size={14}>Local max at x = ±√(3/2) → y = 5/4 = <MathBox color="#22c55e">1.25</MathBox></MathLine>
       <MathLine size={14}>Both ends → −∞ → no absolute minimum</MathLine>
       <Ans>Abs Max = 1.25 · Abs Min = N/A (→ −∞)</Ans>
+    </WB>}/>,
+    <PQ key="4" n="4" q={<span>A polynomial curve passes through points A through F. The curve is concave up from A to C, concave down from C to E, and concave up again from E to F. Which points are inflection points? Explain.</span>} a="C and E are inflection points" e={<WB>
+      <MathLine size={14}>At C: concavity changes UP → DOWN → <MathBox color="#f59e0b">inflection ✓</MathBox></MathLine>
+      <MathLine size={14}>At E: concavity changes DOWN → UP → <MathBox color="#f59e0b">inflection ✓</MathBox></MathLine>
+      <MathLine size={14}>A, B, D, F: no change in concavity → NOT inflection points</MathLine>
+      <Ans>Inflection points at C and E</Ans>
     </WB>}/>,
   ]},
   { id:"1.5", problems:[
@@ -1979,12 +2317,33 @@ const unit1Practice = [
       <MathLine size={14}>2nd diff: 4, 4, 4<Annotate color="#22c55e">CONSTANT!</Annotate></MathLine>
       <Ans>Degree 2 (Quadratic)</Ans>
     </WB>}/>,
+    <PQ key="4" n="4" q={<span>Classify each polynomial as even (E), odd (O), or neither (N). Check by examining the exponents.<br/>a) f(x) = x⁶ − 3x⁴ + 2x²<br/>b) g(x) = x⁷ − x³ + x<br/>c) h(x) = x⁵ + x² − 1</span>} a="a) Even  b) Odd  c) Neither" e={<WB>
+      <MathLine size={14}><b>a)</b> Exponents: 6, 4, 2 (all even) → <MathBox color="#6366f1">EVEN</MathBox></MathLine>
+      <MathLine size={14}><b>b)</b> Exponents: 7, 3, 1 (all odd) → <MathBox color="#22c55e">ODD</MathBox></MathLine>
+      <MathLine size={14}><b>c)</b> Exponents: 5, 2, 0 (mixed!) → <MathBox color="#ef4444">NEITHER</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="5" n="5" q={<span>The polynomial p(x) = x⁴ − 4x³ + 4x² − x has x-intercepts at (−2, 0), (0, 0), (1, 0), and (2, 0). Write p(x) as a product of linear factors. (Hint: check the leading coefficient!)</span>} a="p(x) = −x(x + 2)(x − 1)(x − 2)" e={<WB>
+      <MathLine size={14}>From intercepts: factors are x, (x+2), (x−1), (x−2)</MathLine>
+      <MathLine size={14}>Product of leading terms: x·x·x·x = x⁴</MathLine>
+      <MathLine size={14}>But p(x) has leading term <MathBox color="#ef4444">−x⁴</MathBox> → need factor of −1</MathLine>
+      <Ans>p(x) = −x(x + 2)(x − 1)(x − 2)</Ans>
+    </WB>}/>,
   ]},
   { id:"1.6", problems:[
     <PQ key="1" n="1" q={<span>For p(x) = 4x⁵ − x³ + 2, identify the leading term, the degree, and the leading coefficient. Then write the end behavior using limit notation.</span>} a="lim(x→−∞) = −∞, lim(x→+∞) = +∞" e={<WB>
       <MathLine size={14}>Leading term: <MathBox color="#6366f1">4x⁵</MathBox> · Degree: <MathBox color="#6366f1">5</MathBox> (odd) · LC: <MathBox color="#ec4899">+4</MathBox> (positive)</MathLine>
       <MathLine size={14}>Odd + positive → left DOWN, right UP</MathLine>
       <Ans>lim(x→−∞) = −∞ · lim(x→+∞) = +∞</Ans>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>Identify the leading term and write the end behavior of q(x) = −3x⁴ + 7x² − 2x + 9 using limit notation.</span>} a="lim(x→−∞) = −∞, lim(x→+∞) = −∞" e={<WB>
+      <MathLine size={14}>Leading term: <MathBox color="#6366f1">−3x⁴</MathBox> · Degree: <MathBox color="#6366f1">4</MathBox> (even) · LC: <MathBox color="#ef4444">−3</MathBox> (negative)</MathLine>
+      <MathLine size={14}>Even + negative → both ends DOWN</MathLine>
+      <Ans>lim(x→−∞) = −∞ · lim(x→+∞) = −∞</Ans>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>A graph of a polynomial shows: the left end goes UP (+∞) and the right end goes DOWN (−∞). What can you conclude about the degree (even or odd) and the sign of the leading coefficient? Write the limits.</span>} a="Odd degree, negative LC" e={<WB>
+      <MathLine size={14}>Opposite directions → <MathBox color="#22c55e">odd degree</MathBox></MathLine>
+      <MathLine size={14}>Right goes DOWN → <MathBox color="#ef4444">negative leading coefficient</MathBox></MathLine>
+      <Ans>lim(x→−∞) = +∞ · lim(x→+∞) = −∞ · Odd, negative</Ans>
     </WB>}/>,
   ]},
   { id:"1.7", problems:[
@@ -2015,6 +2374,22 @@ const unit1Practice = [
       <MathLine size={14}>Remaining den: x+1=0 → <MathBox color="#ef4444">VA: x=−1</MathBox></MathLine>
       <MathLine size={14}>Check num at x=−1: (−1+2) = 1 ≠ 0 ✓</MathLine>
     </WB>}/>,
+    <PQ key="2" n="2" q={<span>A rational function h(x) has vertical asymptotes at x = 1 and x = −3. From a graph, the function goes to +∞ as x → 1⁺ and to −∞ as x → 1⁻. At x = −3, it goes to +∞ from both sides. Determine the multiplicity (odd or even) of each VA and write all four one-sided limits.</span>} a="x=1: odd mult. x=−3: even mult." e={<WB>
+      <MathLine size={14} color="#4338ca"><b>At x = 1:</b></MathLine>
+      <MathLine size={14}>lim(x→1⁺) h(x) = +∞ · lim(x→1⁻) h(x) = −∞</MathLine>
+      <MathLine size={14}>Opposite directions → <MathBox color="#ef4444">odd multiplicity</MathBox></MathLine>
+      <MathLine size={14} color="#4338ca"><b>At x = −3:</b></MathLine>
+      <MathLine size={14}>lim(x→−3⁺) h(x) = +∞ · lim(x→−3⁻) h(x) = +∞</MathLine>
+      <MathLine size={14}>Same direction → <MathBox color="#22c55e">even multiplicity</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>Find the vertical asymptotes of g(x) = (x² − 9)/(x³ − 4x² + 3x). Factor completely and check for holes. Then use a calculator to determine the one-sided limits at each VA.</span>} a="Hole at x=3. VAs: x=0, x=1" e={<WB>
+      <MathLine size={14}>Num: (x−3)(x+3) · Den: x(x−3)(x−1)</MathLine>
+      <MathLine size={14}>(x−3) cancels → <MathBox color="#f59e0b">hole at x=3</MathBox></MathLine>
+      <MathLine size={14}>Simplified: (x+3)/[x(x−1)]</MathLine>
+      <MathLine size={14}>VAs: <MathBox color="#ef4444">x = 0</MathBox> and <MathBox color="#ef4444">x = 1</MathBox></MathLine>
+      <MathLine size={14}>At x=0: lim(x→0⁺)=−∞, lim(x→0⁻)=+∞</MathLine>
+      <MathLine size={14}>At x=1: lim(x→1⁺)=+∞, lim(x→1⁻)=−∞</MathLine>
+    </WB>}/>,
   ]},
   { id:"1.10", problems:[
     <PQ key="1" n="1" q={<span>For r(x) = (x² − 5x + 6)/(x² − 4x + 4), factor the numerator and denominator. Cancel any common factors and simplify. Then determine whether x = 2 is a hole or a vertical asymptote, and explain why.</span>} a="Simplified: (x−3)/(x−2). x = 2 is a VA, not a hole." e={<WB>
@@ -2042,9 +2417,30 @@ const unit1Practice = [
       <MathLine size={13}>(x−2)³ = x³ + 3·<MathBox color="#ef4444">(−2)</MathBox>x² + 3·<MathBox color="#ef4444">4</MathBox>x + <MathBox color="#ef4444">(−8)</MathBox></MathLine>
       <Ans>= x³ − 6x² + 12x − 8</Ans>
     </WB>}/>,
+    <PQ key="3" n="3" q={<span>For r(x) = (3x² + 2x − 8)/(x² − x − 6): find the HA, zeros, VAs, and any holes. Factor completely and simplify.</span>} a="HA: y=3. Zeros: x=−2, x=4/3. VA: x=3. Hole at x=−2." e={<WB>
+      <MathLine size={14}>Num: (3x−4)(x+2) · Den: (x−3)(x+2)</MathLine>
+      <MathLine size={14}>(x+2) cancels → <MathBox color="#f59e0b">Hole at x=−2</MathBox></MathLine>
+      <MathLine size={14}>Simplified: (3x−4)/(x−3)</MathLine>
+      <MathLine size={14}>HA: n=d=2, 3/1 → <MathBox color="#3b82f6">y=3</MathBox></MathLine>
+      <MathLine size={14}>Zero: 3x−4=0 → <MathBox color="#22c55e">x=4/3</MathBox></MathLine>
+      <MathLine size={14}>VA: x−3=0 → <MathBox color="#ef4444">x=3</MathBox></MathLine>
+      <MathLine size={14}>Hole y: f(−2) = (3(−2)−4)/(−2−3) = −10/−5 = <MathBox color="#f59e0b">2</MathBox></MathLine>
+    </WB>}/>,
   ]},
   { id:"1.12", problems:[
-    <PQ key="1" n="1" q={<span>The table below gives values for f. If g(x) = 2f(x + 1) − 3, find g(0) and g(1). Remember to simplify the inside argument first before looking up the table value.<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","1","4","3","0","−1"]]}/></span>} a="g(0) = −3, g(1) = −5" e={<WB>
+    <PQ key="1" n="1" q={<span>Describe the transformation(s) applied to f for each function:<br/>a) g(x) = f(x) − 5<br/>b) g(x) = f(x − 3)<br/>c) g(x) = 3f(x)<br/>d) g(x) = f(2x)</span>} a="a) Down 5  b) Right 3  c) Vert stretch ×3  d) Horiz compress ×(1/2)" e={<WB>
+      <MathLine size={14}><b>a)</b> −5 outside → <MathBox color="#22c55e">vertical translation DOWN 5</MathBox></MathLine>
+      <MathLine size={14}><b>b)</b> −3 inside → <MathBox color="#22c55e">horizontal translation RIGHT 3</MathBox></MathLine>
+      <MathLine size={14}><b>c)</b> ×3 outside → <MathBox color="#ec4899">vertical dilation by factor 3</MathBox></MathLine>
+      <MathLine size={14}><b>d)</b> ×2 inside (b=2) → <MathBox color="#ec4899">horizontal dilation by factor 1/2</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>Let g(x) = 3f(x/2) − 1. Describe the transformations in the correct order to construct the graph of g from f.</span>} a="Horiz stretch ×2 → Vert stretch ×3 → Down 1" e={<WB>
+      <MathLine size={14}>b = 1/2, a = 3, k = −1</MathLine>
+      <MathLine size={14}><MathBox color="#6366f1">①</MathBox> Horizontal dilation by |1/b| = <MathBox color="#6366f1">2</MathBox> (stretch ×2)</MathLine>
+      <MathLine size={14}><MathBox color="#ec4899">②</MathBox> Vertical dilation by |a| = <MathBox color="#ec4899">3</MathBox> (stretch ×3)</MathLine>
+      <MathLine size={14}><MathBox color="#22c55e">③</MathBox> Vertical translation <MathBox color="#22c55e">DOWN 1</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>The table below gives values for f. If g(x) = 2f(x + 1) − 3, find g(0) and g(1). Remember to simplify the inside argument first before looking up the table value.<br/><Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","1","4","3","0","−1"]]}/></span>} a="g(0) = −3, g(1) = −5" e={<WB>
       <MathLine>g(<MathBox color="#6366f1">0</MathBox>) = 2·f(<MathBox color="#6366f1">0</MathBox>+1) − 3 = 2·f(1) − 3</MathLine>
       <Arrow text="Look up f(1) = 0"/>
       <MathLine indent={24}>= 2(<MathBox color="#f59e0b">0</MathBox>) − 3 = <MathBox>−3</MathBox></MathLine>
@@ -2052,7 +2448,7 @@ const unit1Practice = [
       <Arrow text="Look up f(2) = −1"/>
       <MathLine indent={24}>= 2(<MathBox color="#f59e0b">−1</MathBox>) − 3 = <MathBox>−5</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>The function f has domain [−3, 4] and range [0, 6]. If g(x) = −3f(x + 2) + 1, find the domain and range of g. Apply the transformations in the correct order.</span>} a="D: [−5, 2], R: [−17, 1]" e={<WB>
+    <PQ key="4" n="4" q={<span>The function f has domain [−3, 4] and range [0, 6]. If g(x) = −3f(x + 2) + 1, find the domain and range of g. Apply the transformations in the correct order.</span>} a="D: [−5, 2], R: [−17, 1]" e={<WB>
       <MathLine size={14} color="#4338ca"><b>Domain:</b> x+2 shifts left 2</MathLine>
       <MathLine size={14}>[−3−2, 4−2] = <MathBox>[−5, 2]</MathBox></MathLine>
       <MathLine size={14} color="#4338ca"><b>Range:</b> ×(−3) flips, then +1</MathLine>
@@ -2060,18 +2456,47 @@ const unit1Practice = [
     </WB>}/>,
   ]},
   { id:"1.13", problems:[
-    <PQ key="1" n="1" q={<span>A rectangular box has length = 5w, width = w, and height = 3w, where w is in inches. Write V(w) for the volume of the box. If w ≤ 8, state the domain and range of V.</span>} a="V(w) = 15w³. D: (0, 8], R: (0, 7680]" e={<WB>
+    <PQ key="1" n="1" q={<span>Determine whether each data set models a linear, quadratic, or piecewise linear function. Explain your reasoning.<br/><Tb h={["x","0","1","2","3","4"]} r={[["f(x)","2","5","8","11","14"]]}/></span>} a="LINEAR — constant 1st differences of 3" e={<WB>
+      <MathLine size={14}>1st diff: 3, 3, 3, 3 → constant</MathLine>
+      <Ans>LINEAR — constant rate of change of 3</Ans>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>A rectangular garden has length = 2w. A stone border 1.5 ft wide surrounds the entire garden. Write A(w) for the total area (garden + border). If w ≤ 15, state domain and range.</span>} a="A(w) = 2w² + 9w + 9. D: (0,15], R: (9,594]" e={<WB>
+      <MathLine size={14}>Total length = 2w + 2(1.5) = <MathBox color="#6366f1">2w + 3</MathBox></MathLine>
+      <MathLine size={14}>Total width = w + 2(1.5) = <MathBox color="#6366f1">w + 3</MathBox></MathLine>
+      <MathLine size={14}>A = (2w+3)(w+3) = 2w² + 6w + 3w + 9</MathLine>
+      <Ans>A(w) = 2w² + 9w + 9 · D: (0,15] · R: (9,594]</Ans>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>A rectangular box has length = 5w, width = w, and height = 3w, where w is in inches. Write V(w) for the volume of the box. If w ≤ 8, state the domain and range of V.</span>} a="V(w) = 15w³. D: (0, 8], R: (0, 7680]" e={<WB>
       <MathLine size={14}>V = <MathBox color="#6366f1">5w</MathBox> · <MathBox color="#ec4899">w</MathBox> · <MathBox color="#f59e0b">3w</MathBox> = 15w³</MathLine>
       <MathLine size={14}>V(8) = 15(8)³ = 15(512) = <MathBox>7680</MathBox></MathLine>
       <Ans>V(w) = 15w³ · D: (0,8] · R: (0, 7680]</Ans>
     </WB>}/>,
   ]},
   { id:"1.14", problems:[
-    <PQ key="1" n="1" q={<span>A company finds that widget sales follow an inverse variation model. When the price is $5, the company sells 250 widgets. Find the constant k, write the model b(x) = k/x, predict how many widgets sell at a price of $10, and find the price needed to sell 400 widgets.</span>} a="k = 1250, b(10) = 125 widgets, price = $3.13" e={<WB>
+    <PQ key="1" n="1" q={<span>A ball is thrown into the air and its height is recorded at 1-second intervals. Use cubic regression to model the height and predict h(3.5).<br/><Tb h={["t (sec)","0","1","2","3","4","5"]} r={[["h (ft)","0","28","40","36","16","0"]]}/></span>} a="h(t) ≈ −0.667t³ + 2.667t² + 26t + 0. h(3.5) ≈ 37.6 ft" e={<WB>
+      <MathLine size={14} color="#4338ca"><b>Step 1: Enter data into L1, L2</b></MathLine>
+      <MathLine size={14}>L1 = {"{"}0,1,2,3,4,5{"}"} · L2 = {"{"}0,28,40,36,16,0{"}"}</MathLine>
+      <MathLine size={14} color="#4338ca"><b>Step 2: STAT → CALC → CubicReg</b></MathLine>
+      <Ans>h(t) ≈ −0.667t³ + 2.667t² + 26t</Ans>
+      <MathLine size={14} color="#4338ca"><b>Step 3: Predict h(3.5)</b></MathLine>
+      <MathLine size={14}>Plug t = 3.5 into regression equation</MathLine>
+      <Ans>h(3.5) ≈ 37.6 feet</Ans>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>A company finds that widget sales follow an inverse variation model. When the price is $5, the company sells 250 widgets. Find the constant k, write the model b(x) = k/x, predict how many widgets sell at a price of $10, and find the price needed to sell 400 widgets.</span>} a="k = 1250, b(10) = 125 widgets, price = $3.13" e={<WB>
       <MathLine size={14}>k = 250 × 5 = <MathBox color="#6366f1">1250</MathBox><Annotate>k = x·y</Annotate></MathLine>
       <MathLine size={14}>Model: b(x) = 1250/x</MathLine>
       <MathLine size={14}>At $10: 1250/10 = <MathBox>125 widgets</MathBox></MathLine>
       <MathLine size={14}>400 sold: 1250/400 = <MathBox>$3.125</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>A fish population is modeled by P(t) = 150t/(0.005t + 1) + 400 where t is months after a conservation effort begins. Find P(2) and the AROC from t = 3 to t = 6.</span>} a="P(2) ≈ 697 fish, AROC ≈ 140 fish/month" e={<WB>
+      <MathLine size={14} color="#4338ca"><b>Find P(2):</b></MathLine>
+      <MathLine size={14}>P(2) = 150(2)/(0.005(2)+1) + 400 = 300/1.01 + 400 ≈ 297.0 + 400</MathLine>
+      <Ans>P(2) ≈ 697 fish</Ans>
+      <MathLine size={14} color="#4338ca"><b>AROC from t=3 to t=6:</b></MathLine>
+      <MathLine size={14}>P(3) = 450/1.015 + 400 ≈ 843.3</MathLine>
+      <MathLine size={14}>P(6) = 900/1.03 + 400 ≈ 1273.8</MathLine>
+      <MathLine size={14}>AROC = (1273.8 − 843.3)/(6−3) = 430.5/3</MathLine>
+      <Ans>AROC ≈ 143.5 fish/month</Ans>
     </WB>}/>,
   ]},
 ];
@@ -2101,6 +2526,14 @@ const unit2Practice = [
       <Arrow text="(−3)⁴ = 81 (even power → positive!)"/>
       <MathLine indent={24}>= −5 · <MathBox color="#22c55e">81</MathBox></MathLine>
       <Ans>g₅ = −405</Ans>
+    </WB>}/>,
+    <PQ key="5" n="5" q={<span>Two sequence graphs are shown. Graph A shows points: (1,12), (2,10), (3,8), (4,6). Graph B shows points: (1,5), (2,10), (3,20), (4,40). Identify which is arithmetic and which is geometric, and write an expression for each.</span>} a="A: Arithmetic, aₙ = 12−2(n−1). B: Geometric, gₙ = 5·2⁽ⁿ⁻¹⁾" e={<WB>
+      <MathLine size={14} color="#4338ca"><b>Graph A (linear pattern):</b> Arithmetic</MathLine>
+      <MathLine size={14}>a₁ = 12, d = 10−12 = −2</MathLine>
+      <MathLine size={14}>aₙ = 12 + (−2)(n − 1) = <MathBox>12 − 2(n−1)</MathBox></MathLine>
+      <MathLine size={14} color="#4338ca"><b>Graph B (curved pattern):</b> Geometric</MathLine>
+      <MathLine size={14}>g₁ = 5, r = 10/5 = 2</MathLine>
+      <MathLine size={14}>gₙ = <MathBox>5 · 2⁽ⁿ⁻¹⁾</MathBox></MathLine>
     </WB>}/>,
   ]},
   { id:"2.2", problems:[
@@ -2179,6 +2612,13 @@ const unit2Practice = [
       <MathLine size={14}><b>c)</b> 50000 = 500·3ᵗ → 100 = 3ᵗ → t = log₃(100) ≈ <MathBox>4.19 days</MathBox></MathLine>
       <MathLine size={14}><b>d)</b> b(t) = 500·(3⁷)ᵗ = <MathBox>500·2187ᵗ</MathBox><Annotate>t in weeks</Annotate></MathLine>
     </WB>}/>,
+    <PQ key="4" n="4" q={<span>A radioactive substance has a half-life of 6 hours. Starting with 200 mg, write the exponential model A(t) = A₀·eᵏᵗ. Find k, then predict the amount remaining after 10 hours.</span>} a="k ≈ −0.1155. A(10) ≈ 63.0 mg" e={<WB>
+      <MathLine size={14}>A(t) = 200·eᵏᵗ. At t=6: 100 = 200·e⁶ᵏ</MathLine>
+      <MathLine size={14}>1/2 = e⁶ᵏ → 6k = ln(1/2) → k = ln(1/2)/6</MathLine>
+      <MathLine size={14}>k ≈ <MathBox color="#6366f1">−0.1155</MathBox></MathLine>
+      <MathLine size={14}>A(10) = 200·e⁻¹·¹⁵⁵ ≈ 200 · 0.3150</MathLine>
+      <Ans>A(10) ≈ 63.0 mg</Ans>
+    </WB>}/>,
   ]},
   { id:"2.6", problems:[
     <PQ key="1" n="1" q={<span>For each function in the table, determine whether it is linear, quadratic, or exponential. Show your work by testing first differences, second differences, or output ratios.<br/><Tb h={["x","0","1","2","3"]} r={[["f(x)","1","3","9","27"],["g(x)","2","5","8","11"],["h(x)","1","0","−3","−8"]]}/></span>} a="f: Exponential  g: Linear  h: Quadratic" e={<WB>
@@ -2203,6 +2643,12 @@ const unit2Practice = [
       <MathLine size={14}>Inside: g(x) = <MathBox color="#6366f1">4x + 7</MathBox><Annotate>what's "inside"</Annotate></MathLine>
       <MathLine size={14}>Outside: f(x) = <MathBox color="#ec4899">x⁵</MathBox><Annotate color="#ec4899">what you do to the inside</Annotate></MathLine>
       <MathLine size={14}>Check: f(g(x)) = (4x+7)⁵ ✓</MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>Use the tables for f and g to evaluate:<br/><Tb h={["x","0","1","2","3"]} r={[["f(x)","3","1","0","2"],["g(x)","2","0","3","1"]]}/><br/>a) f(g(1))  b) g(f(2))  c) f(f(3))  d) g(g(0))</span>} a="a) 3  b) 2  c) 0  d) 3" e={<WB>
+      <MathLine size={14}><b>a)</b> g(1)=0, f(0)=3 → <MathBox color="#22c55e">f(g(1))=3</MathBox></MathLine>
+      <MathLine size={14}><b>b)</b> f(2)=0, g(0)=2 → <MathBox color="#22c55e">g(f(2))=2</MathBox></MathLine>
+      <MathLine size={14}><b>c)</b> f(3)=2, f(2)=0 → <MathBox color="#22c55e">f(f(3))=0</MathBox></MathLine>
+      <MathLine size={14}><b>d)</b> g(0)=2, g(2)=3 → <MathBox color="#22c55e">g(g(0))=3</MathBox></MathLine>
     </WB>}/>,
     <PQ key="3" n="3" q={<span>Using the two tables below, find f(g(5)) and g(f(0)). Remember to evaluate the inside function first.<br/><Tb h={["x","f(x)"]} r={[["0","2"],["1","−3"],["2","7"],["3","1"]]}/><Tb h={["x","g(x)"]} r={[["−3","0"],["2","3"],["5","1"],["7","2"]]}/></span>} a="f(g(5)) = −3, g(f(0)) = 3" e={<WB>
       <MathLine size={14} color="#4338ca"><b>f(g(5)):</b></MathLine>
@@ -2254,6 +2700,13 @@ const unit2Practice = [
       <MathLine size={14}>log₃(40) = log(40)/log(3) ≈ <MathBox>3.358</MathBox></MathLine>
       <MathLine size={14}>log₆(11) = log(11)/log(6) ≈ <MathBox>1.338</MathBox></MathLine>
       <MathLine size={14}>log(250) ≈ <MathBox>2.398</MathBox> · log(0.75) ≈ <MathBox>−0.125</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>Evaluate each logarithm without a calculator. Think: "b raised to what power gives me x?"<br/>a) log₅(125)  b) log₂(1/8)  c) log₇(1)  d) log₄(2)  e) ln(e³)</span>} a="a) 3  b) −3  c) 0  d) 1/2  e) 3" e={<WB>
+      <MathLine size={14}><b>a)</b> 5³ = 125 → <MathBox>3</MathBox></MathLine>
+      <MathLine size={14}><b>b)</b> 2⁻³ = 1/8 → <MathBox>−3</MathBox></MathLine>
+      <MathLine size={14}><b>c)</b> 7⁰ = 1 → <MathBox>0</MathBox><Annotate>log of 1 is ALWAYS 0</Annotate></MathLine>
+      <MathLine size={14}><b>d)</b> 4^(1/2) = √4 = 2 → <MathBox>1/2</MathBox></MathLine>
+      <MathLine size={14}><b>e)</b> e³ → ln(e³) = <MathBox>3</MathBox><Annotate>ln and e cancel</Annotate></MathLine>
     </WB>}/>,
   ]},
   { id:"2.10", problems:[
@@ -2602,6 +3055,19 @@ const unit3Topics = [
         • <B>Inflection points:</B> where the graph crosses the midline (every π)
       </Sm></Box>
     </div>},
+    { title:"Example — Sketching Key Points and Identifying Properties", content:<div>
+      <Q>Complete the table for both sin θ and cos θ, then identify where each function is increasing, decreasing, concave up, and concave down on [0, 2π].</Q>
+      <WB>
+        <Tb h={["θ","0","π/2","π","3π/2","2π"]} r={[["sin θ","0","1","0","−1","0"],["cos θ","1","0","−1","0","1"]]}/>
+        <MathLine size={14} color="#4338ca"><b>sin θ:</b></MathLine>
+        <MathLine size={14}>Increasing: (0, π/2) and (3π/2, 2π) · Decreasing: (π/2, 3π/2)</MathLine>
+        <MathLine size={14}>Concave down: (0, π) · Concave up: (π, 2π)</MathLine>
+        <MathLine size={14} color="#4338ca"><b>cos θ:</b></MathLine>
+        <MathLine size={14}>Decreasing: (0, π) · Increasing: (π, 2π)</MathLine>
+        <MathLine size={14}>Concave down: (0, π/2) and (3π/2, 2π) · Concave up: (π/2, 3π/2)</MathLine>
+      </WB>
+      <Tp>Inflection points on the midline: sin has them at 0, π, 2π. Cos has them at π/2, 3π/2.</Tp>
+    </div>},
     { title:"Concept — Cosine Graph Key Points", content:<div>
       <Fm label="f(θ) = cos θ">Cosine starts at 1, goes DOWN to 0, DOWN to −1, back to 0, and UP to 1</Fm>
       <svg width="100%" height="110" viewBox="0 0 360 110">
@@ -2651,6 +3117,20 @@ const unit3Topics = [
         <MathLine size={14}>1/period = <MathBox color="#22c55e">1/8</MathBox></MathLine>
       </WB>
       <Tp>Max to NEXT max = full period. Max to min = HALF period. This is a common AP trick!</Tp>
+    </div>},
+    { title:"Example — Even/Odd Symmetry and Properties", content:<div>
+      <Q>Determine whether each function is even, odd, or neither. What symmetry does each have?</Q>
+      <WB>
+        <MathLine size={14} color="#4338ca"><b>f(θ) = sin θ:</b></MathLine>
+        <MathLine size={14}>sin(−θ) = −sin(θ) → <MathBox color="#6366f1">ODD function</MathBox></MathLine>
+        <MathLine size={14}>Symmetry: rotational about the origin (180° rotation)</MathLine>
+        <MathLine size={14} color="#4338ca"><b>g(θ) = cos θ:</b></MathLine>
+        <MathLine size={14}>cos(−θ) = cos(θ) → <MathBox color="#ec4899">EVEN function</MathBox></MathLine>
+        <MathLine size={14}>Symmetry: reflective over the y-axis</MathLine>
+        <MathLine size={14} color="#4338ca"><b>h(θ) = sin θ + cos θ:</b></MathLine>
+        <MathLine size={14}>h(−θ) = sin(−θ) + cos(−θ) = −sin θ + cos θ</MathLine>
+        <MathLine size={14}>≠ h(θ) and ≠ −h(θ) → <MathBox color="#f59e0b">NEITHER</MathBox></MathLine>
+      </WB>
     </div>},
   ]},
   { id:"3.6", name:"Sinusoidal Function Transformations", slides:[
@@ -3310,6 +3790,12 @@ const unit3Practice = [
       <MathLine size={14}>y = 10·sin(π/3) = 10·(√3/2) = <MathBox color="#22c55e">5√3</MathBox></MathLine>
       <Ans>Point = (5, 5√3)</Ans>
     </WB>}/>,
+    <PQ key="3" n="3" q={<span>Given a point P(−3, 4) on a circle centered at the origin, find the radius and determine sin θ, cos θ, and tan θ for the angle θ formed by the positive x-axis and the line from the origin to P.</span>} a="r = 5, sin θ = 4/5, cos θ = −3/5, tan θ = −4/3" e={<WB>
+      <MathLine size={14}>r = √((-3)² + 4²) = √(9 + 16) = <MathBox color="#6366f1">5</MathBox></MathLine>
+      <MathLine size={14}>sin θ = y/r = 4/5 = <MathBox color="#22c55e">4/5</MathBox></MathLine>
+      <MathLine size={14}>cos θ = x/r = −3/5 = <MathBox color="#22c55e">−3/5</MathBox><Annotate>Q2: cos is negative</Annotate></MathLine>
+      <MathLine size={14}>tan θ = y/x = 4/(−3) = <MathBox color="#22c55e">−4/3</MathBox></MathLine>
+    </WB>}/>,
   ]},
   { id:"3.4", problems:[
     <PQ key="1" n="1" q={<span>Complete the table for f(θ) = sin θ at θ = 0, π/2, π, 3π/2, 2π. State the domain and range.</span>} a="0, 1, 0, −1, 0. D: all reals, R: [−1, 1]" e={<WB>
@@ -3346,13 +3832,20 @@ const unit3Practice = [
     </WB>}/>,
   ]},
   { id:"3.7", problems:[
-    <PQ key="1" n="1" q={<span>A function oscillates between 2 and 14 with f(0) = 14. The function reaches its minimum at x = 5. Write a sinusoidal model.</span>} a="f(x) = −6cos(πx/5) + 8" e={<WB>
+    <PQ key="1" n="1" q={<span>A function oscillates between 2 and 14 with f(0) = 14. The function reaches its minimum at x = 5. Write a sinusoidal model.</span>} a="f(x) = 6cos(πx/5) + 8" e={<WB>
       <MathLine size={14}>Amplitude = (14−2)/2 = <MathBox color="#6366f1">6</MathBox></MathLine>
       <MathLine size={14}>Midline = (14+2)/2 = <MathBox color="#6366f1">8</MathBox></MathLine>
       <MathLine size={14}>Max at 0, min at 5 → half period = 5 → period = 10</MathLine>
       <MathLine size={14}>b = 2π/10 = <MathBox color="#6366f1">π/5</MathBox></MathLine>
-      <MathLine size={14}>Starts at max → use cosine (but wait — goes from max to min → negative cosine would start at min)</MathLine>
+      <MathLine size={14}>Starts at max → use positive cosine</MathLine>
       <Ans>f(x) = 6cos(πx/5) + 8</Ans>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>A Ferris wheel has a diameter of 40 ft with its center 25 ft above the ground. It completes one revolution in 60 seconds. Write a sinusoidal model h(t) for height above the ground if the rider starts at the bottom.</span>} a="h(t) = −20cos(πt/30) + 25" e={<WB>
+      <MathLine size={14}>Amplitude = radius = 40/2 = <MathBox color="#6366f1">20</MathBox></MathLine>
+      <MathLine size={14}>Midline = center height = <MathBox color="#6366f1">25</MathBox></MathLine>
+      <MathLine size={14}>Period = 60 sec → b = 2π/60 = <MathBox color="#6366f1">π/30</MathBox></MathLine>
+      <MathLine size={14}>Starts at bottom (min) → negative cosine</MathLine>
+      <Ans>h(t) = −20cos(πt/30) + 25</Ans>
     </WB>}/>,
   ]},
   { id:"3.8", problems:[
@@ -3361,6 +3854,12 @@ const unit3Practice = [
       <MathLine size={14}>b = 1/3 → period = π/(1/3) = <MathBox color="#22c55e">3π</MathBox></MathLine>
       <MathLine size={14}>a = 2 → vertical dilation by <MathBox color="#22c55e">2</MathBox></MathLine>
       <MathLine size={14}>Phase shift: RIGHT <MathBox color="#22c55e">π/2</MathBox></MathLine>
+    </WB>}/>,
+    <PQ key="2" n="2" q={<span>For g(θ) = −3tan(2θ), find the period, vertical asymptotes for one period, and describe the transformations.</span>} a="Period = π/2. VAs: θ = π/4 + nπ/2. Vert stretch ×3, reflected, horiz compress ×(1/2)." e={<WB>
+      <MathLine size={14}>b = 2 → period = π/2 = <MathBox color="#22c55e">π/2</MathBox></MathLine>
+      <MathLine size={14}>VAs: 2θ = π/2 + nπ → θ = <MathBox color="#ef4444">π/4 + nπ/2</MathBox></MathLine>
+      <MathLine size={14}>a = −3 → vertical stretch by 3 + reflection over x-axis</MathLine>
+      <MathLine size={14}>Horizontal compression by factor of 1/2</MathLine>
     </WB>}/>,
   ]},
   { id:"3.9", problems:[
@@ -3444,6 +3943,12 @@ const unit3Practice = [
       <MathLine size={14}>|a| = 1, |b| = 3 → |a| {"<"} |b|<Annotate>inner loop!</Annotate></MathLine>
       <MathLine size={14}>Inner loop occurs where r {"<"} 0</MathLine>
       <Ans>Limaçon with inner loop since |a| {"<"} |b|</Ans>
+    </WB>}/>,
+    <PQ key="3" n="3" q={<span>For the polar function r(θ) = 2cos(3θ), determine if this is a rose curve, how many petals it has, and state the appropriate domain.</span>} a="Rose with 3 petals, domain 0 ≤ θ ≤ π" e={<WB>
+      <MathLine size={14}>Form: r = a·cos(bθ) with a = 2, b = 3</MathLine>
+      <MathLine size={14}>b = 3 is <MathBox color="#6366f1">odd</MathBox></MathLine>
+      <MathLine size={14}>Odd b → petals = b = <MathBox color="#22c55e">3</MathBox>, domain 0 ≤ θ ≤ π</MathLine>
+      <Ans>Rose curve with 3 petals on [0, π]</Ans>
     </WB>}/>,
   ]},
   { id:"3.15", problems:[
