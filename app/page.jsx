@@ -1626,7 +1626,7 @@ const unit2Topics = [
     { title:"Example — Product Property", content:<div>
       <Q>Rewrite each expression with a single base of 2 using bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾.</Q>
       <Strategy>For each expression, we need everything written as a power of 2. If a number is not already a power of 2, we convert it first (e.g., 16 = 2 to the 4th, 4 = 2 squared). Once all bases match, we add the exponents using the product property. This is the fundamental technique for simplifying exponential expressions.</Strategy>
-      <Wh>Why can we add exponents when multiplying same-base powers? Because exponents count repeated multiplication. 2³ means 2·2·2 (three 2s) and 2⁵ means 2·2·2·2·2 (five 2s). Multiply them together and you get 2·2·2·2·2·2·2·2 — that is eight 2s, or 2⁸. So 2³ · 2⁽³⁺⁵⁾ is just counting how many times 2 appears in the product.</Wh>
+      <Wh>Why can we add exponents when multiplying same-base powers? Because exponents count repeated multiplication. 2³ means 2·2·2 (three 2s) and 2⁵ means 2·2·2·2·2 (five 2s). Multiply them together and you get 2·2·2·2·2·2·2·2 — that is eight 2s, or 2⁸. So 2³ · 2⁵ = 2⁽³⁺⁵⁾ is just counting how many times 2 appears in the product.</Wh>
       <FmUsed>bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾ — when bases match, ADD the exponents</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> 2³ · 2⁵</MathLine>
@@ -1905,7 +1905,7 @@ const unit2Topics = [
         <MathLine size={14}>f(9) = √9 = 3, then g(3) = 1/(3−4) = <MathBox>−1</MathBox><Annotate>3 − 4 = −1, so 1/(−1) = −1</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Domains:</b></MathLine>
         <Arrow text="For each composition, check BOTH the inner domain AND that the inner output lands in the outer domain"/>
-        <MathLine size={14}>h(x) = f(g(x)): x ≠ 4<Annotate>g undefined at x=4, and we need g(x) ≥ 0 for √</Annotate></MathLine>
+        <MathLine size={14}>h(x) = f(g(x)): x {">"} 4<Annotate>g undefined at x=4, and we need g(x) ≥ 0 for √, so x must be greater than 4</Annotate></MathLine>
         <MathLine size={14}>j(x) = g(f(x)): x ≥ 0 and x ≠ 16<Annotate>need √x defined AND √x ≠ 4 (since g has VA at 4)</Annotate></MathLine>
       </WB>
       <W>f(g(x)) ≠ g(f(x)) in general! Order matters!</W>
@@ -2612,9 +2612,9 @@ const unit1Practice = [
       <Arrow text="total = starting + (rate × time)"/>
       <Ans>W(t) = 500 − 12t</Ans>
     </WB>}/>,
-    <PQ key="4" n="4" q={<span>A graph of f has zeros at x = −3 and x = 1, a local maximum at x = −1, and a local minimum at x = 3. Determine True or False for each statement.<br/>a) f is increasing on −3 {"<"} x {"<"} −1<br/>b) f is concave down on −1 {"<"} x {"<"} 3<br/>c) f has zeros at x = −3 and x = 1</span>} a="a) True  b) True  c) True" e={<WB>
+    <PQ key="4" n="4" q={<span>A graph of f has zeros at x = −3 and x = 1, a local maximum at x = −1, and a local minimum at x = 3. Determine True or False for each statement.<br/>a) f is increasing on −3 {"<"} x {"<"} −1<br/>b) f is decreasing on −1 {"<"} x {"<"} 3<br/>c) f has zeros at x = −3 and x = 1</span>} a="a) True  b) True  c) True" e={<WB>
       <MathLine size={14}><B c="#22c55e">a) TRUE</B> — from zero (x=−3) uphill to peak (x=−1) → <MathBox color="#22c55e">increasing ✓</MathBox></MathLine>
-      <MathLine size={14}><B c="#22c55e">b) TRUE</B> — from peak down to valley, curve bends down → <MathBox color="#22c55e">concave down ✓</MathBox></MathLine>
+      <MathLine size={14}><B c="#22c55e">b) TRUE</B> — from local max (x=−1) downhill to local min (x=3) → <MathBox color="#22c55e">decreasing ✓</MathBox></MathLine>
       <MathLine size={14}><B c="#22c55e">c) TRUE</B> — zeros at x = −3 and x = 1 given → <MathBox color="#22c55e">✓</MathBox></MathLine>
     </WB>}/>,
   ]},
@@ -2734,10 +2734,10 @@ const unit1Practice = [
       <MathLine size={14}><b>b)</b> Exponents: 7, 3, 1 (all odd) → <MathBox color="#22c55e">ODD</MathBox></MathLine>
       <MathLine size={14}><b>c)</b> Exponents: 5, 2, 0 (mixed!) → <MathBox color="#ef4444">NEITHER</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="5" n="5" q={<span>The polynomial p(x) = x⁴ − 4x³ + 4x² − x has x-intercepts at (−2, 0), (0, 0), (1, 0), and (2, 0). Write p(x) as a product of linear factors. (Hint: check the leading coefficient!)</span>} a="p(x) = −x(x + 2)(x − 1)(x − 2)" e={<WB>
+    <PQ key="5" n="5" q={<span>A polynomial has x-intercepts at (−2, 0), (0, 0), (1, 0), and (2, 0) and a negative leading coefficient. Write p(x) as a product of linear factors.</span>} a="p(x) = −x(x + 2)(x − 1)(x − 2)" e={<WB>
       <MathLine size={14}>From intercepts: factors are x, (x+2), (x−1), (x−2)</MathLine>
       <MathLine size={14}>Product of leading terms: x·x·x·x = x⁴</MathLine>
-      <MathLine size={14}>But p(x) has leading term <MathBox color="#ef4444">−x⁴</MathBox> → need factor of −1</MathLine>
+      <MathLine size={14}>Leading coefficient is negative → need factor of −1</MathLine>
       <Ans>p(x) = −x(x + 2)(x − 1)(x − 2)</Ans>
     </WB>}/>,
   ]},
@@ -2885,14 +2885,14 @@ const unit1Practice = [
     </WB>}/>,
   ]},
   { id:"1.14", problems:[
-    <PQ key="1" n="1" q={<span>A ball is thrown into the air and its height is recorded at 1-second intervals. Use cubic regression to model the height and predict h(3.5).<br/><Tb h={["t (sec)","0","1","2","3","4","5"]} r={[["h (ft)","0","28","40","36","16","0"]]}/></span>} a="h(t) ≈ −0.667t³ + 2.667t² + 26t + 0. h(3.5) ≈ 37.6 ft" e={<WB>
+    <PQ key="1" n="1" q={<span>A ball is thrown into the air and its height is recorded at 1-second intervals. Use cubic regression to model the height and predict h(3.5).<br/><Tb h={["t (sec)","0","1","2","3","4","5"]} r={[["h (ft)","0","28","40","36","16","0"]]}/></span>} a="h(t) ≈ 0.926t³ − 13.159t² + 42.614t − 0.635. h(3.5) ≈ 27.0 ft" e={<WB>
       <MathLine size={14} color="#4338ca"><b>Step 1: Enter data into L1, L2</b></MathLine>
       <MathLine size={14}>L1 = {"{"}0,1,2,3,4,5{"}"} · L2 = {"{"}0,28,40,36,16,0{"}"}</MathLine>
       <MathLine size={14} color="#4338ca"><b>Step 2: STAT → CALC → CubicReg</b></MathLine>
-      <Ans>h(t) ≈ −0.667t³ + 2.667t² + 26t</Ans>
+      <Ans>h(t) ≈ 0.926t³ − 13.159t² + 42.614t − 0.635</Ans>
       <MathLine size={14} color="#4338ca"><b>Step 3: Predict h(3.5)</b></MathLine>
       <MathLine size={14}>Plug t = 3.5 into regression equation</MathLine>
-      <Ans>h(3.5) ≈ 37.6 feet</Ans>
+      <Ans>h(3.5) ≈ 27.0 feet</Ans>
     </WB>}/>,
     <PQ key="2" n="2" q={<span>A company finds that widget sales follow an inverse variation model. When the price is $5, the company sells 250 widgets. Find the constant k, write the model b(x) = k/x, predict how many widgets sell at a price of $10, and find the price needed to sell 400 widgets.</span>} a="k = 1250, b(10) = 125 widgets, price = $3.13" e={<WB>
       <MathLine size={14}>k = 250 × 5 = <MathBox color="#6366f1">1250</MathBox><Annotate>k = x·y</Annotate></MathLine>
@@ -2900,7 +2900,7 @@ const unit1Practice = [
       <MathLine size={14}>At $10: 1250/10 = <MathBox>125 widgets</MathBox></MathLine>
       <MathLine size={14}>400 sold: 1250/400 = <MathBox>$3.125</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="3" n="3" q={<span>A fish population is modeled by P(t) = 150t/(0.005t + 1) + 400 where t is months after a conservation effort begins. Find P(2) and the AROC from t = 3 to t = 6.</span>} a="P(2) ≈ 697 fish, AROC ≈ 140 fish/month" e={<WB>
+    <PQ key="3" n="3" q={<span>A fish population is modeled by P(t) = 150t/(0.005t + 1) + 400 where t is months after a conservation effort begins. Find P(2) and the AROC from t = 3 to t = 6.</span>} a="P(2) ≈ 697 fish, AROC ≈ 143.5 fish/month" e={<WB>
       <MathLine size={14} color="#4338ca"><b>Find P(2):</b></MathLine>
       <MathLine size={14}>P(2) = 150(2)/(0.005(2)+1) + 400 = 300/1.01 + 400 ≈ 297.0 + 400</MathLine>
       <Ans>P(2) ≈ 697 fish</Ans>
@@ -4052,7 +4052,7 @@ const unit3Topics = [
         <MathLine size={14}>VAs: θ/2 = π/2 + kπ → θ = <MathBox>π + 2kπ</MathBox>, k∈ℤ</MathLine>
         <MathLine size={14} color="#be185d"><b>2. f(θ) = 2csc(3θ) − 1</b></MathLine>
         <MathLine size={14}>Period of csc θ = 2π. With b = 3: period = 2π/3 = <MathBox color="#22c55e">2π/3</MathBox></MathLine>
-        <MathLine size={14}>Range: (−∞, −1·2−1] ∪ [1·2−1, ∞) = <MathBox>(−∞, −3] ∪ [1, ∞)</MathBox></MathLine>
+        <MathLine size={14}>Range: parent (−∞,−1]∪[1,∞) → ×2: (−∞,−2]∪[2,∞) → −1: <MathBox>(−∞, −3] ∪ [1, ∞)</MathBox></MathLine>
         <MathLine size={14} color="#92400e"><b>3. f(θ) = cot(4θ)</b></MathLine>
         <MathLine size={14}>Period of cot θ = π. With b = 4: period = π/4 = <MathBox color="#22c55e">π/4</MathBox></MathLine>
         <MathLine size={14}>VAs: 4θ = kπ → θ = <MathBox>kπ/4</MathBox>, k∈ℤ</MathLine>
@@ -4209,7 +4209,7 @@ const unit3Topics = [
       <FmUsed>r(θ) = 4cos(θ)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","4","3.5","2","0","−2","−3.5","−4"],
+          ["r(θ)","4","3.46","2","0","−2","−3.46","−4"],
         ]}/>
         <Arrow text="Analyze the sign of r(θ)"/>
         <MathLine size={14}>On 0 ≤ θ ≤ π/2: r(θ) is <MathBox color="#22c55e">positive</MathBox><Annotate>points in Q1</Annotate></MathLine>
@@ -4226,7 +4226,7 @@ const unit3Topics = [
       <FmUsed>r(θ) = 2 − 4cos(θ) — limaçon since |a| {"<"} |b| (2 {"<"} 4)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","−2","−1.5","0","2","4","5.5","6"],
+          ["r(θ)","−2","−1.46","0","2","4","5.46","6"],
         ]}/>
         <Arrow text="Identify where r = 0"/>
         <MathLine size={14}>r = 0 when 2 − 4cos(θ) = 0 → cos(θ) = 1/2 → θ = <MathBox color="#6366f1">π/3</MathBox></MathLine>
@@ -4304,15 +4304,15 @@ const unit3Topics = [
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Build a table of values</b></MathLine>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","0","2","3.5","4","3.5","2","0"],
+          ["r(θ)","0","2","3.46","4","3.46","2","0"],
         ]}/>
         <MathLine size={14} color="#4338ca"><b>Step 2: Analyze each sub-interval</b></MathLine>
         <Arrow text="First half: 0 ≤ θ ≤ π/2"/>
-        <MathLine size={14}>r goes from 0 → 2 → 3.5 → 4: r is <MathBox color="#22c55e">positive</MathBox> and <MathBox color="#22c55e">increasing</MathBox></MathLine>
+        <MathLine size={14}>r goes from 0 → 2 → 3.46 → 4: r is <MathBox color="#22c55e">positive</MathBox> and <MathBox color="#22c55e">increasing</MathBox></MathLine>
         <MathLine size={14}>Since r {">"} 0 and increasing, distance = r is also <MathBox color="#22c55e">increasing</MathBox></MathLine>
         <Annotate color="#22c55e">The point moves farther from the origin as θ increases from 0 to π/2</Annotate>
         <Arrow text="Second half: π/2 ≤ θ ≤ π"/>
-        <MathLine size={14}>r goes from 4 → 3.5 → 2 → 0: r is <MathBox color="#6366f1">positive</MathBox> and <MathBox color="#ef4444">decreasing</MathBox></MathLine>
+        <MathLine size={14}>r goes from 4 → 3.46 → 2 → 0: r is <MathBox color="#6366f1">positive</MathBox> and <MathBox color="#ef4444">decreasing</MathBox></MathLine>
         <MathLine size={14}>Since r {">"} 0 and decreasing, distance = r is also <MathBox color="#ef4444">decreasing</MathBox></MathLine>
         <Annotate color="#ef4444">The point moves closer to the origin as θ increases from π/2 to π</Annotate>
         <MathLine size={14} color="#4338ca"><b>Step 3: Find the farthest point</b></MathLine>
@@ -4511,10 +4511,11 @@ const unit3Practice = [
       <MathLine size={14}>sin x = 1/2 → x = <MathBox color="#22c55e">π/6, 5π/6</MathBox></MathLine>
       <MathLine size={14}>sin x = −1 → x = <MathBox color="#22c55e">3π/2</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>Find all values of x on the interval 0 ≤ x ≤ 2π where 2sinx − 1 {"<"} 0.</span>} a="0 < x < π/6 and 5π/6 < x < 2π" e={<WB>
-      <MathLine size={14}>sin x {"<"} 1/2</MathLine>
+    <PQ key="2" n="2" q={<span>Find all values of x on the interval 0 ≤ x ≤ 2π where 2sinx − 1 {"<"} 0.</span>} a="[0, π/6) ∪ (5π/6, 2π]" e={<WB>
+      <MathLine size={14}>2sin x − 1 {"<"} 0 → sin x {"<"} 1/2</MathLine>
       <MathLine size={14}>sin x = 1/2 at x = π/6 and x = 5π/6</MathLine>
-      <Ans>0 {"<"} x {"<"} π/6 and 5π/6 {"<"} x {"<"} 2π</Ans>
+      <MathLine size={14}>At endpoints: 2sin(0) − 1 = −1 {"<"} 0 ✓ and 2sin(2π) − 1 = −1 {"<"} 0 ✓</MathLine>
+      <Ans>[0, π/6) ∪ (5π/6, 2π]</Ans>
     </WB>}/>,
   ]},
   { id:"3.11", problems:[
@@ -4939,8 +4940,8 @@ export default function App(){
   const isSlideTab=tab==="learn"||tab==="examples";
 
   return(
-    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"14px 10px",boxSizing:"border-box"}}>
-      <div style={{maxWidth:960,margin:"0 auto"}}>
+    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"20px 48px",boxSizing:"border-box"}}>
+      <div>
         {/* Unit Selector */}
         <div style={{display:"flex",gap:8,marginBottom:10}}>
           {allUnits.map((u,i)=>(
@@ -4989,7 +4990,7 @@ export default function App(){
             {isSlideTab&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>{si+1} / {activeSlides.length}</div>}
             {tab==="practice"&&totalProblems>0&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
           </div>
-          <div style={{padding:"24px 28px",maxHeight:"72vh",overflowY:"auto"}}>
+          <div style={{padding:"32px 48px",maxHeight:"72vh",overflowY:"auto"}}>
             {tab==="practice"?<div>
               <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:12,padding:"16px 20px",marginBottom:20,border:"1px solid #c7d2fe"}}>
                 <div style={{fontSize:15,color:"#4338ca",fontWeight:600,lineHeight:1.7}}>Work each problem on paper first, just like the whiteboard examples. When you're ready, reveal the answer to check your work, then view the full worked solution.</div>
