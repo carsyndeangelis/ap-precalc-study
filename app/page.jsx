@@ -4940,78 +4940,77 @@ export default function App(){
   const isSlideTab=tab==="learn"||tab==="examples";
 
   return(
-    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"20px 48px",boxSizing:"border-box"}}>
-      <div>
-        {/* Unit Selector */}
-        <div style={{display:"flex",gap:8,marginBottom:10}}>
-          {allUnits.map((u,i)=>(
-            <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"12px 10px",border:ui===i?`2px solid ${unitColors[i]}`:"2px solid #cbd5e1",borderRadius:12,background:ui===i?"#1a1a2e":"#fff",color:ui===i?"#fff":"#333",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.2s",boxShadow:ui===i?"0 4px 12px rgba(0,0,0,0.15)":"0 1px 3px rgba(0,0,0,0.05)"}}>
-              Unit {u.id}: {u.name}
-            </button>
-          ))}
-        </div>
-        {/* Topic Dropdown — ABOVE tabs */}
-        {tab!=="formulas"&&<div style={{position:"relative",marginBottom:10}}>
-          <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"14px 20px",background:"#1a1a2e",color:"#fff",border:"none",borderRadius:12,fontSize:15,fontWeight:700,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"0 2px 8px rgba(0,0,0,0.12)"}}>
-            <span>📚 {t.id} — {t.name} {isSlideTab?`(${activeSlides.length} slides)`:tab==="practice"?`(${totalProblems} problems)`:""}</span><span style={{fontSize:16}}>{mo?"▲":"▼"}</span>
+    <div style={{height:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"12px 32px",boxSizing:"border-box",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+      {/* Unit Selector */}
+      <div style={{display:"flex",gap:6,marginBottom:6,flexShrink:0}}>
+        {allUnits.map((u,i)=>(
+          <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"7px 8px",border:ui===i?`2px solid ${unitColors[i]}`:"2px solid #cbd5e1",borderRadius:8,background:ui===i?"#1a1a2e":"#fff",color:ui===i?"#fff":"#333",fontWeight:700,fontSize:12,cursor:"pointer",transition:"all 0.2s",boxShadow:ui===i?"0 4px 12px rgba(0,0,0,0.15)":"0 1px 3px rgba(0,0,0,0.05)"}}>
+            Unit {u.id}: {u.name}
           </button>
-          {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",borderRadius:12,boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:400,overflowY:"auto",marginTop:4,border:"1px solid #e2e8f0"}}>
-            {topics.map((x,i)=>{const cnt=isSlideTab?getSlides(x,tab).length:x.slides.length;return(
-              <div key={i} onClick={()=>sel(i)} style={{padding:"13px 20px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#eef2ff":"#fff",fontSize:14,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
-              <span style={{fontWeight:i===ti?700:500,color:i===ti?"#4338ca":"#333"}}>{x.id} — {x.name}</span>
-              {isSlideTab&&<span style={{fontSize:12,color:"#94a3b8",fontWeight:600}}>{cnt} slides</span>}
-            </div>)})}
-          </div>}
-        </div>}
-        {/* Tab Selector — BELOW topic dropdown */}
-        <div style={{display:"flex",gap:0,marginBottom:10}}>
-          {tabList.map(([k,l],idx)=>
-            <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"13px",border:"none",borderRadius:idx===0?"12px 0 0 12px":idx===tabList.length-1?"0 12px 12px 0":"0",background:tab===k?unitColors[ui]:"#c7d2de",color:tab===k?"#fff":"#4338ca",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.15s",boxShadow:tab===k?"0 2px 8px rgba(0,0,0,0.15)":"none"}}>{l}</button>)}
-        </div>
-        {/* Progress Bar */}
-        {isSlideTab&&activeSlides.length>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
-          <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#ec4899)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Practice Progress Bar */}
-        {tab==="practice"&&totalProblems>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
-          <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#22c55e)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Formula Sheet */}
-        {tab==="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px"}}>
-            <div style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",marginBottom:2}}>Reference Sheet</div>
-            <div style={{color:"#fff",fontSize:18,fontWeight:700}}>📋 Unit {unit.id}: {unit.name} — All Formulas & Key Concepts</div>
-          </div>
-          <div style={{padding:"22px 26px",maxHeight:"78vh",overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
-        </div>}
-        {/* Content Card */}
-        {tab!=="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div><span style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase"}}>TOPIC {t.id}</span>
-              <div style={{color:"#fff",fontSize:18,fontWeight:700,marginTop:2}}>{isSlideTab?s.title:tab==="practice"?`Practice — ${t.name}`:s.title}</div></div>
-            {isSlideTab&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>{si+1} / {activeSlides.length}</div>}
-            {tab==="practice"&&totalProblems>0&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
-          </div>
-          <div style={{padding:"32px 48px",maxHeight:"72vh",overflowY:"auto"}}>
-            {tab==="practice"?<div>
-              <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:12,padding:"16px 20px",marginBottom:20,border:"1px solid #c7d2fe"}}>
-                <div style={{fontSize:15,color:"#4338ca",fontWeight:600,lineHeight:1.7}}>Work each problem on paper first, just like the whiteboard examples. When you're ready, reveal the answer to check your work, then view the full worked solution.</div>
-              </div>
-              {totalProblems>0&&Array.isArray(practiceProblems)?practiceProblems[pi]:practiceProblems}
-            </div>:s.content}
-          </div>
-          {/* Slide Navigation */}
-          {isSlideTab&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={prev} disabled={si===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===0?"#e2e8f0":unitColors[ui],color:si===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===0?"default":"pointer",boxShadow:si===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Back</button>
-            <div style={{display:"flex",gap:5}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?24:9,height:9,borderRadius:5,background:i===si?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===activeSlides.length-1?"#e2e8f0":unitColors[ui],color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===activeSlides.length-1?"default":"pointer",boxShadow:si===activeSlides.length-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
-          </div>}
-          {/* Practice Navigation */}
-          {tab==="practice"&&totalProblems>1&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===0?"#e2e8f0":unitColors[ui],color:pi===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===0?"default":"pointer",boxShadow:pi===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Previous</button>
-            <div style={{display:"flex",gap:5}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?24:9,height:9,borderRadius:5,background:i===pi?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===totalProblems-1?"#e2e8f0":unitColors[ui],color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===totalProblems-1?"default":"pointer",boxShadow:pi===totalProblems-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
-          </div>}
-        </div>}
+        ))}
       </div>
+      {/* Topic Dropdown */}
+      {tab!=="formulas"&&<div style={{position:"relative",marginBottom:6,flexShrink:0}}>
+        <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"8px 16px",background:"#1a1a2e",color:"#fff",border:"none",borderRadius:8,fontSize:13,fontWeight:700,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"0 2px 8px rgba(0,0,0,0.12)"}}>
+          <span>📚 {t.id} — {t.name} {isSlideTab?`(${activeSlides.length} slides)`:tab==="practice"?`(${totalProblems} problems)`:""}</span><span style={{fontSize:14}}>{mo?"▲":"▼"}</span>
+        </button>
+        {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",borderRadius:10,boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:400,overflowY:"auto",marginTop:4,border:"1px solid #e2e8f0"}}>
+          {topics.map((x,i)=>{const cnt=isSlideTab?getSlides(x,tab).length:x.slides.length;return(
+            <div key={i} onClick={()=>sel(i)} style={{padding:"10px 16px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#eef2ff":"#fff",fontSize:13,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
+            <span style={{fontWeight:i===ti?700:500,color:i===ti?"#4338ca":"#333"}}>{x.id} — {x.name}</span>
+            {isSlideTab&&<span style={{fontSize:11,color:"#94a3b8",fontWeight:600}}>{cnt} slides</span>}
+          </div>)})}
+        </div>}
+      </div>}
+      {/* Tab Selector */}
+      <div style={{display:"flex",gap:0,marginBottom:6,flexShrink:0}}>
+        {tabList.map(([k,l],idx)=>
+          <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"8px",border:"none",borderRadius:idx===0?"8px 0 0 8px":idx===tabList.length-1?"0 8px 8px 0":"0",background:tab===k?unitColors[ui]:"#c7d2de",color:tab===k?"#fff":"#4338ca",fontWeight:700,fontSize:12,cursor:"pointer",transition:"all 0.15s",boxShadow:tab===k?"0 2px 8px rgba(0,0,0,0.15)":"none"}}>{l}</button>)}
+      </div>
+      {/* Progress Bar */}
+      {isSlideTab&&activeSlides.length>0&&<div style={{height:4,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:6,flexShrink:0}}>
+        <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#ec4899)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
+      {tab==="practice"&&totalProblems>0&&<div style={{height:4,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:6,flexShrink:0}}>
+        <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#22c55e)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
+      {/* Formula Sheet */}
+      {tab==="formulas"&&<div style={{flex:1,minHeight:0,background:"#fff",borderRadius:12,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+        <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"10px 20px",flexShrink:0}}>
+          <div style={{color:"#818cf8",fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",marginBottom:1}}>Reference Sheet</div>
+          <div style={{color:"#fff",fontSize:15,fontWeight:700}}>📋 Unit {unit.id}: {unit.name} — All Formulas & Key Concepts</div>
+        </div>
+        <div style={{padding:"18px 24px",flex:1,minHeight:0,overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
+      </div>}
+      {/* Content Card */}
+      {tab!=="formulas"&&<div style={{flex:1,minHeight:0,background:"#fff",borderRadius:12,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+        {/* Fixed Header */}
+        <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"10px 20px",display:"flex",justifyContent:"space-between",alignItems:"center",flexShrink:0}}>
+          <div><span style={{color:"#818cf8",fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase"}}>TOPIC {t.id}</span>
+            <div style={{color:"#fff",fontSize:15,fontWeight:700,marginTop:1}}>{isSlideTab?s.title:tab==="practice"?`Practice — ${t.name}`:s.title}</div></div>
+          {isSlideTab&&<div style={{color:"#94a3b8",fontSize:11,textAlign:"right",fontWeight:600}}>{si+1} / {activeSlides.length}</div>}
+          {tab==="practice"&&totalProblems>0&&<div style={{color:"#94a3b8",fontSize:11,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
+        </div>
+        {/* Scrollable Content */}
+        <div style={{padding:"24px 36px",flex:1,minHeight:0,overflowY:"auto"}}>
+          {tab==="practice"?<div>
+            <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:10,padding:"12px 16px",marginBottom:16,border:"1px solid #c7d2fe"}}>
+              <div style={{fontSize:13,color:"#4338ca",fontWeight:600,lineHeight:1.7}}>Work each problem on paper first, just like the whiteboard examples. When you're ready, reveal the answer to check your work, then view the full worked solution.</div>
+            </div>
+            {totalProblems>0&&Array.isArray(practiceProblems)?practiceProblems[pi]:practiceProblems}
+          </div>:s.content}
+        </div>
+        {/* Fixed Slide Navigation */}
+        {isSlideTab&&<div style={{padding:"8px 20px 10px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9",flexShrink:0}}>
+          <button onClick={prev} disabled={si===0} style={{padding:"7px 18px",borderRadius:8,border:"none",background:si===0?"#e2e8f0":unitColors[ui],color:si===0?"#94a3b8":"#fff",fontWeight:700,fontSize:12,cursor:si===0?"default":"pointer",boxShadow:si===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Back</button>
+          <div style={{display:"flex",gap:4}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?20:7,height:7,borderRadius:4,background:i===si?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+          <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"7px 18px",borderRadius:8,border:"none",background:si===activeSlides.length-1?"#e2e8f0":unitColors[ui],color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:700,fontSize:12,cursor:si===activeSlides.length-1?"default":"pointer",boxShadow:si===activeSlides.length-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
+        </div>}
+        {/* Fixed Practice Navigation */}
+        {tab==="practice"&&totalProblems>1&&<div style={{padding:"8px 20px 10px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9",flexShrink:0}}>
+          <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"7px 18px",borderRadius:8,border:"none",background:pi===0?"#e2e8f0":unitColors[ui],color:pi===0?"#94a3b8":"#fff",fontWeight:700,fontSize:12,cursor:pi===0?"default":"pointer",boxShadow:pi===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Previous</button>
+          <div style={{display:"flex",gap:4}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?20:7,height:7,borderRadius:4,background:i===pi?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+          <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"7px 18px",borderRadius:8,border:"none",background:pi===totalProblems-1?"#e2e8f0":unitColors[ui],color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:700,fontSize:12,cursor:pi===totalProblems-1?"default":"pointer",boxShadow:pi===totalProblems-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
+        </div>}
+      </div>}
     </div>
   );
 }
