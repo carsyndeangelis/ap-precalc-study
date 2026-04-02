@@ -1,4 +1,4 @@
-/* ─── AP Precalc Study Guide — Global Styles ─── */
+/* ─── AP Precalc Study Guide — Professional Lecture Style ─── */
 
 * {
   box-sizing: border-box;
@@ -15,32 +15,28 @@ body {
   padding: 0;
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
-  color: #1a1a2e;
-  background: #f1f5f9;
+  color: #1e293b;
+  background: #e2e8f0;
 }
 
-/* Better scrollbar styling */
+/* Clean scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 4px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
-/* Smooth transitions for interactive elements */
+/* Subtle button interactions */
 button {
-  transition: all 0.15s ease;
-}
-button:hover {
-  filter: brightness(1.05);
+  transition: all 0.12s ease;
 }
 button:active {
   transform: scale(0.98);
@@ -51,23 +47,23 @@ table {
   font-variant-numeric: tabular-nums;
 }
 
-/* Ensure math fonts render well */
+/* Math font kerning */
 .math, [style*="Georgia"] {
   font-feature-settings: "kern" 1;
 }
 
-/* Prevent layout shift on content load */
+/* Stable scrollbar */
 div[style*="overflowY"] {
   scrollbar-gutter: stable;
 }
 
-/* Print styles for studying */
+/* Print styles */
 @media print {
   body { background: white; }
   button { display: none; }
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   body { font-size: 14px; }
 }
