@@ -1,33 +1,33 @@
 "use client";
 import { useState } from "react";
 
-// ─── Components ───
-const B = ({children,c="#6366f1"})=><strong style={{color:c}}>{children}</strong>;
-const Box = ({bg="#f8fafc",border,children,s={}})=><div style={{background:bg,borderRadius:14,padding:"20px 24px",marginBottom:18,border:border||"none",lineHeight:1.9,...s}}>{children}</div>;
-const Tt = ({children,c="#1a1a2e"})=><div style={{fontSize:18,fontWeight:800,color:c,marginBottom:10,letterSpacing:"-0.01em"}}>{children}</div>;
-const Sm = ({children})=><div style={{fontSize:15,color:"#374151",lineHeight:1.9}}>{children}</div>;
-const Fm = ({children,label})=><div style={{background:"linear-gradient(135deg,#eef2ff,#fce7f3)",borderRadius:14,padding:"18px 24px",marginBottom:16,textAlign:"center",border:"2px solid #c7d2fe",boxShadow:"0 2px 8px rgba(99,102,241,0.08)"}}>{label&&<div style={{fontSize:11,fontWeight:800,color:"#6366f1",textTransform:"uppercase",letterSpacing:1.5,marginBottom:8}}>{label}</div>}<div style={{fontSize:19,fontFamily:"Georgia,serif",color:"#1a1a2e",fontWeight:700,lineHeight:1.6}}>{children}</div></div>;
-const Ex = ({children})=><div style={{background:"#fffbeb",borderLeft:"5px solid #f59e0b",padding:"16px 20px",borderRadius:"0 12px 12px 0",marginBottom:14}}>{children}</div>;
-const W = ({children})=><div style={{background:"linear-gradient(135deg,#fef3c7,#fff7ed)",borderLeft:"5px solid #f59e0b",padding:"16px 20px",borderRadius:"0 12px 12px 0",marginBottom:16,fontSize:15,lineHeight:1.8}}><div style={{fontWeight:800,color:"#92400e",marginBottom:4,fontSize:13,textTransform:"uppercase",letterSpacing:0.5}}>⚠️ Common Mistake</div><span style={{color:"#78350f"}}>{children}</span></div>;
-const Tp = ({children})=><div style={{background:"linear-gradient(135deg,#ecfdf5,#f0fdf4)",borderLeft:"5px solid #22c55e",padding:"16px 20px",borderRadius:"0 12px 12px 0",marginBottom:16,fontSize:15,lineHeight:1.8}}><div style={{fontWeight:800,color:"#166534",marginBottom:4,fontSize:13,textTransform:"uppercase",letterSpacing:0.5}}>💡 Study Tip</div><span style={{color:"#14532d"}}>{children}</span></div>;
-const Wh = ({children})=><div style={{background:"linear-gradient(135deg,#eff6ff,#dbeafe)",borderLeft:"5px solid #3b82f6",padding:"16px 20px",borderRadius:"0 12px 12px 0",marginBottom:16,fontSize:15,lineHeight:1.8}}><div style={{fontWeight:800,color:"#1e40af",marginBottom:4,fontSize:13,textTransform:"uppercase",letterSpacing:0.5}}>🧠 Why This Matters</div><span style={{color:"#1e3a5f"}}>{children}</span></div>;
-const Q = ({children})=><div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",border:"2px solid #6366f1",borderRadius:14,padding:"18px 20px",marginBottom:16,boxShadow:"0 2px 8px rgba(99,102,241,0.1)"}}><div style={{fontSize:13,fontWeight:800,color:"#6366f1",marginBottom:8,textTransform:"uppercase",letterSpacing:0.5}}>📝 Question</div><Sm>{children}</Sm></div>;
-const Tb = ({h,r})=>(<table style={{width:"100%",borderCollapse:"collapse",fontSize:14,marginBottom:14,borderRadius:10,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.06)"}}><thead><tr>{h.map((x,i)=><th key={i} style={{background:"#e0e7ff",padding:"10px 12px",border:"1px solid #c7d2fe",color:"#4338ca",fontWeight:700,textAlign:"center",fontSize:14}}>{x}</th>)}</tr></thead><tbody>{r.map((row,i)=><tr key={i}>{row.map((cell,j)=><td key={j} style={{padding:"10px 12px",border:"1px solid #e2e8f0",textAlign:"center",background:i%2===0?"#fff":"#f8fafc",fontSize:14,lineHeight:1.6}}>{cell}</td>)}</tr>)}</tbody></table>);
-const G = ({l,r})=><div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>{l}{r}</div>;
-const PQ = ({n,q,a,e})=>{const [sa,setSa]=useState(false);const [se,setSe]=useState(false);return (<div style={{background:"#fff",border:"2px solid #e2e8f0",borderRadius:14,padding:"20px 22px",marginBottom:16,boxShadow:"0 2px 8px rgba(0,0,0,0.04)"}}><div style={{display:"flex",gap:14,alignItems:"flex-start"}}><div style={{width:34,height:34,borderRadius:"50%",background:"linear-gradient(135deg,#6366f1,#818cf8)",color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800,fontSize:15,flexShrink:0,boxShadow:"0 2px 6px rgba(99,102,241,0.3)"}}>{n}</div><div style={{fontSize:15,color:"#374151",lineHeight:1.8,flex:1}}>{q}{a&&<div style={{marginTop:14,display:"flex",gap:8,flexWrap:"wrap"}}><button onClick={()=>{setSa(!sa);if(sa)setSe(false);}} style={{padding:"9px 22px",borderRadius:9,border:"none",background:sa?"#22c55e":"#6366f1",color:"#fff",fontWeight:700,fontSize:14,cursor:"pointer",boxShadow:"0 2px 6px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>{sa?"Hide Answer":"Reveal Answer"}</button>{sa&&<button onClick={()=>setSe(!se)} style={{padding:"9px 22px",borderRadius:9,border:"none",background:se?"#f59e0b":"#e2e8f0",color:se?"#fff":"#555",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.2s"}}>{se?"Hide Explanation":"Show Explanation"}</button>}</div>}{sa&&a&&<div style={{marginTop:14,background:"linear-gradient(135deg,#f0fdf4,#ecfdf5)",border:"2px solid #86efac",borderRadius:12,padding:"14px 18px",fontSize:16,color:"#166534",fontWeight:700,fontFamily:"Georgia,serif",lineHeight:1.6}}>{a}</div>}{se&&e&&<div style={{marginTop:12}}>{e}</div>}</div></div></div>)};
+// ─── Components — Professional Lecture Style ───
+const B = ({children,c="#2563eb"})=><strong style={{color:c}}>{children}</strong>;
+const Box = ({bg,border,children,s={}})=><div style={{marginBottom:20,lineHeight:1.85,...s}}>{children}</div>;
+const Tt = ({children,c="#1e293b"})=><div style={{fontSize:19,fontWeight:700,color:c,marginBottom:10,fontFamily:"'Georgia',serif",borderBottom:"1.5px solid #cbd5e1",paddingBottom:6}}>{children}</div>;
+const Sm = ({children})=><div style={{fontSize:15,color:"#334155",lineHeight:1.85}}>{children}</div>;
+const Fm = ({children,label})=><div style={{borderTop:"1px solid #94a3b8",borderBottom:"1px solid #94a3b8",padding:"14px 0",margin:"20px 0",textAlign:"center"}}>{label&&<div style={{fontSize:10,fontWeight:700,color:"#64748b",textTransform:"uppercase",letterSpacing:2,marginBottom:6}}>{label}</div>}<div style={{fontSize:20,fontFamily:"'Georgia',serif",color:"#1e293b",fontWeight:600,lineHeight:1.6}}>{children}</div></div>;
+const Ex = ({children})=><div style={{borderLeft:"3px solid #94a3b8",paddingLeft:20,marginBottom:16}}>{children}</div>;
+const W = ({children})=><div style={{borderLeft:"3px solid #dc2626",paddingLeft:20,marginBottom:20,fontSize:15,lineHeight:1.85}}><div style={{fontWeight:700,color:"#dc2626",marginBottom:4,fontSize:11,textTransform:"uppercase",letterSpacing:1}}>Common Mistake</div><span style={{color:"#334155"}}>{children}</span></div>;
+const Tp = ({children})=><div style={{borderLeft:"3px solid #2563eb",paddingLeft:20,marginBottom:20,fontSize:15,lineHeight:1.85}}><div style={{fontWeight:700,color:"#2563eb",marginBottom:4,fontSize:11,textTransform:"uppercase",letterSpacing:1}}>Study Tip</div><span style={{color:"#334155"}}>{children}</span></div>;
+const Wh = ({children})=><div style={{borderLeft:"3px solid #0d9488",paddingLeft:20,marginBottom:20,fontSize:15,lineHeight:1.85}}><div style={{fontWeight:700,color:"#0d9488",marginBottom:4,fontSize:11,textTransform:"uppercase",letterSpacing:1}}>Why This Matters</div><span style={{color:"#334155"}}>{children}</span></div>;
+const Q = ({children})=><div style={{border:"1px solid #94a3b8",padding:"16px 22px",marginBottom:20}}><div style={{fontSize:10,fontWeight:700,color:"#64748b",marginBottom:6,textTransform:"uppercase",letterSpacing:1.5}}>Question</div><Sm>{children}</Sm></div>;
+const Tb = ({h,r})=>(<table style={{width:"100%",borderCollapse:"collapse",fontSize:14,marginBottom:18}}><thead><tr>{h.map((x,i)=><th key={i} style={{background:"#f1f5f9",padding:"9px 14px",borderBottom:"2px solid #1e293b",color:"#1e293b",fontWeight:700,textAlign:"center",fontSize:13}}>{x}</th>)}</tr></thead><tbody>{r.map((row,i)=><tr key={i}>{row.map((cell,j)=><td key={j} style={{padding:"9px 14px",borderBottom:"1px solid #e2e8f0",textAlign:"center",fontSize:14,lineHeight:1.6}}>{cell}</td>)}</tr>)}</tbody></table>);
+const G = ({l,r})=><div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:28}}>{l}{r}</div>;
+const PQ = ({n,q,a,e})=>{const [sa,setSa]=useState(false);const [se,setSe]=useState(false);return (<div style={{borderBottom:"1px solid #e2e8f0",paddingBottom:20,marginBottom:24}}><div style={{display:"flex",gap:16,alignItems:"flex-start"}}><div style={{width:28,height:28,borderRadius:"50%",background:"#1e293b",color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontSize:13,flexShrink:0}}>{n}</div><div style={{fontSize:15,color:"#334155",lineHeight:1.85,flex:1}}>{q}{a&&<div style={{marginTop:14,display:"flex",gap:8,flexWrap:"wrap"}}><button onClick={()=>{setSa(!sa);if(sa)setSe(false);}} style={{padding:"6px 16px",borderRadius:3,border:"1px solid #1e293b",background:sa?"#1e293b":"#fff",color:sa?"#fff":"#1e293b",fontWeight:600,fontSize:13,cursor:"pointer",transition:"all 0.2s"}}>{sa?"Hide Answer":"Reveal Answer"}</button>{sa&&<button onClick={()=>setSe(!se)} style={{padding:"6px 16px",borderRadius:3,border:"1px solid #64748b",background:se?"#64748b":"#fff",color:se?"#fff":"#64748b",fontWeight:600,fontSize:13,cursor:"pointer",transition:"all 0.2s"}}>{se?"Hide Explanation":"Show Explanation"}</button>}</div>}{sa&&a&&<div style={{marginTop:14,borderLeft:"3px solid #2563eb",paddingLeft:16,fontSize:16,color:"#1e293b",fontWeight:600,fontFamily:"'Georgia',serif",lineHeight:1.7}}>{a}</div>}{se&&e&&<div style={{marginTop:14}}>{e}</div>}</div></div></div>)};
 
 // ─── Collapsible Accordion Section ───
-const Accordion = ({title,children,defaultOpen=false})=>{const [open,setOpen]=useState(defaultOpen);return(<div style={{border:"2px solid #e2e8f0",borderRadius:14,marginBottom:14,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}><button onClick={()=>setOpen(!open)} style={{width:"100%",padding:"14px 20px",background:open?"linear-gradient(135deg,#1a1a2e,#16213e)":"#f8fafc",color:open?"#fff":"#1a1a2e",border:"none",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",fontWeight:700,fontSize:15,fontFamily:"'Segoe UI',sans-serif",transition:"all 0.2s"}}><span>{title}</span><span style={{fontSize:18,transition:"transform 0.2s",transform:open?"rotate(180deg)":"rotate(0deg)"}}>▾</span></button>{open&&<div style={{padding:"18px 22px",background:"#fff"}}>{children}</div>}</div>)};
+const Accordion = ({title,children,defaultOpen=false})=>{const [open,setOpen]=useState(defaultOpen);return(<div style={{borderBottom:"1px solid #cbd5e1",marginBottom:16}}><button onClick={()=>setOpen(!open)} style={{width:"100%",padding:"10px 0",background:"transparent",color:"#1e293b",border:"none",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",fontWeight:700,fontSize:15,fontFamily:"'Georgia',serif"}}><span>{title}</span><span style={{fontSize:16,transition:"transform 0.2s",transform:open?"rotate(180deg)":"rotate(0deg)",color:"#64748b"}}>▾</span></button>{open&&<div style={{padding:"10px 0 20px"}}>{children}</div>}</div>)};
 
-// ─── WHITEBOARD: The visual math component ───
-const WB = ({children})=><div style={{background:"linear-gradient(180deg,#fafaf8,#f5f5f0)",border:"2px solid #d4d0c8",borderRadius:14,padding:"22px 26px",marginBottom:14,fontFamily:"'Georgia','Times New Roman',serif",position:"relative",boxShadow:"inset 0 2px 8px rgba(0,0,0,0.04),0 2px 8px rgba(0,0,0,0.04)"}}><div style={{position:"absolute",top:10,right:14,fontSize:11,color:"#b8b4a8",fontFamily:"sans-serif",fontWeight:700,textTransform:"uppercase",letterSpacing:0.5}}>📋 Worked Solution</div>{children}</div>;
-const MathLine = ({children,color="#1a1a2e",indent=0,size=16})=><div style={{fontSize:size,color,paddingLeft:indent,lineHeight:2.2,fontFamily:"'Georgia','Times New Roman',serif"}}>{children}</div>;
-const Annotate = ({children,color="#6366f1"})=><span style={{fontSize:12,color,fontFamily:"'Segoe UI',sans-serif",fontWeight:600,marginLeft:10,opacity:0.9}}>← {children}</span>;
-const MathBox = ({children,color="#ef4444"})=><span style={{border:`2px solid ${color}`,borderRadius:7,padding:"3px 10px",color,fontWeight:700,background:`${color}08`}}>{children}</span>;
-const Arrow = ({text,color="#6366f1"})=><div style={{textAlign:"center",color,fontSize:13,fontFamily:"sans-serif",fontWeight:700,margin:"8px 0",padding:"6px",background:"#f8fafc",borderRadius:8,border:"1px dashed #cbd5e1"}}>{text} ↓</div>;
-const Ans = ({children})=><div style={{background:"linear-gradient(135deg,#fef2f2,#fff1f2)",border:"3px solid #ef4444",borderRadius:12,padding:"14px 20px",fontSize:18,color:"#b91c1c",fontWeight:800,fontFamily:"Georgia,serif",textAlign:"center",marginTop:12,boxShadow:"0 2px 8px rgba(239,68,68,0.12)"}}>{children}</div>;
-const FmUsed = ({children})=><div style={{background:"linear-gradient(135deg,#eef2ff,#e0e7ff)",border:"2px solid #a5b4fc",borderRadius:10,padding:"12px 18px",fontSize:15,color:"#4338ca",fontWeight:600,marginBottom:14,fontFamily:"Georgia,serif",textAlign:"center"}}><span style={{fontSize:11,fontFamily:"sans-serif",fontWeight:800,color:"#6366f1",textTransform:"uppercase",letterSpacing:0.5}}>Formula Used: </span>{children}</div>;
-const Strategy = ({children})=><div style={{background:"linear-gradient(135deg,#fefce8,#fef9c3)",border:"2px solid #facc15",borderRadius:14,padding:"18px 22px",marginBottom:18,lineHeight:1.85,boxShadow:"0 2px 8px rgba(250,204,21,0.10)"}}><div style={{fontWeight:800,color:"#854d0e",marginBottom:8,fontSize:13,textTransform:"uppercase",letterSpacing:0.5,display:"flex",alignItems:"center",gap:8}}>🎯 Strategy & Approach</div><div style={{fontSize:15,color:"#713f12"}}>{children}</div></div>;
+// ─── SOLUTION: Clean academic math display ───
+const WB = ({children})=><div style={{background:"#f8fafc",borderLeft:"3px solid #2563eb",padding:"18px 24px",marginBottom:18,fontFamily:"'Georgia','Times New Roman',serif",position:"relative"}}><div style={{position:"absolute",top:8,right:14,fontSize:9,color:"#94a3b8",fontFamily:"sans-serif",fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Worked Solution</div>{children}</div>;
+const MathLine = ({children,color="#1e293b",indent=0,size=16})=><div style={{fontSize:size,color,paddingLeft:indent,lineHeight:2.2,fontFamily:"'Georgia','Times New Roman',serif"}}>{children}</div>;
+const Annotate = ({children,color="#2563eb"})=><span style={{fontSize:11,color,fontFamily:"sans-serif",fontWeight:600,marginLeft:12,opacity:0.75}}>← {children}</span>;
+const MathBox = ({children,color="#dc2626"})=><span style={{borderBottom:`2px solid ${color}`,padding:"0 3px",color,fontWeight:700}}>{children}</span>;
+const Arrow = ({text,color="#64748b"})=><div style={{textAlign:"center",color,fontSize:12,fontFamily:"sans-serif",fontWeight:600,margin:"4px 0",padding:"3px"}}>{text} ↓</div>;
+const Ans = ({children})=><div style={{borderTop:"2px solid #1e293b",borderBottom:"2px solid #1e293b",padding:"10px 20px",fontSize:18,color:"#1e293b",fontWeight:700,fontFamily:"'Georgia',serif",textAlign:"center",marginTop:12}}>{children}</div>;
+const FmUsed = ({children})=><div style={{padding:"8px 0",fontSize:15,color:"#2563eb",fontWeight:600,marginBottom:12,fontFamily:"'Georgia',serif",textAlign:"center",borderBottom:"1px solid #e2e8f0"}}><span style={{fontSize:10,fontFamily:"sans-serif",fontWeight:700,color:"#64748b",textTransform:"uppercase",letterSpacing:1.5,marginRight:8}}>Formula:</span>{children}</div>;
+const Strategy = ({children})=><div style={{borderLeft:"3px solid #d97706",paddingLeft:20,marginBottom:20,lineHeight:1.85}}><div style={{fontWeight:700,color:"#92400e",marginBottom:4,fontSize:11,textTransform:"uppercase",letterSpacing:1}}>Strategy</div><div style={{fontSize:15,color:"#334155"}}>{children}</div></div>;
 
 // ══════════════════════════════════════════════════
 //  UNIT 1 TOPICS
@@ -124,6 +124,10 @@ const unit1Topics = [
     </div>},
     { title:"Example — True/False (Increasing, Decreasing, Concavity)", content:<div>
       <Q>Determine True or False for each statement about the graphs of f(x) and g(x).</Q>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+        <svg width="100%" viewBox="0 0 300 160"><text x="150" y="14" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">f(x)</text><line x1="25" y1="80" x2="280" y2="80" stroke="#cbd5e1" strokeWidth="1"/><line x1="150" y1="15" x2="150" y2="150" stroke="#cbd5e1" strokeWidth="1"/>{[-5,-4,-3,-2,-1,0,1,2,3,4,5].map(x=><text key={x} x={150+x*25} y="92" textAnchor="middle" fontSize="7" fill="#94a3b8">{x}</text>)}<path d="M 25 55 Q 55 55,75 105 Q 85 120,100 80 Q 115 50,140 60 Q 150 65,155 95 Q 165 120,175 95 Q 190 55,200 80 Q 225 30,275 20" stroke="#1e293b" strokeWidth="2" fill="none"/><circle cx="100" cy="80" r="3" fill="#dc2626"/><circle cx="200" cy="80" r="3" fill="#dc2626"/><text x="100" y="75" textAnchor="middle" fontSize="7" fill="#dc2626">−2</text><text x="200" y="75" textAnchor="middle" fontSize="7" fill="#dc2626">2</text></svg>
+        <svg width="100%" viewBox="0 0 340 160"><text x="170" y="14" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">g(x)</text><line x1="15" y1="80" x2="330" y2="80" stroke="#cbd5e1" strokeWidth="1"/><line x1="170" y1="15" x2="170" y2="150" stroke="#cbd5e1" strokeWidth="1"/>{[-6,-4,-2,0,2,4,6].map(x=><text key={x} x={170+x*23} y="92" textAnchor="middle" fontSize="7" fill="#94a3b8">{x}</text>)}<path d="M 32 80 Q 55 130,80 130 Q 100 130,124 80 Q 135 55,150 50 Q 160 48,170 55 Q 180 65,190 50 Q 200 40,216 80 Q 240 135,265 130 Q 290 125,308 80" stroke="#1e293b" strokeWidth="2" fill="none"/>{[-6,-2,2,6].map(x=><circle key={x} cx={170+x*23} cy="80" r="3" fill="#dc2626"/>)}</svg>
+      </div>
       <Strategy>For each True/False statement, we need to check the graph carefully on the EXACT interval given. The approach: for increasing/decreasing claims, trace the graph from left to right over the specified interval and check if the function ONLY goes one direction. For concavity claims, look at the bending direction (cup = concave up, frown = concave down). For zeros, check if the graph actually crosses the x-axis at those points. The key trap is that a function might increase on PART of an interval but not the whole thing.</Strategy>
       <Ex><Tt c="#92400e">Graph of f(x):</Tt>
         <Sm><B c="#ef4444">F</B> — f increases on −5{"<"}x{"<"}−2 <Annotate color="#ef4444">f decreases on part of this interval</Annotate></Sm>
@@ -417,6 +421,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Local & Global Extrema from a Graph", content:<div>
       <Q>From a graph of a polynomial with restricted domain, identify all local minima, local maxima, and the global (absolute) minimum and maximum.</Q>
+      <svg width="100%" height="140" viewBox="0 0 400 140" style={{marginBottom:14}}><line x1="30" y1="120" x2="380" y2="120" stroke="#94a3b8" strokeWidth="1"/><line x1="30" y1="10" x2="30" y2="120" stroke="#94a3b8" strokeWidth="1"/>{[[-4,60],[-3,95],[-2,30],[-1,70],[0,80],[1,105],[2,25],[3,55]].map(([x,y],i)=><text key={`l${i}`} x={30+(x+4)*50} y="135" textAnchor="middle" fontSize="10" fill="#64748b">{x}</text>)}<path d="M 30 60 Q 60 50,80 95 Q 95 120,130 30 Q 160 -10,180 70 Q 200 100,230 105 Q 260 110,280 25 Q 310 -15,380 55" stroke="#1e293b" strokeWidth="2" fill="none"/><circle cx="80" cy="95" r="4" fill="#2563eb"/><text x="80" y="110" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="600">min</text><circle cx="130" cy="30" r="4" fill="#dc2626"/><text x="130" y="22" textAnchor="middle" fontSize="9" fill="#dc2626" fontWeight="600">max</text><circle cx="230" cy="105" r="4" fill="#2563eb"/><text x="230" y="118" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="600">min</text><circle cx="280" cy="25" r="4" fill="#dc2626"/><text x="280" y="17" textAnchor="middle" fontSize="9" fill="#dc2626" fontWeight="600">max</text></svg>
       <Strategy>We will work in two phases. First, scan the graph for direction changes: wherever the function switches from decreasing to increasing, that is a local minimum; wherever it switches from increasing to decreasing, that is a local maximum. Second, to find GLOBAL extrema, compare ALL the local extrema values and pick the overall largest (global max) and smallest (global min). Since the domain is restricted, we also need to check the endpoint values.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find Local Extrema</b></MathLine>
@@ -450,6 +455,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Points of Inflection", content:<div>
       <Q>Five key points are labeled A, B, C, D, and E on the graph of a polynomial. Identify which points are inflection points.</Q>
+      <svg width="100%" height="130" viewBox="0 0 400 130" style={{marginBottom:14}}><line x1="20" y1="110" x2="390" y2="110" stroke="#e2e8f0" strokeWidth="1"/><path d="M 30 90 Q 60 100,100 60 Q 130 30,170 50 Q 210 70,250 80 Q 290 90,330 40 Q 360 10,390 30" stroke="#1e293b" strokeWidth="2" fill="none"/><circle cx="65" cy="90" r="4" fill="#1e293b"/><text x="65" y="105" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">A</text><circle cx="120" cy="45" r="4" fill="#1e293b"/><text x="120" y="38" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">B</text><circle cx="190" cy="60" r="4" fill="#1e293b"/><text x="190" y="76" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">C</text><circle cx="270" cy="85" r="4" fill="#1e293b"/><text x="270" y="100" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">D</text><circle cx="345" cy="30" r="4" fill="#1e293b"/><text x="345" y="22" textAnchor="middle" fontSize="11" fill="#1e293b" fontWeight="700">E</text></svg>
       <Strategy>An inflection point is where the concavity changes direction. Our approach: first determine the concavity (cup or frown shape) in each region of the graph. Then check each labeled point — does the concavity switch from up to down or from down to up at that point? If yes, it is an inflection point. If no, it is not. Remember: peaks and valleys (extrema) are NOT inflection points — those are where direction changes, not bending.</Strategy>
       <FmUsed>Inflection point = where concavity changes (concave up ↔ concave down)</FmUsed>
       <WB>
@@ -649,6 +655,10 @@ const unit1Topics = [
     </div>},
     { title:"Example — End Behavior from Graphs", content:<div>
       <Q>From each graph, determine a possible degree, the sign of the leading coefficient, and write the end behavior using limit notation.</Q>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,marginBottom:16}}>
+        <svg width="100%" viewBox="0 0 200 120"><text x="100" y="14" textAnchor="middle" fontSize="10" fill="#1e293b" fontWeight="700">Graph 1</text><line x1="15" y1="60" x2="185" y2="60" stroke="#cbd5e1" strokeWidth="1"/><line x1="100" y1="10" x2="100" y2="110" stroke="#cbd5e1" strokeWidth="1"/><path d="M 15 105 C 40 95,55 80,70 55 C 80 40,90 35,100 45 C 110 55,120 60,130 45 C 145 25,165 15,185 8" stroke="#1e293b" strokeWidth="2" fill="none"/><text x="18" y="112" fontSize="8" fill="#dc2626">−∞</text><text x="175" y="14" fontSize="8" fill="#2563eb">+∞</text></svg>
+        <svg width="100%" viewBox="0 0 200 120"><text x="100" y="14" textAnchor="middle" fontSize="10" fill="#1e293b" fontWeight="700">Graph 2</text><line x1="15" y1="60" x2="185" y2="60" stroke="#cbd5e1" strokeWidth="1"/><line x1="100" y1="10" x2="100" y2="110" stroke="#cbd5e1" strokeWidth="1"/><path d="M 15 105 C 30 95,45 40,60 30 C 75 20,85 25,100 45 C 115 65,125 70,140 45 C 155 20,170 90,185 105" stroke="#1e293b" strokeWidth="2" fill="none"/><text x="18" y="112" fontSize="8" fill="#dc2626">−∞</text><text x="175" y="112" fontSize="8" fill="#dc2626">−∞</text></svg>
+      </div>
       <Strategy>For each graph, we reverse-engineer the polynomial's properties from its shape. Step 1: look at the far left and far right tails — do they go the same direction (even degree) or opposite (odd degree)? Step 2: check the right tail — if it goes up, the leading coefficient is positive; if down, negative. Step 3: count turning points to estimate the minimum possible degree (a polynomial with k turning points has degree at least k+1). Write everything in limit notation.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Graph 1: Left end goes down, right end goes up</b></MathLine>
@@ -822,6 +832,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — One-Sided Limits from a Graph", content:<div>
       <Q>A rational function r(x) has VAs at x = −2 and x = 4. Use the graph to determine the one-sided limits at each VA.</Q>
+      <svg width="100%" height="140" viewBox="0 0 400 140" style={{marginBottom:14}}><line x1="20" y1="70" x2="390" y2="70" stroke="#e2e8f0" strokeWidth="1"/><line x1="120" y1="5" x2="120" y2="135" stroke="#dc2626" strokeWidth="1" strokeDasharray="4,3"/><line x1="280" y1="5" x2="280" y2="135" stroke="#dc2626" strokeWidth="1" strokeDasharray="4,3"/><text x="120" y="135" textAnchor="middle" fontSize="10" fill="#dc2626" fontWeight="600">x=−2</text><text x="280" y="135" textAnchor="middle" fontSize="10" fill="#dc2626" fontWeight="600">x=4</text><path d="M 25 55 Q 60 50,90 40 Q 105 30,115 8" stroke="#1e293b" strokeWidth="2" fill="none"/><path d="M 125 132 Q 135 100,160 80 Q 190 65,230 65 Q 255 65,270 50 Q 275 40,278 8" stroke="#1e293b" strokeWidth="2" fill="none"/><path d="M 282 132 Q 290 100,310 85 Q 340 75,380 72" stroke="#1e293b" strokeWidth="2" fill="none"/><text x="108" y="15" fontSize="9" fill="#0d9488" fontWeight="600">+∞</text><text x="128" y="130" fontSize="9" fill="#0d9488" fontWeight="600">−∞</text><text x="268" y="15" fontSize="9" fill="#0d9488" fontWeight="600">−∞</text><text x="284" y="130" fontSize="9" fill="#0d9488" fontWeight="600">+∞</text></svg>
       <Strategy>For each vertical asymptote, we need to determine what happens as x approaches from the LEFT (x approaches a from below, written a minus) and from the RIGHT (x approaches a from above, written a plus). We trace the graph on each side of the VA and check whether the curve shoots up toward positive infinity or down toward negative infinity. If the directions are opposite, the VA has odd multiplicity; if the same, even multiplicity.</Strategy>
       <FmUsed>lim(x→a⁺) = value from the RIGHT · lim(x→a⁻) = value from the LEFT</FmUsed>
       <WB>
@@ -1397,6 +1408,10 @@ const unit2Topics = [
     </div>},
     { title:"Example — Identifying from Graphs", content:<div>
       <Q>Two graphs of sequences are shown. Identify which is arithmetic vs geometric and write expressions.</Q>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,marginBottom:14}}>
+        <svg width="100%" height="120" viewBox="0 0 200 120"><text x="100" y="12" textAnchor="middle" fontSize="10" fill="#64748b" fontWeight="600">Graph 1</text><line x1="25" y1="105" x2="185" y2="105" stroke="#94a3b8" strokeWidth="1"/><line x1="25" y1="15" x2="25" y2="105" stroke="#94a3b8" strokeWidth="1"/>{[[1,-12],[2,-10],[3,-8],[4,-6],[5,-4]].map(([n,v])=><circle key={n} cx={25+n*30} cy={105-(v+14)*4} r="4" fill="#1e293b"/>)}{[1,2,3,4,5].map(n=><text key={n} x={25+n*30} y="115" textAnchor="middle" fontSize="8" fill="#64748b">{n}</text>)}<text x="12" y="60" fontSize="8" fill="#64748b" textAnchor="middle" transform="rotate(-90,12,60)">y</text></svg>
+        <svg width="100%" height="120" viewBox="0 0 200 120"><text x="100" y="12" textAnchor="middle" fontSize="10" fill="#64748b" fontWeight="600">Graph 2</text><line x1="25" y1="105" x2="185" y2="105" stroke="#94a3b8" strokeWidth="1"/><line x1="25" y1="15" x2="25" y2="105" stroke="#94a3b8" strokeWidth="1"/>{[[1,5],[2,1],[3,0.2],[4,0.04],[5,0.008]].map(([n,v])=><circle key={n} cx={25+n*30} cy={105-v*16} r="4" fill="#1e293b"/>)}{[1,2,3,4,5].map(n=><text key={n} x={25+n*30} y="115" textAnchor="middle" fontSize="8" fill="#64748b">{n}</text>)}<text x="12" y="60" fontSize="8" fill="#64748b" textAnchor="middle" transform="rotate(-90,12,60)">y</text></svg>
+      </div>
       <Strategy>For each graph, we will check the shape of the plotted points. If the dots fall on a straight line, that means constant addition (arithmetic). If the dots fall on a curve, that means constant multiplication (geometric). Once classified, we read the first point for a1 or g1, compute d or r from the spacing or ratios, and write the formula.</Strategy>
       <Wh>Arithmetic sequences add a constant, so their graphs are <B>discrete points that fall on a straight line</B> (just like a linear function). Geometric sequences multiply by a constant, so their graphs are <B>discrete points that fall on an exponential curve</B> (either growing or decaying). This visual distinction is the fastest way to classify a sequence on the AP exam.</Wh>
       <WB>
@@ -1626,7 +1641,7 @@ const unit2Topics = [
     { title:"Example — Product Property", content:<div>
       <Q>Rewrite each expression with a single base of 2 using bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾.</Q>
       <Strategy>For each expression, we need everything written as a power of 2. If a number is not already a power of 2, we convert it first (e.g., 16 = 2 to the 4th, 4 = 2 squared). Once all bases match, we add the exponents using the product property. This is the fundamental technique for simplifying exponential expressions.</Strategy>
-      <Wh>Why can we add exponents when multiplying same-base powers? Because exponents count repeated multiplication. 2³ means 2·2·2 (three 2s) and 2⁵ means 2·2·2·2·2 (five 2s). Multiply them together and you get 2·2·2·2·2·2·2·2 — that is eight 2s, or 2⁸. So 2³ · 2⁽³⁺⁵⁾ is just counting how many times 2 appears in the product.</Wh>
+      <Wh>Why can we add exponents when multiplying same-base powers? Because exponents count repeated multiplication. 2³ means 2·2·2 (three 2s) and 2⁵ means 2·2·2·2·2 (five 2s). Multiply them together and you get 2·2·2·2·2·2·2·2 — that is eight 2s, or 2⁸. So 2³ · 2⁵ = 2⁽³⁺⁵⁾ is just counting how many times 2 appears in the product.</Wh>
       <FmUsed>bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾ — when bases match, ADD the exponents</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> 2³ · 2⁵</MathLine>
@@ -1905,7 +1920,7 @@ const unit2Topics = [
         <MathLine size={14}>f(9) = √9 = 3, then g(3) = 1/(3−4) = <MathBox>−1</MathBox><Annotate>3 − 4 = −1, so 1/(−1) = −1</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Domains:</b></MathLine>
         <Arrow text="For each composition, check BOTH the inner domain AND that the inner output lands in the outer domain"/>
-        <MathLine size={14}>h(x) = f(g(x)): x ≠ 4<Annotate>g undefined at x=4, and we need g(x) ≥ 0 for √</Annotate></MathLine>
+        <MathLine size={14}>h(x) = f(g(x)): x {">"} 4<Annotate>g undefined at x=4, and we need g(x) ≥ 0 for √, so x must be greater than 4</Annotate></MathLine>
         <MathLine size={14}>j(x) = g(f(x)): x ≥ 0 and x ≠ 16<Annotate>need √x defined AND √x ≠ 4 (since g has VA at 4)</Annotate></MathLine>
       </WB>
       <W>f(g(x)) ≠ g(f(x)) in general! Order matters!</W>
@@ -1947,6 +1962,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Mixed Representations (Graph + Equation)", content:<div>
       <Q>f is piecewise-linear on [−5,4] with points (−5,2),(−3,4),(3,2),(4,4). g(x)=x+1. Find f(g(2)) and g(f(−3)).</Q>
+      <svg width="100%" height="120" viewBox="0 0 360 120" style={{marginBottom:14}}><text x="180" y="12" textAnchor="middle" fontSize="10" fill="#64748b" fontWeight="600">Graph of f(x)</text><line x1="30" y1="100" x2="340" y2="100" stroke="#94a3b8" strokeWidth="1"/><line x1="185" y1="15" x2="185" y2="100" stroke="#94a3b8" strokeWidth="1"/>{[[-5,2],[-3,4],[3,2],[4,4]].map(([x,y],i)=><><circle key={`p${i}`} cx={185+x*28} cy={100-y*18} r="3.5" fill="#1e293b"/><text key={`t${i}`} x={185+x*28} y={100-y*18-8} textAnchor="middle" fontSize="8" fill="#64748b">({x},{y})</text></>)}<path d="M 45 64 L 101 28 L 269 64 L 297 28" stroke="#1e293b" strokeWidth="2" fill="none"/>{[-5,-4,-3,-2,-1,0,1,2,3,4].map(x=><text key={x} x={185+x*28} y="112" textAnchor="middle" fontSize="8" fill="#94a3b8">{x}</text>)}</svg>
       <Strategy>This combines a graph (for f) with an equation (for g). Still work inside out. For f(g(2)): evaluate g(2) = 3 using the equation, then read f(3) from the graph. For g(f(-3)): read f(-3) from the graph, then plug into g(x) = x+1.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(g(2)):</b></MathLine>
@@ -2612,9 +2628,9 @@ const unit1Practice = [
       <Arrow text="total = starting + (rate × time)"/>
       <Ans>W(t) = 500 − 12t</Ans>
     </WB>}/>,
-    <PQ key="4" n="4" q={<span>A graph of f has zeros at x = −3 and x = 1, a local maximum at x = −1, and a local minimum at x = 3. Determine True or False for each statement.<br/>a) f is increasing on −3 {"<"} x {"<"} −1<br/>b) f is concave down on −1 {"<"} x {"<"} 3<br/>c) f has zeros at x = −3 and x = 1</span>} a="a) True  b) True  c) True" e={<WB>
+    <PQ key="4" n="4" q={<span>A graph of f has zeros at x = −3 and x = 1, a local maximum at x = −1, and a local minimum at x = 3. Determine True or False for each statement.<br/>a) f is increasing on −3 {"<"} x {"<"} −1<br/>b) f is decreasing on −1 {"<"} x {"<"} 3<br/>c) f has zeros at x = −3 and x = 1</span>} a="a) True  b) True  c) True" e={<WB>
       <MathLine size={14}><B c="#22c55e">a) TRUE</B> — from zero (x=−3) uphill to peak (x=−1) → <MathBox color="#22c55e">increasing ✓</MathBox></MathLine>
-      <MathLine size={14}><B c="#22c55e">b) TRUE</B> — from peak down to valley, curve bends down → <MathBox color="#22c55e">concave down ✓</MathBox></MathLine>
+      <MathLine size={14}><B c="#22c55e">b) TRUE</B> — from local max (x=−1) downhill to local min (x=3) → <MathBox color="#22c55e">decreasing ✓</MathBox></MathLine>
       <MathLine size={14}><B c="#22c55e">c) TRUE</B> — zeros at x = −3 and x = 1 given → <MathBox color="#22c55e">✓</MathBox></MathLine>
     </WB>}/>,
   ]},
@@ -2734,10 +2750,10 @@ const unit1Practice = [
       <MathLine size={14}><b>b)</b> Exponents: 7, 3, 1 (all odd) → <MathBox color="#22c55e">ODD</MathBox></MathLine>
       <MathLine size={14}><b>c)</b> Exponents: 5, 2, 0 (mixed!) → <MathBox color="#ef4444">NEITHER</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="5" n="5" q={<span>The polynomial p(x) = x⁴ − 4x³ + 4x² − x has x-intercepts at (−2, 0), (0, 0), (1, 0), and (2, 0). Write p(x) as a product of linear factors. (Hint: check the leading coefficient!)</span>} a="p(x) = −x(x + 2)(x − 1)(x − 2)" e={<WB>
+    <PQ key="5" n="5" q={<span>A polynomial has x-intercepts at (−2, 0), (0, 0), (1, 0), and (2, 0) and a negative leading coefficient. Write p(x) as a product of linear factors.</span>} a="p(x) = −x(x + 2)(x − 1)(x − 2)" e={<WB>
       <MathLine size={14}>From intercepts: factors are x, (x+2), (x−1), (x−2)</MathLine>
       <MathLine size={14}>Product of leading terms: x·x·x·x = x⁴</MathLine>
-      <MathLine size={14}>But p(x) has leading term <MathBox color="#ef4444">−x⁴</MathBox> → need factor of −1</MathLine>
+      <MathLine size={14}>Leading coefficient is negative → need factor of −1</MathLine>
       <Ans>p(x) = −x(x + 2)(x − 1)(x − 2)</Ans>
     </WB>}/>,
   ]},
@@ -2786,7 +2802,7 @@ const unit1Practice = [
       <MathLine size={14}>Remaining den: x+1=0 → <MathBox color="#ef4444">VA: x=−1</MathBox></MathLine>
       <MathLine size={14}>Check num at x=−1: (−1+2) = 1 ≠ 0 ✓</MathLine>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>A rational function h(x) has vertical asymptotes at x = 1 and x = −3. From a graph, the function goes to +∞ as x → 1⁺ and to −∞ as x → 1⁻. At x = −3, it goes to +∞ from both sides. Determine the multiplicity (odd or even) of each VA and write all four one-sided limits.</span>} a="x=1: odd mult. x=−3: even mult." e={<WB>
+    <PQ key="2" n="2" q={<span>A rational function h(x) has vertical asymptotes at x = 1 and x = −3. Use the graph below to determine the multiplicity (odd or even) of each VA and write all four one-sided limits.<br/><svg width="100%" height="130" viewBox="0 0 380 130" style={{marginTop:10}}><line x1="20" y1="65" x2="365" y2="65" stroke="#cbd5e1" strokeWidth="1"/><line x1="190" y1="5" x2="190" y2="125" stroke="#cbd5e1" strokeWidth="1"/><line x1="110" y1="5" x2="110" y2="125" stroke="#dc2626" strokeWidth="1" strokeDasharray="4,3"/><line x1="240" y1="5" x2="240" y2="125" stroke="#dc2626" strokeWidth="1" strokeDasharray="4,3"/><text x="110" y="125" textAnchor="middle" fontSize="9" fill="#dc2626">x=−3</text><text x="240" y="125" textAnchor="middle" fontSize="9" fill="#dc2626">x=1</text><path d="M 22 50 Q 50 30,80 20 Q 95 15,105 8" stroke="#1e293b" strokeWidth="2" fill="none"/><path d="M 115 8 Q 125 30,150 50 Q 170 60,190 65 Q 210 70,225 85 Q 232 100,237 122" stroke="#1e293b" strokeWidth="2" fill="none"/><path d="M 243 8 Q 255 35,280 55 Q 320 62,365 60" stroke="#1e293b" strokeWidth="2" fill="none"/><text x="98" y="14" fontSize="8" fill="#0d9488">+∞</text><text x="117" y="14" fontSize="8" fill="#0d9488">+∞</text><text x="228" y="118" fontSize="8" fill="#0d9488">−∞</text><text x="248" y="14" fontSize="8" fill="#0d9488">+∞</text></svg></span>} a="x=1: odd mult. x=−3: even mult." e={<WB>
       <MathLine size={14} color="#4338ca"><b>At x = 1:</b></MathLine>
       <MathLine size={14}>lim(x→1⁺) h(x) = +∞ · lim(x→1⁻) h(x) = −∞</MathLine>
       <MathLine size={14}>Opposite directions → <MathBox color="#ef4444">odd multiplicity</MathBox></MathLine>
@@ -2885,14 +2901,14 @@ const unit1Practice = [
     </WB>}/>,
   ]},
   { id:"1.14", problems:[
-    <PQ key="1" n="1" q={<span>A ball is thrown into the air and its height is recorded at 1-second intervals. Use cubic regression to model the height and predict h(3.5).<br/><Tb h={["t (sec)","0","1","2","3","4","5"]} r={[["h (ft)","0","28","40","36","16","0"]]}/></span>} a="h(t) ≈ −0.667t³ + 2.667t² + 26t + 0. h(3.5) ≈ 37.6 ft" e={<WB>
+    <PQ key="1" n="1" q={<span>A ball is thrown into the air and its height is recorded at 1-second intervals. Use cubic regression to model the height and predict h(3.5).<br/><Tb h={["t (sec)","0","1","2","3","4","5"]} r={[["h (ft)","0","28","40","36","16","0"]]}/></span>} a="h(t) ≈ 0.926t³ − 13.159t² + 42.614t − 0.635. h(3.5) ≈ 27.0 ft" e={<WB>
       <MathLine size={14} color="#4338ca"><b>Step 1: Enter data into L1, L2</b></MathLine>
       <MathLine size={14}>L1 = {"{"}0,1,2,3,4,5{"}"} · L2 = {"{"}0,28,40,36,16,0{"}"}</MathLine>
       <MathLine size={14} color="#4338ca"><b>Step 2: STAT → CALC → CubicReg</b></MathLine>
-      <Ans>h(t) ≈ −0.667t³ + 2.667t² + 26t</Ans>
+      <Ans>h(t) ≈ 0.926t³ − 13.159t² + 42.614t − 0.635</Ans>
       <MathLine size={14} color="#4338ca"><b>Step 3: Predict h(3.5)</b></MathLine>
       <MathLine size={14}>Plug t = 3.5 into regression equation</MathLine>
-      <Ans>h(3.5) ≈ 37.6 feet</Ans>
+      <Ans>h(3.5) ≈ 27.0 feet</Ans>
     </WB>}/>,
     <PQ key="2" n="2" q={<span>A company finds that widget sales follow an inverse variation model. When the price is $5, the company sells 250 widgets. Find the constant k, write the model b(x) = k/x, predict how many widgets sell at a price of $10, and find the price needed to sell 400 widgets.</span>} a="k = 1250, b(10) = 125 widgets, price = $3.13" e={<WB>
       <MathLine size={14}>k = 250 × 5 = <MathBox color="#6366f1">1250</MathBox><Annotate>k = x·y</Annotate></MathLine>
@@ -2900,7 +2916,7 @@ const unit1Practice = [
       <MathLine size={14}>At $10: 1250/10 = <MathBox>125 widgets</MathBox></MathLine>
       <MathLine size={14}>400 sold: 1250/400 = <MathBox>$3.125</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="3" n="3" q={<span>A fish population is modeled by P(t) = 150t/(0.005t + 1) + 400 where t is months after a conservation effort begins. Find P(2) and the AROC from t = 3 to t = 6.</span>} a="P(2) ≈ 697 fish, AROC ≈ 140 fish/month" e={<WB>
+    <PQ key="3" n="3" q={<span>A fish population is modeled by P(t) = 150t/(0.005t + 1) + 400 where t is months after a conservation effort begins. Find P(2) and the AROC from t = 3 to t = 6.</span>} a="P(2) ≈ 697 fish, AROC ≈ 143.5 fish/month" e={<WB>
       <MathLine size={14} color="#4338ca"><b>Find P(2):</b></MathLine>
       <MathLine size={14}>P(2) = 150(2)/(0.005(2)+1) + 400 = 300/1.01 + 400 ≈ 297.0 + 400</MathLine>
       <Ans>P(2) ≈ 697 fish</Ans>
@@ -4052,7 +4068,7 @@ const unit3Topics = [
         <MathLine size={14}>VAs: θ/2 = π/2 + kπ → θ = <MathBox>π + 2kπ</MathBox>, k∈ℤ</MathLine>
         <MathLine size={14} color="#be185d"><b>2. f(θ) = 2csc(3θ) − 1</b></MathLine>
         <MathLine size={14}>Period of csc θ = 2π. With b = 3: period = 2π/3 = <MathBox color="#22c55e">2π/3</MathBox></MathLine>
-        <MathLine size={14}>Range: (−∞, −1·2−1] ∪ [1·2−1, ∞) = <MathBox>(−∞, −3] ∪ [1, ∞)</MathBox></MathLine>
+        <MathLine size={14}>Range: parent (−∞,−1]∪[1,∞) → ×2: (−∞,−2]∪[2,∞) → −1: <MathBox>(−∞, −3] ∪ [1, ∞)</MathBox></MathLine>
         <MathLine size={14} color="#92400e"><b>3. f(θ) = cot(4θ)</b></MathLine>
         <MathLine size={14}>Period of cot θ = π. With b = 4: period = π/4 = <MathBox color="#22c55e">π/4</MathBox></MathLine>
         <MathLine size={14}>VAs: 4θ = kπ → θ = <MathBox>kπ/4</MathBox>, k∈ℤ</MathLine>
@@ -4209,7 +4225,7 @@ const unit3Topics = [
       <FmUsed>r(θ) = 4cos(θ)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","4","3.5","2","0","−2","−3.5","−4"],
+          ["r(θ)","4","3.46","2","0","−2","−3.46","−4"],
         ]}/>
         <Arrow text="Analyze the sign of r(θ)"/>
         <MathLine size={14}>On 0 ≤ θ ≤ π/2: r(θ) is <MathBox color="#22c55e">positive</MathBox><Annotate>points in Q1</Annotate></MathLine>
@@ -4226,7 +4242,7 @@ const unit3Topics = [
       <FmUsed>r(θ) = 2 − 4cos(θ) — limaçon since |a| {"<"} |b| (2 {"<"} 4)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","−2","−1.5","0","2","4","5.5","6"],
+          ["r(θ)","−2","−1.46","0","2","4","5.46","6"],
         ]}/>
         <Arrow text="Identify where r = 0"/>
         <MathLine size={14}>r = 0 when 2 − 4cos(θ) = 0 → cos(θ) = 1/2 → θ = <MathBox color="#6366f1">π/3</MathBox></MathLine>
@@ -4304,15 +4320,15 @@ const unit3Topics = [
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Build a table of values</b></MathLine>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
-          ["r(θ)","0","2","3.5","4","3.5","2","0"],
+          ["r(θ)","0","2","3.46","4","3.46","2","0"],
         ]}/>
         <MathLine size={14} color="#4338ca"><b>Step 2: Analyze each sub-interval</b></MathLine>
         <Arrow text="First half: 0 ≤ θ ≤ π/2"/>
-        <MathLine size={14}>r goes from 0 → 2 → 3.5 → 4: r is <MathBox color="#22c55e">positive</MathBox> and <MathBox color="#22c55e">increasing</MathBox></MathLine>
+        <MathLine size={14}>r goes from 0 → 2 → 3.46 → 4: r is <MathBox color="#22c55e">positive</MathBox> and <MathBox color="#22c55e">increasing</MathBox></MathLine>
         <MathLine size={14}>Since r {">"} 0 and increasing, distance = r is also <MathBox color="#22c55e">increasing</MathBox></MathLine>
         <Annotate color="#22c55e">The point moves farther from the origin as θ increases from 0 to π/2</Annotate>
         <Arrow text="Second half: π/2 ≤ θ ≤ π"/>
-        <MathLine size={14}>r goes from 4 → 3.5 → 2 → 0: r is <MathBox color="#6366f1">positive</MathBox> and <MathBox color="#ef4444">decreasing</MathBox></MathLine>
+        <MathLine size={14}>r goes from 4 → 3.46 → 2 → 0: r is <MathBox color="#6366f1">positive</MathBox> and <MathBox color="#ef4444">decreasing</MathBox></MathLine>
         <MathLine size={14}>Since r {">"} 0 and decreasing, distance = r is also <MathBox color="#ef4444">decreasing</MathBox></MathLine>
         <Annotate color="#ef4444">The point moves closer to the origin as θ increases from π/2 to π</Annotate>
         <MathLine size={14} color="#4338ca"><b>Step 3: Find the farthest point</b></MathLine>
@@ -4511,10 +4527,11 @@ const unit3Practice = [
       <MathLine size={14}>sin x = 1/2 → x = <MathBox color="#22c55e">π/6, 5π/6</MathBox></MathLine>
       <MathLine size={14}>sin x = −1 → x = <MathBox color="#22c55e">3π/2</MathBox></MathLine>
     </WB>}/>,
-    <PQ key="2" n="2" q={<span>Find all values of x on the interval 0 ≤ x ≤ 2π where 2sinx − 1 {"<"} 0.</span>} a="0 < x < π/6 and 5π/6 < x < 2π" e={<WB>
-      <MathLine size={14}>sin x {"<"} 1/2</MathLine>
+    <PQ key="2" n="2" q={<span>Find all values of x on the interval 0 ≤ x ≤ 2π where 2sinx − 1 {"<"} 0.</span>} a="[0, π/6) ∪ (5π/6, 2π]" e={<WB>
+      <MathLine size={14}>2sin x − 1 {"<"} 0 → sin x {"<"} 1/2</MathLine>
       <MathLine size={14}>sin x = 1/2 at x = π/6 and x = 5π/6</MathLine>
-      <Ans>0 {"<"} x {"<"} π/6 and 5π/6 {"<"} x {"<"} 2π</Ans>
+      <MathLine size={14}>At endpoints: 2sin(0) − 1 = −1 {"<"} 0 ✓ and 2sin(2π) − 1 = −1 {"<"} 0 ✓</MathLine>
+      <Ans>[0, π/6) ∪ (5π/6, 2π]</Ans>
     </WB>}/>,
   ]},
   { id:"3.11", problems:[
@@ -4934,83 +4951,82 @@ export default function App(){
   const sel=(i)=>{setTi(i);setSi(0);setPi(0);setMo(false);};
   const switchUnit=(i)=>{setUi(i);setTi(0);setSi(0);setPi(0);setTab("learn");};
 
-  const unitColors = ["#6366f1","#ec4899","#f59e0b"];
-  const tabList=[["learn","📖 Learn"],["examples","🔍 Examples"],["practice","✏️ Practice"],["formulas","📋 Formulas"]];
+  const unitColors = ["#1e40af","#7c3aed","#0d9488"];
+  const tabList=[["learn","Learn"],["examples","Examples"],["practice","Practice"],["formulas","Formulas"]];
   const isSlideTab=tab==="learn"||tab==="examples";
 
   return(
-    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"14px 10px",boxSizing:"border-box"}}>
-      <div style={{maxWidth:960,margin:"0 auto"}}>
-        {/* Unit Selector */}
-        <div style={{display:"flex",gap:8,marginBottom:10}}>
-          {allUnits.map((u,i)=>(
-            <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"12px 10px",border:ui===i?`2px solid ${unitColors[i]}`:"2px solid #cbd5e1",borderRadius:12,background:ui===i?"#1a1a2e":"#fff",color:ui===i?"#fff":"#333",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.2s",boxShadow:ui===i?"0 4px 12px rgba(0,0,0,0.15)":"0 1px 3px rgba(0,0,0,0.05)"}}>
-              Unit {u.id}: {u.name}
-            </button>
-          ))}
-        </div>
-        {/* Topic Dropdown — ABOVE tabs */}
-        {tab!=="formulas"&&<div style={{position:"relative",marginBottom:10}}>
-          <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"14px 20px",background:"#1a1a2e",color:"#fff",border:"none",borderRadius:12,fontSize:15,fontWeight:700,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"0 2px 8px rgba(0,0,0,0.12)"}}>
-            <span>📚 {t.id} — {t.name} {isSlideTab?`(${activeSlides.length} slides)`:tab==="practice"?`(${totalProblems} problems)`:""}</span><span style={{fontSize:16}}>{mo?"▲":"▼"}</span>
+    <div style={{height:"100vh",background:"#e2e8f0",fontFamily:"'Segoe UI','Helvetica Neue',Arial,sans-serif",padding:"10px 24px",boxSizing:"border-box",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+      {/* Unit Selector */}
+      <div style={{display:"flex",gap:0,marginBottom:6,flexShrink:0}}>
+        {allUnits.map((u,i)=>(
+          <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"6px 10px",border:"none",borderRight:i<2?"1px solid #475569":"none",background:ui===i?"#1e293b":"#f1f5f9",color:ui===i?"#fff":"#475569",fontWeight:ui===i?700:500,fontSize:11,cursor:"pointer",transition:"all 0.15s",letterSpacing:0.3}}>
+            Unit {u.id}: {u.name}
           </button>
-          {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",borderRadius:12,boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:400,overflowY:"auto",marginTop:4,border:"1px solid #e2e8f0"}}>
-            {topics.map((x,i)=>{const cnt=isSlideTab?getSlides(x,tab).length:x.slides.length;return(
-              <div key={i} onClick={()=>sel(i)} style={{padding:"13px 20px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#eef2ff":"#fff",fontSize:14,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
-              <span style={{fontWeight:i===ti?700:500,color:i===ti?"#4338ca":"#333"}}>{x.id} — {x.name}</span>
-              {isSlideTab&&<span style={{fontSize:12,color:"#94a3b8",fontWeight:600}}>{cnt} slides</span>}
-            </div>)})}
-          </div>}
-        </div>}
-        {/* Tab Selector — BELOW topic dropdown */}
-        <div style={{display:"flex",gap:0,marginBottom:10}}>
-          {tabList.map(([k,l],idx)=>
-            <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"13px",border:"none",borderRadius:idx===0?"12px 0 0 12px":idx===tabList.length-1?"0 12px 12px 0":"0",background:tab===k?unitColors[ui]:"#c7d2de",color:tab===k?"#fff":"#4338ca",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.15s",boxShadow:tab===k?"0 2px 8px rgba(0,0,0,0.15)":"none"}}>{l}</button>)}
-        </div>
-        {/* Progress Bar */}
-        {isSlideTab&&activeSlides.length>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
-          <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#ec4899)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Practice Progress Bar */}
-        {tab==="practice"&&totalProblems>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
-          <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#22c55e)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Formula Sheet */}
-        {tab==="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px"}}>
-            <div style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",marginBottom:2}}>Reference Sheet</div>
-            <div style={{color:"#fff",fontSize:18,fontWeight:700}}>📋 Unit {unit.id}: {unit.name} — All Formulas & Key Concepts</div>
-          </div>
-          <div style={{padding:"22px 26px",maxHeight:"78vh",overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
-        </div>}
-        {/* Content Card */}
-        {tab!=="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div><span style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase"}}>TOPIC {t.id}</span>
-              <div style={{color:"#fff",fontSize:18,fontWeight:700,marginTop:2}}>{isSlideTab?s.title:tab==="practice"?`Practice — ${t.name}`:s.title}</div></div>
-            {isSlideTab&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>{si+1} / {activeSlides.length}</div>}
-            {tab==="practice"&&totalProblems>0&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
-          </div>
-          <div style={{padding:"24px 28px",maxHeight:"72vh",overflowY:"auto"}}>
-            {tab==="practice"?<div>
-              <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:12,padding:"16px 20px",marginBottom:20,border:"1px solid #c7d2fe"}}>
-                <div style={{fontSize:15,color:"#4338ca",fontWeight:600,lineHeight:1.7}}>Work each problem on paper first, just like the whiteboard examples. When you're ready, reveal the answer to check your work, then view the full worked solution.</div>
-              </div>
-              {totalProblems>0&&Array.isArray(practiceProblems)?practiceProblems[pi]:practiceProblems}
-            </div>:s.content}
-          </div>
-          {/* Slide Navigation */}
-          {isSlideTab&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={prev} disabled={si===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===0?"#e2e8f0":unitColors[ui],color:si===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===0?"default":"pointer",boxShadow:si===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Back</button>
-            <div style={{display:"flex",gap:5}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?24:9,height:9,borderRadius:5,background:i===si?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===activeSlides.length-1?"#e2e8f0":unitColors[ui],color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===activeSlides.length-1?"default":"pointer",boxShadow:si===activeSlides.length-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
-          </div>}
-          {/* Practice Navigation */}
-          {tab==="practice"&&totalProblems>1&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===0?"#e2e8f0":unitColors[ui],color:pi===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===0?"default":"pointer",boxShadow:pi===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Previous</button>
-            <div style={{display:"flex",gap:5}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?24:9,height:9,borderRadius:5,background:i===pi?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===totalProblems-1?"#e2e8f0":unitColors[ui],color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===totalProblems-1?"default":"pointer",boxShadow:pi===totalProblems-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
-          </div>}
-        </div>}
+        ))}
       </div>
+      {/* Topic Dropdown */}
+      {tab!=="formulas"&&<div style={{position:"relative",marginBottom:6,flexShrink:0}}>
+        <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"7px 16px",background:"#1e293b",color:"#e2e8f0",border:"none",fontSize:12,fontWeight:600,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <span>{t.id} — {t.name} {isSlideTab?`(${activeSlides.length} slides)`:tab==="practice"?`(${totalProblems} problems)`:""}</span><span style={{fontSize:12,color:"#94a3b8"}}>{mo?"▲":"▼"}</span>
+        </button>
+        {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:400,overflowY:"auto",marginTop:2,border:"1px solid #cbd5e1"}}>
+          {topics.map((x,i)=>{const cnt=isSlideTab?getSlides(x,tab).length:x.slides.length;return(
+            <div key={i} onClick={()=>sel(i)} style={{padding:"8px 16px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#f1f5f9":"#fff",fontSize:12,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
+            <span style={{fontWeight:i===ti?700:400,color:i===ti?"#1e293b":"#475569"}}>{x.id} — {x.name}</span>
+            {isSlideTab&&<span style={{fontSize:10,color:"#94a3b8",fontWeight:600}}>{cnt}</span>}
+          </div>)})}
+        </div>}
+      </div>}
+      {/* Tab Selector */}
+      <div style={{display:"flex",gap:0,marginBottom:6,flexShrink:0}}>
+        {tabList.map(([k,l])=>
+          <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"6px",border:"none",background:tab===k?"#1e293b":"#cbd5e1",color:tab===k?"#fff":"#475569",fontWeight:tab===k?700:500,fontSize:11,cursor:"pointer",transition:"all 0.15s",letterSpacing:0.5,textTransform:"uppercase"}}>{l}</button>)}
+      </div>
+      {/* Progress Bar */}
+      {isSlideTab&&activeSlides.length>0&&<div style={{height:2,background:"#cbd5e1",overflow:"hidden",marginBottom:6,flexShrink:0}}>
+        <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:unitColors[ui],transition:"width 0.3s"}}/></div>}
+      {tab==="practice"&&totalProblems>0&&<div style={{height:2,background:"#cbd5e1",overflow:"hidden",marginBottom:6,flexShrink:0}}>
+        <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:unitColors[ui],transition:"width 0.3s"}}/></div>}
+      {/* Formula Sheet */}
+      {tab==="formulas"&&<div style={{flex:1,minHeight:0,background:"#fff",boxShadow:"0 1px 8px rgba(0,0,0,0.08)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+        <div style={{background:"#1e293b",padding:"10px 28px",flexShrink:0}}>
+          <div style={{color:"#94a3b8",fontSize:9,fontWeight:600,letterSpacing:2,textTransform:"uppercase",marginBottom:2}}>Reference Sheet</div>
+          <div style={{color:"#fff",fontSize:15,fontWeight:600,fontFamily:"'Georgia',serif"}}>Unit {unit.id}: {unit.name} — Formulas & Key Concepts</div>
+        </div>
+        <div style={{padding:"20px 32px",flex:1,minHeight:0,overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
+      </div>}
+      {/* Content Card */}
+      {tab!=="formulas"&&<div style={{flex:1,minHeight:0,background:"#fff",boxShadow:"0 1px 8px rgba(0,0,0,0.08)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+        {/* Fixed Header */}
+        <div style={{background:"#1e293b",padding:"10px 28px",display:"flex",justifyContent:"space-between",alignItems:"center",flexShrink:0}}>
+          <div><span style={{color:"#94a3b8",fontSize:9,fontWeight:600,letterSpacing:2,textTransform:"uppercase"}}>TOPIC {t.id}</span>
+            <div style={{color:"#fff",fontSize:15,fontWeight:600,fontFamily:"'Georgia',serif",marginTop:1}}>{isSlideTab?s.title:tab==="practice"?`Practice — ${t.name}`:s.title}</div></div>
+          {isSlideTab&&<div style={{color:"#64748b",fontSize:11,textAlign:"right",fontWeight:600,fontFamily:"sans-serif"}}>{si+1} / {activeSlides.length}</div>}
+          {tab==="practice"&&totalProblems>0&&<div style={{color:"#64748b",fontSize:11,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
+        </div>
+        {/* Scrollable Content */}
+        <div style={{padding:"28px 40px",flex:1,minHeight:0,overflowY:"auto"}}>
+          {tab==="practice"?<div>
+            <div style={{borderLeft:"3px solid #94a3b8",paddingLeft:16,marginBottom:20}}>
+              <div style={{fontSize:13,color:"#64748b",lineHeight:1.7}}>Work each problem on paper first. When you are ready, reveal the answer to check your work, then view the full worked solution.</div>
+            </div>
+            {totalProblems>0&&Array.isArray(practiceProblems)?practiceProblems[pi]:practiceProblems}
+          </div>:s.content}
+        </div>
+        {/* Fixed Slide Navigation */}
+        {isSlideTab&&<div style={{padding:"6px 28px 8px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"1px solid #e2e8f0",flexShrink:0,background:"#f8fafc"}}>
+          <button onClick={prev} disabled={si===0} style={{padding:"5px 16px",border:si===0?"1px solid #e2e8f0":"1px solid #1e293b",background:si===0?"transparent":"#1e293b",color:si===0?"#94a3b8":"#fff",fontWeight:600,fontSize:11,cursor:si===0?"default":"pointer",transition:"all 0.15s"}}>← Back</button>
+          <div style={{display:"flex",gap:3}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?18:6,height:6,borderRadius:3,background:i===si?"#1e293b":"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+          <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"5px 16px",border:si===activeSlides.length-1?"1px solid #e2e8f0":"1px solid #1e293b",background:si===activeSlides.length-1?"transparent":"#1e293b",color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:600,fontSize:11,cursor:si===activeSlides.length-1?"default":"pointer",transition:"all 0.15s"}}>Next →</button>
+        </div>}
+        {/* Fixed Practice Navigation */}
+        {tab==="practice"&&totalProblems>1&&<div style={{padding:"6px 28px 8px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"1px solid #e2e8f0",flexShrink:0,background:"#f8fafc"}}>
+          <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"5px 16px",border:pi===0?"1px solid #e2e8f0":"1px solid #1e293b",background:pi===0?"transparent":"#1e293b",color:pi===0?"#94a3b8":"#fff",fontWeight:600,fontSize:11,cursor:pi===0?"default":"pointer",transition:"all 0.15s"}}>← Previous</button>
+          <div style={{display:"flex",gap:3}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?18:6,height:6,borderRadius:3,background:i===pi?"#1e293b":"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+          <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"5px 16px",border:pi===totalProblems-1?"1px solid #e2e8f0":"1px solid #1e293b",background:pi===totalProblems-1?"transparent":"#1e293b",color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:600,fontSize:11,cursor:pi===totalProblems-1?"default":"pointer",transition:"all 0.15s"}}>Next →</button>
+        </div>}
+      </div>}
     </div>
   );
 }
