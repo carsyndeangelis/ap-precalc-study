@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // ─── Components ───
 const B = ({children,c="#6366f1"})=><strong style={{color:c}}>{children}</strong>;
-const Box = ({bg="#f8fafc",border,children,s={}})=><div style={{background:bg,borderRadius:14,padding:"18px 22px",marginBottom:16,border:border||"none",lineHeight:1.85,...s}}>{children}</div>;
+const Box = ({bg="#f8fafc",border,children,s={}})=><div style={{background:bg,borderRadius:14,padding:"20px 24px",marginBottom:18,border:border||"none",lineHeight:1.9,...s}}>{children}</div>;
 const Tt = ({children,c="#1a1a2e"})=><div style={{fontSize:18,fontWeight:800,color:c,marginBottom:10,letterSpacing:"-0.01em"}}>{children}</div>;
 const Sm = ({children})=><div style={{fontSize:15,color:"#374151",lineHeight:1.9}}>{children}</div>;
 const Fm = ({children,label})=><div style={{background:"linear-gradient(135deg,#eef2ff,#fce7f3)",borderRadius:14,padding:"18px 24px",marginBottom:16,textAlign:"center",border:"2px solid #c7d2fe",boxShadow:"0 2px 8px rgba(99,102,241,0.08)"}}>{label&&<div style={{fontSize:11,fontWeight:800,color:"#6366f1",textTransform:"uppercase",letterSpacing:1.5,marginBottom:8}}>{label}</div>}<div style={{fontSize:19,fontFamily:"Georgia,serif",color:"#1a1a2e",fontWeight:700,lineHeight:1.6}}>{children}</div></div>;
@@ -27,6 +27,7 @@ const MathBox = ({children,color="#ef4444"})=><span style={{border:`2px solid ${
 const Arrow = ({text,color="#6366f1"})=><div style={{textAlign:"center",color,fontSize:13,fontFamily:"sans-serif",fontWeight:700,margin:"8px 0",padding:"6px",background:"#f8fafc",borderRadius:8,border:"1px dashed #cbd5e1"}}>{text} ↓</div>;
 const Ans = ({children})=><div style={{background:"linear-gradient(135deg,#fef2f2,#fff1f2)",border:"3px solid #ef4444",borderRadius:12,padding:"14px 20px",fontSize:18,color:"#b91c1c",fontWeight:800,fontFamily:"Georgia,serif",textAlign:"center",marginTop:12,boxShadow:"0 2px 8px rgba(239,68,68,0.12)"}}>{children}</div>;
 const FmUsed = ({children})=><div style={{background:"linear-gradient(135deg,#eef2ff,#e0e7ff)",border:"2px solid #a5b4fc",borderRadius:10,padding:"12px 18px",fontSize:15,color:"#4338ca",fontWeight:600,marginBottom:14,fontFamily:"Georgia,serif",textAlign:"center"}}><span style={{fontSize:11,fontFamily:"sans-serif",fontWeight:800,color:"#6366f1",textTransform:"uppercase",letterSpacing:0.5}}>Formula Used: </span>{children}</div>;
+const Strategy = ({children})=><div style={{background:"linear-gradient(135deg,#fefce8,#fef9c3)",border:"2px solid #facc15",borderRadius:14,padding:"18px 22px",marginBottom:18,lineHeight:1.85,boxShadow:"0 2px 8px rgba(250,204,21,0.10)"}}><div style={{fontWeight:800,color:"#854d0e",marginBottom:8,fontSize:13,textTransform:"uppercase",letterSpacing:0.5,display:"flex",alignItems:"center",gap:8}}>🎯 Strategy & Approach</div><div style={{fontSize:15,color:"#713f12"}}>{children}</div></div>;
 
 // ══════════════════════════════════════════════════
 //  UNIT 1 TOPICS
@@ -81,6 +82,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Evaluating f(x) = 200 + 10x", content:<div>
       <Q>Given f(x) = 200 + 10x. If the input value is 5, what is the output value?</Q>
+      <Strategy>We are asked to find the output when the input is 5. The approach is simple: take the function rule f(x) = 200 + 10x and replace every x with 5, then simplify using order of operations (multiply before adding). This is called "evaluating a function at a point" and it is the most fundamental skill you will use throughout this entire course.</Strategy>
       <FmUsed>f(x) = 200 + 10x → plug in x = 5</FmUsed>
       <WB>
         <MathLine>f(x) = 200 + 10x</MathLine>
@@ -96,6 +98,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Completing a Table", content:<div>
       <Q>Complete the table of values for f(x) = 200 + 10x.</Q>
+      <Strategy>We need to build a table by evaluating f(x) at several input values. The approach is straightforward: substitute each x-value (0, 1, 2, 3, 4) into f(x) = 200 + 10x one at a time and compute the output. Once the table is complete, look for a pattern in the outputs — you should notice the constant rate of change, which confirms this is a linear function.</Strategy>
       <FmUsed>f(x) = 200 + 10x → plug in each x value</FmUsed>
       <WB>
         <MathLine size={14}>f(<MathBox color="#6366f1">0</MathBox>) = 200 + 10(0) = 200 + 0 = <MathBox>200</MathBox></MathLine>
@@ -109,6 +112,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Verbal → Equation", content:<div>
       <Q>200 people are in a concert venue. The gate allows 10 people to enter every minute. Write C(t) for people at time t minutes.</Q>
+      <Strategy>We need to translate a real-world word problem into a function equation. The key idea is to identify two things: the starting value (how many people at time t = 0) and the rate of change (how many people are added per minute). Then we combine them using the pattern: total = starting value + rate times time. This "verbal to analytical" translation is one of the most tested skills on the AP exam.</Strategy>
       <WB>
         <MathLine size={14} color="#6366f1">Starting amount: <MathBox color="#6366f1">200</MathBox> people<Annotate>already inside at t = 0</Annotate></MathLine>
         <MathLine size={14} color="#22c55e">Rate: <MathBox color="#22c55e">10</MathBox> people per minute<Annotate color="#22c55e">this multiplies by time</Annotate></MathLine>
@@ -120,6 +124,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — True/False (Increasing, Decreasing, Concavity)", content:<div>
       <Q>Determine True or False for each statement about the graphs of f(x) and g(x).</Q>
+      <Strategy>For each True/False statement, we need to check the graph carefully on the EXACT interval given. The approach: for increasing/decreasing claims, trace the graph from left to right over the specified interval and check if the function ONLY goes one direction. For concavity claims, look at the bending direction (cup = concave up, frown = concave down). For zeros, check if the graph actually crosses the x-axis at those points. The key trap is that a function might increase on PART of an interval but not the whole thing.</Strategy>
       <Ex><Tt c="#92400e">Graph of f(x):</Tt>
         <Sm><B c="#ef4444">F</B> — f increases on −5{"<"}x{"<"}−2 <Annotate color="#ef4444">f decreases on part of this interval</Annotate></Sm>
         <Sm><B c="#22c55e">T</B> — f increases on 0{"<"}x{"<"}2 <Annotate color="#22c55e">uphill the whole time</Annotate></Sm>
@@ -169,6 +174,7 @@ const unit1Topics = [
     { title:"Example — AROC from a Table", content:<div>
       <Q>Find the average rate of change of f from x = 0 to x = 4.</Q>
       <Tb h={["x","−2","0","2","4"]} r={[["f(x)","−7","−2","0","5"]]}/>
+      <Strategy>We need to find the AROC over the interval [0, 4]. The approach is to read the output values f(0) and f(4) directly from the table, then plug them into the AROC formula: change in output divided by change in input. We are using the AROC formula because the question asks for an "average rate" over an interval, which is always the slope of the secant line between the two endpoints.</Strategy>
       <FmUsed>AROC = [ f(b) − f(a) ] / ( b − a )</FmUsed>
       <WB>
         <MathLine size={14}>a = 0, b = 4<Annotate>our interval is [0, 4]</Annotate></MathLine>
@@ -189,6 +195,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — AROC of a Height Function", content:<div>
       <Q>h(t) = −16t² − 12t + 25 (height in feet, time in seconds). Find the AROC from t = 2 to t = 4. Include units.</Q>
+      <Strategy>This is a three-step problem. First, we need to evaluate h(t) at both endpoints of the interval by substituting t = 2 and t = 4 into the quadratic formula. Then we plug both values into the AROC formula. We use the AROC formula because the question explicitly asks for an average rate over an interval. Be extra careful with negative signs in the quadratic — this is where most mistakes happen. Also remember to include units (ft/sec) since the question asks for them.</Strategy>
       <FmUsed>AROC = [ h(b) − h(a) ] / ( b − a )</FmUsed>
       <WB>
         <MathLine size={14} color="#6366f1"><b>Step 1: Find h(2)</b></MathLine>
@@ -210,6 +217,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Approximating Rate at a Point", content:<div>
       <Q>Approximate the instantaneous rate of change of h at t = 2 using shrinking intervals. (Recall: h(t) = −16t² − 12t + 25)</Q>
+      <Strategy>We cannot compute an instantaneous rate directly (that would require dividing by zero). Instead, our approach is to compute the AROC over intervals that start at t = 2 and end at points that get progressively closer: t = 2.5, then 2.1, then 2.01, then 2.001. As the interval shrinks, the AROC values converge to the instantaneous rate. This is the same idea behind the derivative in calculus. We use the same AROC formula each time, just with a smaller and smaller "b" value.</Strategy>
       <FmUsed>AROC = [ h(b) − h(a) ] / ( b − a ) over smaller and smaller intervals</FmUsed>
       <Wh>The AROC over an interval gives the "average speed" across that interval. But what if you want the speed at one EXACT moment? You cannot divide by zero (b − a = 0), so instead you compute AROC over intervals that get smaller and smaller around the point. The values settle down (converge) to a single number — that number is the instantaneous rate of change. In calculus, this is called the <B c="#1e40af">derivative</B>.</Wh>
       <WB>
@@ -267,9 +275,11 @@ const unit1Topics = [
         r={<Box bg="#fef2f2" border="2px solid #fca5a5"><Tt c="#991b1b">☹️ Concave Down</Tt><Sm>AROCs are <B c="#991b1b">decreasing</B> over equal-length intervals</Sm>
         <svg width="90" height="40" viewBox="0 0 90 40"><path d="M 5 35 Q 45 2, 85 35" stroke="#ef4444" strokeWidth="2.5" fill="none"/></svg></Box>}/>
       <W>The data must have EQUAL-LENGTH input intervals for these tests to work! If x goes 1,2,3,4 that's equal. If x goes 1,3,7,10 it's NOT.</W>
+      <Wh>Understanding linear vs quadratic is foundational. Linear = constant growth (e.g., $100/month savings). Quadratic = accelerating/decelerating growth (e.g., gravity). The AP exam tests this distinction constantly.</Wh>
     </div>},
     { title:"Example — Slope of a Secant Line (Points)", content:<div>
       <Q>Find the slope of the secant line from the point (−1, 4) to the point (1, −2).</Q>
+      <Strategy>We are given two points and need to find the slope of the line connecting them. This is exactly the AROC formula (which IS the slope formula). We will identify the coordinates from each point, plug into the formula, and simplify. Watch out for the double negative when subtracting x-values — 1 minus negative 1 becomes 1 + 1 = 2.</Strategy>
       <FmUsed>Slope of secant = [f(b) − f(a)] / (b − a)</FmUsed>
       <WB>
         <MathLine size={14}>Point 1: (−1, 4) → a = −1, f(a) = 4</MathLine>
@@ -289,6 +299,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Slope of a Secant Line (Function)", content:<div>
       <Q>For f(x) = (3/2)x² − 3/(2x + 6), find the slope of the secant line from (−1, f(−1)) to (3, f(3)).</Q>
+      <Strategy>Unlike the previous example where points were given, here we must first COMPUTE the y-values ourselves by evaluating the function at x = −1 and x = 3. This is a two-part problem: evaluate, then apply the slope formula. The function involves both a quadratic term and a rational term, so we need to be careful with fraction arithmetic. Find a common denominator before subtracting fractions.</Strategy>
       <FmUsed>Slope = [f(b) − f(a)] / (b − a)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find f(−1)</b></MathLine>
@@ -309,6 +320,7 @@ const unit1Topics = [
     { title:"Example — Proving a Function is Linear", content:<div>
       <Q>Find the AROC over each interval. Is f linear or quadratic?</Q>
       <Tb h={["x","−2","−1","0","1","2"]} r={[["f(x)","5","3","1","−1","−3"]]}/>
+      <Strategy>To classify a function as linear or quadratic from a table, we compute the AROC between every consecutive pair of points. If all AROCs are the same (constant), the function is linear. If the AROCs change but their changes are constant, the function is quadratic. The x-values are equally spaced (step of 1), so this test is valid.</Strategy>
       <FmUsed>AROC = [ f(b) − f(a) ] / ( b − a ) for each consecutive pair</FmUsed>
       <WB>
         <MathLine size={14}>[−2,−1]: (<MathBox color="#6366f1">3</MathBox> − <MathBox color="#6366f1">5</MathBox>) / (−1−(−2)) = −2/1 = <MathBox>−2</MathBox></MathLine>
@@ -320,10 +332,12 @@ const unit1Topics = [
         </div>
         <Ans>f is LINEAR (constant AROC, zero change)</Ans>
       </WB>
+      <Wh>On the AP exam, stating "the AROC is constant" is your justification that the function is linear. This is the definitive test — even if the data looks linear, you must show constant first differences to prove it.</Wh>
     </div>},
     { title:"Example — Proving a Function is Quadratic", content:<div>
       <Q>Find the AROC over each interval for g. What is the change in the AROC?</Q>
       <Tb h={["x","−2","−1","0","1","2"]} r={[["g(x)","−13","−3","1","−1","−9"]]}/>
+      <Strategy>First we compute the AROC for each consecutive pair of x-values (first differences). If they are not constant, the function is not linear — so we then compute the second differences (changes between consecutive AROCs). If those second differences are constant, we have a quadratic. We also check whether the AROCs are increasing or decreasing to determine concavity.</Strategy>
       <FmUsed>AROC for each interval, then find differences between consecutive AROCs</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>AROCs:</b></MathLine>
@@ -342,6 +356,7 @@ const unit1Topics = [
     { title:"Example — Concavity from AROC (Example 3)", content:<div>
       <Q>Find AROCs for h. Are they increasing or decreasing? Concave up or down?</Q>
       <Tb h={["x","−4","−2","0","2","4"]} r={[["h(x)","33","9","1","9","33"]]}/>
+      <Strategy>We will compute the AROC for each consecutive interval (note the interval width is 2, not 1 — that is fine as long as they are all equal). Then we look at the sequence of AROCs: if each one is larger than the previous, the AROCs are increasing, which means concave up. If each is smaller, the AROCs are decreasing, meaning concave down. Notice the symmetry in the outputs — that is a hint this is a quadratic.</Strategy>
       <FmUsed>AROC = Δy / Δx for each interval (note: interval width = 2)</FmUsed>
       <WB>
         <MathLine size={14}>[−4,−2]: (9−33)/(−2−(−4)) = −24/2 = <MathBox color="#22c55e">−12</MathBox></MathLine>
@@ -353,6 +368,8 @@ const unit1Topics = [
         </div>
         <Ans>AROCs are increasing → h is concave UP ☕</Ans>
       </WB>
+      <Wh>The symmetry in the outputs (33, 9, 1, 9, 33) is a dead giveaway that h is a quadratic with its vertex at x = 0. The AROCs go from negative to positive, passing through zero — this is the hallmark of a concave-up parabola.</Wh>
+      <Tp>On the AP exam, always state explicitly: "The AROCs are increasing over consecutive equal-length intervals, therefore the function is concave up." This is the expected justification language.</Tp>
     </div>},
   ]},
   { id:"1.4", name:"Polynomial Functions & Rates of Change", slides:[
@@ -385,6 +402,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Degree & Leading Coefficient", content:<div>
       <Q>Name the degree and leading coefficient of each polynomial.</Q>
+      <Strategy>For each polynomial, we need to find the term with the highest power of x. If the polynomial is already in standard form (descending order), the first term is the leading term. If not, we must rewrite it in descending order first. The degree is the exponent on the leading term, and the leading coefficient is the number multiplying it.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1.</b> p(x) = 3x⁴ + 2x³ + 7</MathLine>
         <MathLine size={14} indent={20}>Highest power: x⁴ → Degree = <MathBox color="#6366f1">4</MathBox></MathLine>
@@ -395,9 +413,11 @@ const unit1Topics = [
         <MathLine size={14} indent={20}>Highest power: x³ → Degree = <MathBox color="#6366f1">3</MathBox></MathLine>
         <MathLine size={14} indent={20}>Coefficient of x³: → LC = <MathBox color="#ec4899">−2</MathBox></MathLine>
       </WB>
+      <W>The second polynomial was NOT written in standard form! If you just look at the first term (5), you would incorrectly say degree 0. Always scan for the highest exponent across ALL terms before identifying the leading term.</W>
     </div>},
     { title:"Example — Local & Global Extrema from a Graph", content:<div>
       <Q>From a graph of a polynomial with restricted domain, identify all local minima, local maxima, and the global (absolute) minimum and maximum.</Q>
+      <Strategy>We will work in two phases. First, scan the graph for direction changes: wherever the function switches from decreasing to increasing, that is a local minimum; wherever it switches from increasing to decreasing, that is a local maximum. Second, to find GLOBAL extrema, compare ALL the local extrema values and pick the overall largest (global max) and smallest (global min). Since the domain is restricted, we also need to check the endpoint values.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find Local Extrema</b></MathLine>
         <MathLine size={14}>Where does the function switch from ↓ to ↑? → <B>Local minimum</B></MathLine>
@@ -414,6 +434,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Absolute Extrema with Technology", content:<div>
       <Q>Use technology to graph p(x) = x⁴ − 5x² + 1. Find the absolute maximum value and the absolute minimum value. Write N/A if none exists.</Q>
+      <Strategy>Before even touching the calculator, we should analyze the end behavior: the leading term is x raised to the 4th (even degree, positive coefficient), so both ends go to positive infinity. This immediately tells us there is NO absolute maximum. But there must be an absolute minimum somewhere in the valleys. We will use the calculator's minimum feature to find those valley points and pick the lowest one.</Strategy>
       <FmUsed>Graph on calculator → use max/min features to find extreme values</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Determine end behavior</b></MathLine>
@@ -429,6 +450,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Points of Inflection", content:<div>
       <Q>Five key points are labeled A, B, C, D, and E on the graph of a polynomial. Identify which points are inflection points.</Q>
+      <Strategy>An inflection point is where the concavity changes direction. Our approach: first determine the concavity (cup or frown shape) in each region of the graph. Then check each labeled point — does the concavity switch from up to down or from down to up at that point? If yes, it is an inflection point. If no, it is not. Remember: peaks and valleys (extrema) are NOT inflection points — those are where direction changes, not bending.</Strategy>
       <FmUsed>Inflection point = where concavity changes (concave up ↔ concave down)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Identify concavity in each region</b></MathLine>
@@ -476,6 +498,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Writing a Polynomial as Linear Factors", content:<div>
       <Q>The graph of p(x) = −x⁴+x³+4x²−4x has x-intercepts at (−2,0), (0,0), (1,0), and (2,0). Write p(x) as a product of linear factors.</Q>
+      <Strategy>Each x-intercept gives us a zero, and each zero gives us a factor: if x = a is a zero, then (x - a) is a factor. We will convert all four x-intercepts into factors and multiply them together. But we also need to check the leading coefficient: when we multiply our factors, the leading term must match the original polynomial's leading term of -x to the 4th. If it does not match, we include a constant out front.</Strategy>
       <FmUsed>If x = a is a zero of p(x), then (x − a) is a factor of p(x)</FmUsed>
       <WB>
         <Arrow text="Step 1: Convert each x-intercept into a factor"/>
@@ -494,6 +517,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Multiplicity and Graph Behavior at Zeros", content:<div>
       <Q>Given f(x) = x(x+3)⁴(x−2)⁵, find the degree and describe how the graph behaves at each zero (crosses, bounces, or wiggles).</Q>
+      <Strategy>Since the polynomial is already in factored form, we can read the zeros and their multiplicities directly from each factor. The degree equals the sum of all exponents. For graph behavior: odd multiplicity of 1 means the graph crosses straight through, even multiplicity means it bounces off, and odd multiplicity of 3 or more means it wiggles through. Set each factor equal to zero to find the x-value of each zero.</Strategy>
       <FmUsed>Degree = sum of all exponents · Mult 1 → crosses · Mult even → bounces · Mult odd ≥ 3 → wiggles</FmUsed>
       <WB>
         <Arrow text="Step 1: Find the degree by adding all exponents"/>
@@ -512,6 +536,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Finding a Missing Zero Using Conjugate Pairs", content:<div>
       <Q>A cubic polynomial p(x) = ax³+bx²+cx+d has real coefficients. It has an x-intercept at (1.7, 0) and one zero is 2.3 − 1.5i. What is the third zero?</Q>
+      <Strategy>A cubic polynomial has exactly 3 zeros. We already know two of them (the real one from the x-intercept and one complex zero). Since the polynomial has real coefficients, the Conjugate Pairs Theorem guarantees that complex zeros come in pairs. So we just need to find the conjugate of the given complex zero by flipping the sign of the imaginary part.</Strategy>
       <FmUsed>Complex zeros of polynomials with real coefficients always come in conjugate pairs: if a + bi is a zero, then a − bi must also be a zero.</FmUsed>
       <WB>
         <Arrow text="Step 1: Count how many zeros we need"/>
@@ -529,6 +554,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Successive Differences", content:<div>
       <Q>Use successive differences to find the degree of each polynomial.</Q>
+      <Strategy>We will apply the successive differences method: compute first differences between consecutive outputs. If constant, the polynomial is degree 1. If not, compute second differences. If those are constant, degree 2. We keep going until we find a constant level. The level at which differences become constant equals the polynomial's degree. This only works because the x-values are equally spaced.</Strategy>
       <Wh>Successive differences work because of a fundamental property of polynomials: the nth differences of a degree-n polynomial at equally spaced inputs are always constant. First differences detect linear (degree 1), second differences detect quadratic (degree 2), third differences detect cubic (degree 3). The level at which the differences become constant tells you the degree.</Wh>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Example 1:</b></MathLine>
@@ -564,6 +590,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Even and Odd Functions", content:<div>
       <Q>Indicate whether each function is even (E) or odd (O). Remember: even = all even exponents, odd = all odd exponents.</Q>
+      <Strategy>For polynomials, there is a quick shortcut: check if ALL exponents are even (even function) or ALL are odd (odd function). But the AP exam wants you to show the formal verification: replace every x with (-x), simplify, and check whether the result equals f(x) (even) or -f(x) (odd). We will do both the quick check and the formal proof for each polynomial.</Strategy>
       <FmUsed>Even: f(−x) = f(x) (y-axis symmetry) · Odd: f(−x) = −f(x) (origin symmetry)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1.</b> p(x) = x⁵</MathLine>
@@ -602,9 +629,11 @@ const unit1Topics = [
       <Tb h={["Degree","Lead Coeff","x→−∞","x→+∞","Visual"]} r={[["Even","+","+∞","+∞","↑ ↑"],["Even","−","−∞","−∞","↓ ↓"],["Odd","+","−∞","+∞","↓ ↑"],["Odd","−","+∞","−∞","↑ ↓"]]}/>
       <Tp>Quick trick: Look at the RIGHT side first. + coeff → right goes UP. − coeff → right goes DOWN. Then: even = left matches, odd = left is opposite.</Tp>
       <W>Write end behavior using LIMIT NOTATION on the AP exam: lim(x→∞) p(x) = ∞ and lim(x→−∞) p(x) = −∞, NOT just "up" or "down."</W>
+      <Wh>End behavior tells you the long-term trend of a function. The leading term dominates for very large inputs, making all smaller terms irrelevant.</Wh>
     </div>},
     { title:"Example — End Behavior from an Equation", content:<div>
       <Q>Identify the leading term, degree, and end behavior of p(x) = −2x³ − 4x² + 5x − 3. Write end behavior using limit notation.</Q>
+      <Strategy>End behavior depends ONLY on the leading term. Our three-step approach: (1) identify the leading term by finding the highest-power term, (2) determine the degree (even or odd) and sign of the leading coefficient (positive or negative), (3) apply the end behavior rules. Odd degree means opposite ends, and the negative coefficient means the right side goes down. Write the answer in formal limit notation as the AP exam requires.</Strategy>
       <FmUsed>Leading term determines end behavior: degree (even/odd) + sign of LC (±)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Identify the leading term</b></MathLine>
@@ -616,9 +645,11 @@ const unit1Topics = [
         <MathLine size={14}>Odd degree + negative coeff → left UP, right DOWN</MathLine>
         <Ans>lim(x→−∞) p(x) = +∞ · lim(x→∞) p(x) = −∞</Ans>
       </WB>
+      <Wh>Think of it this way: the leading term -2x cubed behaves like a "mirror image" of x cubed. Normal x cubed goes from bottom-left to top-right. Multiplying by -2 flips it vertically, so it goes from top-left to bottom-right. All those other terms (-4x squared, +5x, -3) are irrelevant for end behavior — they get overwhelmed by the cubic term when x is huge.</Wh>
     </div>},
     { title:"Example — End Behavior from Graphs", content:<div>
       <Q>From each graph, determine a possible degree, the sign of the leading coefficient, and write the end behavior using limit notation.</Q>
+      <Strategy>For each graph, we reverse-engineer the polynomial's properties from its shape. Step 1: look at the far left and far right tails — do they go the same direction (even degree) or opposite (odd degree)? Step 2: check the right tail — if it goes up, the leading coefficient is positive; if down, negative. Step 3: count turning points to estimate the minimum possible degree (a polynomial with k turning points has degree at least k+1). Write everything in limit notation.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Graph 1: Left end goes down, right end goes up</b></MathLine>
         <MathLine size={14} color="#6366f1"><b>Step 1:</b> Look at far left: curve heads down (→ −∞). Far right: curve heads up (→ +∞).</MathLine>
@@ -637,6 +668,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — End Behavior with SVG Graphs", content:<div>
       <Q>Match each graph to its leading term and write end behavior in limit notation.</Q>
+      <Strategy>This is a visual reference exercise. For each of the four possible end behavior combinations (even/odd degree crossed with positive/negative leading coefficient), we will identify the pattern: which direction do the left and right tails go? Memorize these four shapes — they cover every possible polynomial end behavior case, and the AP exam frequently shows graphs and asks you to determine the leading term.</Strategy>
       <Sm>For each graph below, focus on the <B>far left edge</B> and <B>far right edge</B>. Ask: (1) Do the two tails go the same direction or opposite? Same = even degree, opposite = odd degree. (2) Where does the right tail go? Up = positive LC, down = negative LC.</Sm>
       <G l={<Box bg="#eef2ff" s={{textAlign:"center"}}><Tt c="#4338ca">Odd Degree, + Coeff</Tt>
         <svg width="120" height="80" viewBox="0 0 120 80"><line x1="5" y1="40" x2="115" y2="40" stroke="#ddd"/><line x1="60" y1="2" x2="60" y2="78" stroke="#ddd"/><path d="M 5 72 C 30 65, 45 48, 60 40 C 75 32, 90 15, 115 8" stroke="#6366f1" strokeWidth="2.5" fill="none"/><text x="10" y="75" fontSize="7" fill="#ef4444">−∞</text><text x="100" y="12" fontSize="7" fill="#22c55e">+∞</text></svg>
@@ -679,6 +711,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Finding Horizontal Asymptotes", content:<div>
       <Q>Find the horizontal asymptote (if one exists) for each rational function.</Q>
+      <Strategy>For each function, we compare the degree of the numerator (n) to the degree of the denominator (d). There are exactly three cases: if n is less than d, the HA is y = 0; if n equals d, the HA is the ratio of leading coefficients; if n is greater than d, there is no HA. We just need to identify the highest power in the top and bottom of each fraction.</Strategy>
       <FmUsed>Compare n (degree of numerator) vs d (degree of denominator)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1.</b> f(x) = (x − 2)/(x² − 9)</MathLine>
@@ -692,6 +725,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Leading Term Ratios & End Behavior", content:<div>
       <Q>Find the quotient of leading terms and use it to describe end behavior.</Q>
+      <Strategy>The key technique: take ONLY the leading term from the numerator and ONLY the leading term from the denominator, then simplify that fraction. If it simplifies to a constant, that constant is the HA. If it simplifies to a polynomial (like 2x squared or -2x), there is no HA, and the function's end behavior matches that polynomial. This is the most efficient method for rational function end behavior.</Strategy>
       <FmUsed>Quotient of leading terms = (leading term of num) / (leading term of den)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1.</b> r(x) = (4x³−3x+1)/(2x³+5x+1)</MathLine>
@@ -707,6 +741,8 @@ const unit1Topics = [
         <MathLine size={14} indent={20}>Ratio: −2x³/x² = <MathBox color="#6366f1">−2x</MathBox> → slant asymptote ∥ y = −2x</MathLine>
         <Ans>lim(x→∞) = −∞ · lim(x→−∞) = +∞</Ans>
       </WB>
+      <Wh>Notice how problems 3 and 4 produce nonconstant leading term ratios (x cubed and -2x). These tell you the rational function behaves like a polynomial for large x-values. When the ratio is linear (like -2x), you get a slant asymptote — the graph approaches a diagonal line rather than a horizontal one.</Wh>
+      <Tp>On the AP exam, if you see a rational function where the numerator degree exceeds the denominator degree by exactly 1, immediately think "slant asymptote" and prepare to do polynomial long division to find it.</Tp>
     </div>},
   ]},
   { id:"1.8", name:"Rational Functions & Zeros", slides:[
@@ -728,9 +764,11 @@ const unit1Topics = [
         <B c="#dc2626">4.</B> Select intervals matching the inequality
       </Sm></Box>
       <Tp>Denominator zeros are NEVER included in the solution (even for ≤ or ≥) because the function is undefined there!</Tp>
+      <Wh>Rational inequalities appear on the AP exam in context problems like "for what values is the population increasing?" The number line method works every time and gives the complete solution.</Wh>
     </div>},
     { title:"Example — Finding Zeros & Solving Inequality", content:<div>
       <Q>Find the real zeros of r(x) = (x³−5x²+6x)/(x²−2x−3). Then solve r(x) ≥ 0.</Q>
+      <Strategy>This is a two-part problem. First, to find zeros we factor both numerator and denominator completely, then check which numerator zeros are NOT also denominator zeros (shared zeros create holes, not x-intercepts). Second, for the inequality, we place all critical values (numerator zeros and denominator zeros) on a number line, test the sign of r(x) in each interval, and select the intervals where r(x) is non-negative. Remember: denominator zeros get open circles because the function is undefined there.</Strategy>
       <FmUsed>Factor num and den. Zeros of num (where den ≠ 0) are real zeros. Use number line for inequality.</FmUsed>
       <WB>
         <MathLine size={14}>Num: x(x−3)(x−2) · Den: (x−3)(x+1)</MathLine>
@@ -768,6 +806,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Finding Vertical Asymptotes", content:<div>
       <Q>Find the vertical asymptotes of r(x) = (x²−8x+7)/(x²+x−6).</Q>
+      <Strategy>Vertical asymptotes occur where the denominator equals zero but the numerator does NOT. Our approach: factor both numerator and denominator, find the zeros of the denominator, then check each one by plugging into the numerator. If the numerator is nonzero at that point, we have a VA. If the numerator is also zero, it is a hole instead. Always write VAs as equations (x = value).</Strategy>
       <FmUsed>Factor num & den → check if den zeros also zero the num</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Factor numerator</b></MathLine>
@@ -783,6 +822,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — One-Sided Limits from a Graph", content:<div>
       <Q>A rational function r(x) has VAs at x = −2 and x = 4. Use the graph to determine the one-sided limits at each VA.</Q>
+      <Strategy>For each vertical asymptote, we need to determine what happens as x approaches from the LEFT (x approaches a from below, written a minus) and from the RIGHT (x approaches a from above, written a plus). We trace the graph on each side of the VA and check whether the curve shoots up toward positive infinity or down toward negative infinity. If the directions are opposite, the VA has odd multiplicity; if the same, even multiplicity.</Strategy>
       <FmUsed>lim(x→a⁺) = value from the RIGHT · lim(x→a⁻) = value from the LEFT</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>At x = −2:</b></MathLine>
@@ -798,6 +838,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Graphing & Limits of a Rational Function", content:<div>
       <Q>Graph v(x) = (x²−5x+4)/(x²+4x−12) on your calculator. Find the VAs and determine the one-sided limits at each VA.</Q>
+      <Strategy>We will combine algebraic analysis with technology. First, factor both numerator and denominator to find VAs algebraically (denominator zeros where the numerator is nonzero). Then use the calculator graph to visually determine which direction each side of each VA goes (positive or negative infinity). This two-pronged approach — algebra to find WHAT the VAs are, calculator to determine HOW the function behaves near them — is the most reliable method.</Strategy>
       <FmUsed>Factor → find VAs → use calculator graph for limit directions</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Factor</b></MathLine>
@@ -849,6 +890,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Finding a Hole and Its Limit", content:<div>
       <Q>Find the hole in r(x) = (x²−8x+7)/(x²+x−2). Write the limit.</Q>
+      <Strategy>A hole occurs when a factor cancels from both numerator and denominator. Our approach: (1) factor both top and bottom, (2) identify the common factor, (3) cancel it to get the simplified function, (4) the x-coordinate of the hole comes from setting the cancelled factor to zero, (5) the y-coordinate comes from plugging that x into the SIMPLIFIED function (not the original!). The limit at the hole equals this y-value.</Strategy>
       <FmUsed>Factor → cancel common factor → plug into simplified function</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Factor numerator:</b></MathLine>
@@ -865,6 +907,7 @@ const unit1Topics = [
         <MathLine size={14}>y = f(1) = (1−7)/(1+2) = −6/3 = <MathBox>−2</MathBox></MathLine>
         <Ans>Hole at (1, −2) · lim(x→1) r(x) = −2</Ans>
       </WB>
+      <W>If you plug x = 1 into the ORIGINAL function, you get 0/0, which is undefined. That is the whole point of a hole — the function literally has a missing point. You must use the simplified function to find the y-value. On the AP exam, always state that the limit exists even though the function is undefined there.</W>
     </div>},
   ]},
   { id:"1.11", name:"Equivalent Representations of Polynomial & Rational Expressions", slides:[
@@ -897,6 +940,7 @@ const unit1Topics = [
     </div>},
     { title:"Example — Full Rational Analysis", content:<div>
       <Q>For r(x) = (2x²−x−15)/(x²−2x−3): find HA, zeros, VA, hole.</Q>
+      <Strategy>This is a complete rational function analysis — the type of problem that combines everything from sections 1.7 through 1.10. Our approach: (1) factor both numerator and denominator, (2) identify and cancel common factors (these create holes), (3) find the HA by comparing degrees, (4) find zeros from the remaining numerator factors, (5) find VAs from the remaining denominator factors. Always work with the simplified function after canceling for zeros and VAs.</Strategy>
       <WB>
         <MathLine size={14}>Factor num: (2x+5)(x−3)</MathLine>
         <MathLine size={14}>Factor den: (x−3)(x+1)</MathLine>
@@ -907,9 +951,12 @@ const unit1Topics = [
         <MathLine size={14}>VA: x+1=0 → <MathBox color="#ef4444">x=−1</MathBox></MathLine>
         <MathLine size={14}>Hole y: f(3)=(2(3)+5)/(3+1)=11/4 → <MathBox color="#f59e0b">Hole (3, 11/4)</MathBox></MathLine>
       </WB>
+      <Wh>This type of "full analysis" question is a favorite on the AP exam. The key insight: factoring reveals EVERYTHING about a rational function. Once you have the factored form, you can read off the HA (from degree comparison), zeros (numerator), VAs (denominator), and holes (common factors) all at once.</Wh>
+      <Tp>Create a checklist: HA, zeros, VAs, holes, y-intercept. Work through each one systematically. Missing one feature is a common way to lose points on the AP exam.</Tp>
     </div>},
     { title:"Example — Long Division (Whiteboard)", content:<div>
       <Q>Divide (x²−5x+7) by (x−3). Find the slant asymptote.</Q>
+      <Strategy>Since the numerator degree (2) exceeds the denominator degree (1) by exactly 1, there is a slant asymptote. We find it using polynomial long division, which follows the same process as long division with numbers: divide the leading terms, multiply back, subtract, bring down the next term, and repeat. The quotient (ignoring the remainder) is the slant asymptote equation.</Strategy>
       <FmUsed>Divide → Multiply → Subtract → Repeat</FmUsed>
       <WB>
         <div style={{fontFamily:"'Courier New',monospace",fontSize:14,lineHeight:2,whiteSpace:"pre"}}>
@@ -928,6 +975,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Binomial Expansion", content:<div>
       <Q>Expand (x+2)⁴ and (x−3)³ using Pascal's Triangle.</Q>
+      <Strategy>For each binomial expansion, we follow the same pattern: (1) look up row n of Pascal's Triangle for the coefficients, (2) write each term as coefficient times a-power-decreasing times b-power-increasing, (3) compute the powers of b and multiply everything out. For (x-3) cubed, be extra careful — the "b" is -3 (not 3), so odd powers of b will be negative, creating alternating signs in the final answer.</Strategy>
       <FmUsed>(a+b)ⁿ: use row n of Pascal Triangle for coefficients. Powers of a go n to 0, powers of b go 0 to n.</FmUsed>
       <WB>
         <div style={{textAlign:"center",fontFamily:"monospace",fontSize:14,lineHeight:1.8}}>1<br/>1 &nbsp;1<br/>1 &nbsp;2 &nbsp;1<br/><b>1 &nbsp;3 &nbsp;3 &nbsp;1</b><br/><b style={{color:"#166534"}}>1 &nbsp;4 &nbsp;6 &nbsp;4 &nbsp;1</b></div>
@@ -970,6 +1018,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Describing Transformations", content:<div>
       <Q>For each function, describe the transformation(s) applied to f.</Q>
+      <Strategy>For each function, we need to identify what changed compared to the original f(x). The key rule: changes OUTSIDE the function (adding/multiplying the output) are vertical transformations that go in the expected direction. Changes INSIDE the function (adding/multiplying the input) are horizontal transformations that go in the OPPOSITE direction. Look at where the number appears relative to f to classify each transformation.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1. g(x) = f(x) + 7</b></MathLine>
         <MathLine size={14}>+7 is OUTSIDE → <MathBox color="#22c55e">vertical translation UP 7 units</MathBox></MathLine>
@@ -984,6 +1033,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Combined Transformation Description", content:<div>
       <Q>Let g(x) = (1/2)f(x/3) + 4. Describe the transformations in the correct order to construct the graph of g from f.</Q>
+      <Strategy>We need to match g(x) = (1/2)f(x/3) + 4 to the general form g(x) = a times f(b(x - h)) + k. Identify each parameter: a = 1/2, b = 1/3, h = 0 (no shift), k = 4. Then apply transformations in the required order: horizontal dilation first, then horizontal shift, then vertical dilation, then vertical shift. Getting this order wrong changes the final graph.</Strategy>
       <FmUsed>g(x) = a·f(b(x − h)) + k → Order: horiz dilation → horiz shift → vert dilation → vert shift</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Identify the constants:</b></MathLine>
@@ -999,6 +1049,7 @@ x − 3  │ x² − 5x + 7`}
     { title:"Example — Transformations with a Table", content:<div>
       <Q>g(x) = 4f(x−1)−5 (shift right 1, vert ×4, down 5). Given the table, find g(2).</Q>
       <Tb h={["x","−1","0","1","2"]} r={[["f(x)","−2","2","5","2"]]}/>
+      <Strategy>When evaluating a transformed function from a table, always work from the INSIDE OUT. First, compute the inner expression: x - 1 = 2 - 1 = 1. This tells us we need f(1), not f(2)! Look up f(1) in the table. Then apply the outer transformations: multiply by 4, then subtract 5. The most common mistake is using f(2) directly instead of f(1) — the horizontal shift changes which table value you look up.</Strategy>
       <FmUsed>g(x) = 4·f(x − 1) − 5</FmUsed>
       <WB>
         <MathLine>g(<MathBox color="#6366f1">2</MathBox>) = 4 · f(<MathBox color="#6366f1">2</MathBox> − 1) − 5</MathLine>
@@ -1014,6 +1065,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Combined Transformations: Domain & Range", content:<div>
       <Q>f(x) has domain [−2, 5] and range [−1, 2]. Let g(x) = −2f(x − 1) + 3. Find the domain and range of g.</Q>
+      <Strategy>We handle domain and range separately. For the domain: the (x - 1) inside shifts the domain right by 1, so we add 1 to both endpoints. For the range: we apply vertical transformations to the range endpoints in order — first multiply by -2 (which flips the interval and stretches it), then add 3. The critical trap: multiplying by a negative number reverses the inequality, so the min and max swap positions.</Strategy>
       <FmUsed>g(x) = a·f(b(x − h)) + k → Horizontal: domain shifts/stretches. Vertical: range shifts/stretches.</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Domain of g:</b></MathLine>
@@ -1051,6 +1103,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Identifying Linear vs Quadratic vs Piecewise Data", content:<div>
       <Q>For each data set, explain why it models a linear, quadratic, or piecewise linear function.</Q>
+      <Strategy>For each data set, we apply the successive differences test. Compute first differences: if constant, it is linear. If not constant, compute second differences: if constant, it is quadratic. If neither works but we see two different constant rates on different sub-intervals, it is piecewise linear. Always verify that x-values are equally spaced before using this method.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Data Set 1:</b></MathLine>
         <Tb h={["x","−3","−2","−1","0","1"]} r={[["f(x)","4","7","10","13","16"]]}/>
@@ -1065,9 +1118,11 @@ x − 3  │ x² − 5x + 7`}
         <MathLine size={14}>Rate of change: −5 for x∈[−4,−1], then +2 for x∈[−1,2]</MathLine>
         <Ans>PIECEWISE LINEAR — two different constant rates on different intervals</Ans>
       </WB>
+      <Wh>On the AP exam, you must JUSTIFY your model choice. Saying "it looks quadratic" is not enough. You need to say something like "the second differences are constant at 2, indicating a quadratic model" or "the rate of change is constant at 3, so a linear model is appropriate."</Wh>
     </div>},
     { title:"Example — Geometric Model: Area (Quadratic)", content:<div>
       <Q>A pool has length = 3w. A cool deck 2ft wide is placed along the length and 3ft wide on each end. Write A(w) for total area.</Q>
+      <Strategy>This is a geometric area problem, which means we are multiplying two dimensions together, resulting in a quadratic. The approach: (1) express the TOTAL length and TOTAL width including the deck, all in terms of w, (2) multiply them using FOIL or distribution, (3) simplify. The deck adds extra width on BOTH sides, so we add twice for each direction. Then find domain and range from the physical constraints.</Strategy>
       <FmUsed>Area = length × width (2 dimensions → quadratic)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Express ALL dimensions in terms of w</b></MathLine>
@@ -1084,6 +1139,7 @@ x − 3  │ x² − 5x + 7`}
     </div>},
     { title:"Example — Geometric Model: Volume (Cubic)", content:<div>
       <Q>A fish tank has width w, height = 2w, and length = 4w (all in inches). Write V(w). If h ≤ 24 in, find domain and range.</Q>
+      <Strategy>This is a volume problem — multiplying three dimensions together produces a cubic function. All three dimensions are given in terms of w, so we simply multiply them. For domain and range: use the physical constraint (h is at most 24 inches) to find the maximum w, then evaluate V at that maximum w to find the range. Since dimensions must be positive, w must be greater than 0.</Strategy>
       <FmUsed>Volume = length × width × height (3 dimensions → cubic)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Express all dimensions</b></MathLine>
@@ -1142,6 +1198,7 @@ x − 3  │ x² − 5x + 7`}
     { title:"Example — Cubic Regression (Roller Coaster)", content:<div>
       <Q>A roller coaster's height is recorded at 2-second intervals. Use cubic regression to model the height and predict h(7).</Q>
       <Tb h={["t (sec)","0","2","4","6","8","10"]} r={[["h (ft)","0","22","23","6","2","17"]]}/>
+      <Strategy>Since the data shows two direction changes (up then down then up), a cubic model is appropriate — cubics can have two turning points. Our approach: enter the data into calculator lists, run CubicReg to get the equation, then substitute t = 7 to predict the height. We use the calculator for regression because it finds the best-fit coefficients that minimize error across all data points.</Strategy>
       <FmUsed>Enter data → STAT → CALC → CubicReg</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Enter data into L1 and L2</b></MathLine>
@@ -1154,9 +1211,12 @@ x − 3  │ x² − 5x + 7`}
         <MathLine size={14} indent={24}>= 116.277 − 261.268 + 148.071 − 0.317</MathLine>
         <Ans>h(7) ≈ 2.790 feet</Ans>
       </WB>
+      <W>A regression model is an approximation, not an exact equation. The predicted h(7) may not match what the actual height would be — it is an estimate based on the pattern in the data. On the AP exam, acknowledge this by saying "the model predicts" rather than "the height IS."</W>
+      <Tp>Store the regression equation in Y1 on your calculator so you can quickly evaluate it at any input without retyping the long decimal coefficients.</Tp>
     </div>},
     { title:"Example — Inverse Variation (Soap Company)", content:<div>
       <Q>A soap company finds that bar sales are inversely proportional to price. At $8/bar, they sell 100 bars. Find k, write the model, predict sales at $6, and find the price if 125 bars are sold.</Q>
+      <Strategy>"Inversely proportional" means y = k/x. Our approach: (1) find k by multiplying the known price and quantity (since k = x times y for inverse variation), (2) write the model b(x) = k/x, (3) for predictions, plug in the known variable and solve for the unknown. This model says that as price goes up, sales go down proportionally — a common real-world relationship.</Strategy>
       <FmUsed>Inverse variation: b(x) = k/x where k = price × quantity</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find k</b></MathLine>
@@ -1167,9 +1227,11 @@ x − 3  │ x² − 5x + 7`}
         <MathLine size={14} color="#4338ca"><b>Step 3: Find price for 125 bars</b></MathLine>
         <MathLine size={14}>125 = 800/x → x = 800/125 = <MathBox>$6.40</MathBox></MathLine>
       </WB>
+      <Wh>Inverse variation means the product x times y is always constant (here, price times sales always equals 800). This is a key property: if you see a data set where multiplying each x by its corresponding y gives the same number, the relationship is inverse variation.</Wh>
     </div>},
     { title:"Example — Rational Function Model (Oysters)", content:<div>
       <Q>Oysters are modeled by P(t) = 200t/(0.002t+1) + 300 where t is months after harvesting stops. Find P(1) and the AROC from t=2 to t=4.</Q>
+      <Strategy>This is a two-part problem using a real-world rational function model. For part 1, we simply substitute t = 1 into the formula and compute carefully (the denominator is 0.002 times 1 plus 1). For part 2, we evaluate P at both t = 2 and t = 4, then apply the AROC formula. Since this function has decimals, use your calculator to avoid arithmetic errors. The sign and magnitude of the AROC will tell us whether the oyster population is growing or shrinking.</Strategy>
       <FmUsed>P(t) = 200t/(0.002t+1) + 300 · AROC = [P(b)−P(a)]/(b−a)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find P(1)</b></MathLine>
@@ -1251,19 +1313,26 @@ const unit2Topics = [
     </div>},
     { title:"Example — Arithmetic: Common Difference & nth Term", content:<div>
       <Q>Given the arithmetic sequence 3, 9, 15, 21, 27, ... (a₁ = 3). Find d, write aₙ, find a₁₀.</Q>
+      <Strategy>We have a list of numbers and need to find three things: the common difference, a general formula, and a specific term. First, we will find d by subtracting consecutive terms. Then we will plug a1 and d into the formula. Finally, we substitute n = 10 to find the 10th term. We use the from-a1 version because the problem gives us a1 directly.</Strategy>
       <FmUsed>aₙ = a₁ + d(n − 1) where a₁ is the 1st term</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a) Find common difference:</b></MathLine>
+        <Arrow text="Subtract consecutive terms: d = next term minus current term"/>
         <MathLine size={14}>d = 9 − 3 = <MathBox color="#6366f1">6</MathBox><Annotate>subtract any two consecutive terms</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>b) Write expression for aₙ:</b></MathLine>
+        <Arrow text="Substitute a₁ = 3 and d = 6 into the formula"/>
         <MathLine size={14}>aₙ = 3 + 6(n − 1)<Annotate>plug in a₁ = 3, d = 6</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>c) Find the 10th term:</b></MathLine>
-        <MathLine size={14}>a₁₀ = 3 + 6(<MathBox color="#6366f1">10</MathBox> − 1) = 3 + 6(9) = 3 + 54</MathLine>
+        <Arrow text="Plug in n = 10 and simplify step by step"/>
+        <MathLine size={14}>a₁₀ = 3 + 6(<MathBox color="#6366f1">10</MathBox> − 1) = 3 + 6(9) = 3 + 54<Annotate>10 − 1 = 9, then 6 × 9 = 54</Annotate></MathLine>
         <Ans>a₁₀ = 57</Ans>
       </WB>
+      <W>The formula uses (n minus 1), not n. To reach the 10th term from a1, you add d only 9 times. Using n instead of (n minus 1) gives the wrong answer.</W>
+      <Tp>Quick check: count up manually for a few terms. a1=3, a2=9, a3=15 each goes up by 6. That confirms d = 6.</Tp>
     </div>},
     { title:"Example — Arithmetic from a₁ and d", content:<div>
       <Q>a₁ = −4, common difference d = 6. Find the 10th term.</Q>
+      <Strategy>We are given a1 and d directly, so this is a straightforward substitution. We will plug a1 = -4 and d = 6 into the arithmetic sequence formula, then set n = 10. Watch for the (n minus 1) factor and careful sign handling with the negative starting value.</Strategy>
       <Wh>In an arithmetic sequence, <B>a₁</B> is the starting value (the very first term) and <B>d</B> is the common difference (the constant amount added to get from one term to the next). The formula aₙ = a₁ + d(n − 1) says: "start at a₁, then add d a total of (n − 1) times." Why (n − 1) and not n? Because to reach the 2nd term you add d once, to reach the 3rd you add d twice, etc. — you always add d one fewer time than the term number.</Wh>
       <FmUsed>aₙ = a₁ + d(n − 1)</FmUsed>
       <WB>
@@ -1282,6 +1351,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Geometric: Common Ratio & nth Term", content:<div>
       <Q>Given the geometric sequence 2/3, 2, 6, 18, ... (g₁ = 2/3). Find r, write gₙ, find g₅.</Q>
+      <Strategy>This is a three-part geometric sequence problem. First, we will find r by dividing consecutive terms (since geometric means constant multiplication, division reveals the multiplier). Then we will write the general formula using g1 and r. Finally, we will plug in n = 5 to find the 5th term. Be careful with fraction arithmetic when dividing by 2/3.</Strategy>
       <Wh>In a geometric sequence, each term is found by <B>multiplying</B> the previous term by a constant ratio r. To find r, we <B>divide</B> any term by the one before it — this "undoes" the multiplication and reveals the ratio. Unlike arithmetic sequences (which grow by addition), geometric sequences grow by <B>repeated multiplication</B>, which produces exponential growth or decay.</Wh>
       <FmUsed>gₙ = g₁ · r⁽ⁿ⁻¹⁾</FmUsed>
       <WB>
@@ -1307,6 +1377,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Geometric from g₁ and r", content:<div>
       <Q>g₁ = −4, common ratio r = −2. Find the 6th term.</Q>
+      <Strategy>We are given g1 and r directly, so we substitute into the geometric formula and plug in n = 6. The tricky part here is that both g1 and r are negative, so we need to be very careful with signs. We will evaluate the power of a negative base first, then multiply by g1. Remember: odd powers of negatives stay negative, even powers become positive.</Strategy>
       <FmUsed>gₙ = g₁ · r⁽ⁿ⁻¹⁾</FmUsed>
       <WB>
         <Arrow text="Step 1: Write the general formula with g₁ and r substituted"/>
@@ -1326,6 +1397,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Identifying from Graphs", content:<div>
       <Q>Two graphs of sequences are shown. Identify which is arithmetic vs geometric and write expressions.</Q>
+      <Strategy>For each graph, we will check the shape of the plotted points. If the dots fall on a straight line, that means constant addition (arithmetic). If the dots fall on a curve, that means constant multiplication (geometric). Once classified, we read the first point for a1 or g1, compute d or r from the spacing or ratios, and write the formula.</Strategy>
       <Wh>Arithmetic sequences add a constant, so their graphs are <B>discrete points that fall on a straight line</B> (just like a linear function). Geometric sequences multiply by a constant, so their graphs are <B>discrete points that fall on an exponential curve</B> (either growing or decaying). This visual distinction is the fastest way to classify a sequence on the AP exam.</Wh>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Graph 1 (linear pattern):</b> Arithmetic</MathLine>
@@ -1373,31 +1445,43 @@ const unit2Topics = [
     </div>},
     { title:"Example — Arithmetic Sequence → Linear Function", content:<div>
       <Q>Given arithmetic sequence 3, ___, ___, 15, ... AND linear function with points (1,3) and (4,15). Write expressions for both.</Q>
+      <Strategy>We know two terms of an arithmetic sequence (a1 = 3, a4 = 15) and need to find d. We will set up the equation 15 = 3 + d(4-1) and solve. Then for the linear function, the slope m equals d because arithmetic sequences are the discrete version of linear functions. Both formulas use the same starting point and rate of change.</Strategy>
       <FmUsed>Arith: aₙ = aₖ + d(n−k) · Linear: y = yᵢ + m(x−xᵢ)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Arithmetic Sequence:</b></MathLine>
-        <MathLine size={14}>a₁ = 3, a₄ = 15</MathLine>
-        <MathLine size={14}>15 = 3 + d(4−1) → 15 = 3 + 3d → d = <MathBox color="#6366f1">4</MathBox></MathLine>
-        <MathLine size={14}>aₙ = 3 + 4(n − 1)</MathLine>
+        <Arrow text="Step 1: Identify the two known terms"/>
+        <MathLine size={14}>a₁ = 3, a₄ = 15<Annotate>we know the 1st and 4th terms</Annotate></MathLine>
+        <Arrow text="Step 2: Use the formula to set up an equation for d"/>
+        <MathLine size={14}>15 = 3 + d(4−1) → 15 = 3 + 3d → d = <MathBox color="#6366f1">4</MathBox><Annotate>subtract 3, divide by 3</Annotate></MathLine>
+        <Arrow text="Step 3: Write the general formula"/>
+        <MathLine size={14}>aₙ = 3 + 4(n − 1)<Annotate>a₁ = 3, d = 4</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Linear Function:</b></MathLine>
+        <Arrow text="The slope m equals the common difference d"/>
         <MathLine size={14}>m = d = <MathBox color="#6366f1">4</MathBox><Annotate>same as common difference!</Annotate></MathLine>
         <Ans>y = 3 + 4(x − 1)</Ans>
       </WB>
-      <Wh>The common difference d of an arithmetic sequence IS the slope m of the corresponding linear function. They're the same thing!</Wh>
+      <Wh>The common difference d of an arithmetic sequence IS the slope m of the corresponding linear function. They are the same thing!</Wh>
+      <Tp>Notice the formulas look almost identical: an = 3 + 4(n - 1) and y = 3 + 4(x - 1). Arithmetic sequences and linear functions are the same relationship, just discrete vs continuous.</Tp>
     </div>},
     { title:"Example — Geometric Sequence → Exponential Function", content:<div>
       <Q>Given geometric sequence 3, ___, ___, 24, ... AND exponential function with points (1,3) and (4,24). Write expressions for both.</Q>
+      <Strategy>We know g1 = 3 and g4 = 24. We will set up 24 = 3 times r cubed and solve for r by dividing and taking a cube root. Then for the exponential function, b = r because the common ratio of a geometric sequence IS the base of the corresponding exponential function.</Strategy>
       <FmUsed>Geom: gₙ = gₖ · r⁽ⁿ⁻ᵏ⁾ · Exp: f(x) = yᵢ · b⁽ˣ⁻ˣⁱ⁾</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Geometric Sequence:</b></MathLine>
-        <MathLine size={14}>g₁ = 3, g₄ = 24</MathLine>
-        <MathLine size={14}>24 = 3 · r⁽⁴⁻¹⁾ → 8 = r³ → r = <MathBox color="#6366f1">2</MathBox></MathLine>
-        <MathLine size={14}>gₙ = 3 · 2⁽ⁿ⁻¹⁾</MathLine>
+        <Arrow text="Step 1: Identify the two known terms"/>
+        <MathLine size={14}>g₁ = 3, g₄ = 24<Annotate>we know the 1st and 4th terms</Annotate></MathLine>
+        <Arrow text="Step 2: Set up equation and solve for r"/>
+        <MathLine size={14}>24 = 3 · r⁽⁴⁻¹⁾ → 8 = r³ → r = <MathBox color="#6366f1">2</MathBox><Annotate>divide by 3 to get 8 = r³, then take cube root</Annotate></MathLine>
+        <Arrow text="Step 3: Write the general formula"/>
+        <MathLine size={14}>gₙ = 3 · 2⁽ⁿ⁻¹⁾<Annotate>g₁ = 3, r = 2</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Exponential Function:</b></MathLine>
+        <Arrow text="The base b equals the common ratio r"/>
         <MathLine size={14}>b = r = <MathBox color="#6366f1">2</MathBox><Annotate>same as common ratio!</Annotate></MathLine>
         <Ans>y = 3 · 2⁽ˣ⁻¹⁾</Ans>
       </WB>
       <Wh>The common ratio r of a geometric sequence IS the base b of the corresponding exponential function.</Wh>
+      <Tp>When solving for r from two known terms, always divide the later output by the earlier output, then take the appropriate root. Here: 24/3 = 8, and the cube root of 8 = 2.</Tp>
     </div>},
   ]},
   { id:"2.3", name:"Exponential Functions", slides:[
@@ -1443,20 +1527,26 @@ const unit2Topics = [
     </div>},
     { title:"Example — Evaluating & Graphing Exponential Functions", content:<div>
       <Q>For f(x) = 3·2ˣ, evaluate f(−1), f(0), f(1), f(2). Is f always increasing or decreasing? Concave up or down? State domain and range.</Q>
+      <Strategy>We will evaluate at each x-value by substituting into f(x) = 3 times 2 to the x. For negative exponents, recall 2 to the -1 equals 1/2. Then we determine behavior by checking a and b: since a = 3 is positive and b = 2 is greater than 1, this is exponential growth (always increasing, always concave up).</Strategy>
       <FmUsed>f(x) = a·bˣ → f(0) = a, f(1) = a·b, f(−1) = a/b</FmUsed>
       <WB>
-        <MathLine size={14}>f(−1) = 3·2⁻¹ = 3·(1/2) = <MathBox color="#22c55e">3/2</MathBox></MathLine>
+        <Arrow text="Evaluate at each x-value by substituting into f(x) = 3·2ˣ"/>
+        <MathLine size={14}>f(−1) = 3·2⁻¹ = 3·(1/2) = <MathBox color="#22c55e">3/2</MathBox><Annotate>negative exponent = reciprocal: 2⁻¹ = 1/2</Annotate></MathLine>
         <MathLine size={14}>f(0) = 3·2⁰ = 3·1 = <MathBox color="#22c55e">3</MathBox><Annotate>y-intercept is always a</Annotate></MathLine>
-        <MathLine size={14}>f(1) = 3·2¹ = <MathBox color="#22c55e">6</MathBox></MathLine>
-        <MathLine size={14}>f(2) = 3·2² = <MathBox color="#22c55e">12</MathBox></MathLine>
+        <MathLine size={14}>f(1) = 3·2¹ = <MathBox color="#22c55e">6</MathBox><Annotate>one step right: multiply a by b</Annotate></MathLine>
+        <MathLine size={14}>f(2) = 3·2² = <MathBox color="#22c55e">12</MathBox><Annotate>each step right multiplies by b = 2</Annotate></MathLine>
+        <Arrow text="Determine behavior from a and b"/>
         <MathLine size={14} color="#4338ca"><b>Properties:</b></MathLine>
-        <MathLine size={14}>a = 3 {">"} 0, b = 2 {">"} 1 → exponential GROWTH</MathLine>
+        <MathLine size={14}>a = 3 {">"} 0, b = 2 {">"} 1 → exponential GROWTH<Annotate>positive a and b {">"} 1 confirms growth</Annotate></MathLine>
         <MathLine size={14}>Always <MathBox color="#22c55e">increasing</MathBox> · Always <MathBox color="#22c55e">concave up</MathBox></MathLine>
         <Ans>Domain: all reals · Range: (0, ∞) · HA: y = 0</Ans>
       </WB>
+      <Tp>For any f(x) = a·bˣ, the three easiest points to compute are: f(0) = a (the y-intercept), f(1) = a·b (one step right), and f(−1) = a/b (one step left). These three points plus the HA are enough to sketch the entire curve.</Tp>
+      <W>The range is (0, ∞), NOT [0, ∞). The graph approaches y = 0 but never touches it. On the AP exam, using a bracket instead of a parenthesis at 0 costs points because it implies the HA is reached.</W>
     </div>},
     { title:"Example — Showing Outputs are Proportional", content:<div>
       <Q>Show that the output values of f and g are proportional over equal-length input intervals.</Q>
+      <Strategy>To show outputs are proportional, we divide each consecutive output by the previous one. If these ratios are all equal, the outputs are proportional and the function is exponential. We do this for both f and g separately. The constant ratio IS the base of the exponential.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(x): ratio = 5 each time</b></MathLine>
         <Tb h={["x","f(x)","Proportion"]} r={[["−2","2/25","×5"],["−1","2/5","×5"],["0","2","×5"],["1","10","×5"],["2","50",""]]}/>
@@ -1467,6 +1557,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Additive Transformation", content:<div>
       <Q>h(x) = f(x) + 5. Complete the table for f(x). Explain how you know f is exponential.</Q>
+      <Strategy>Since h(x) = f(x) + 5, we find f(x) by subtracting 5 from each h(x) value. Then we check if f(x) is exponential by computing ratios of consecutive outputs. If the ratios are constant, f is exponential, meaning h is just a vertical shift of an exponential function.</Strategy>
       <Tb h={["x","f(x)","h(x)"]} r={[["−2","2","7"],["−1","4","9"],["0","8","13"],["1","16","21"],["2","32","37"]]}/>
       <WB>
         <MathLine size={14}>f(x) = h(x) − 5 for each row<Annotate>subtract 5 from h to get f</Annotate></MathLine>
@@ -1487,6 +1578,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — End Behavior of Exponential Functions", content:<div>
       <Q>For each exponential function, identify growth/decay, then write the end behavior using limit notation.</Q>
+      <Strategy>For each function, we check two things: (1) is a positive or negative, and (2) is b greater than 1 or between 0 and 1. These two facts determine all the end behavior. Growth means the HA is on the left side, decay means the HA is on the right. If a is negative, the graph flips over the x-axis.</Strategy>
       <FmUsed>f(x) = a·bˣ → check sign of a and whether b {">"} 1 or 0 {"<"} b {"<"} 1</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(x) = 4·2ˣ</b> (a{">"}0, b{">"}1 → growth)</MathLine>
@@ -1498,6 +1590,8 @@ const unit2Topics = [
         <MathLine size={14} color="#4338ca"><b>k(x) = −2·(1/3)ˣ</b> (a{"<"}0, 0{"<"}b{"<"}1 → reflected decay)</MathLine>
         <MathLine size={14}>lim(x→−∞) = <MathBox color="#f59e0b">−∞</MathBox> · lim(x→+∞) = <MathBox color="#f59e0b">0</MathBox></MathLine>
       </WB>
+      <Tp>Quick trick: the HA (y = 0) is always on the side where the base shrinks things toward zero. For growth (b greater than 1), the HA is on the left. For decay (0 less than b less than 1), the HA is on the right.</Tp>
+      <W>When a is negative, the graph is reflected over the x-axis. The HA is still y = 0, but limits that were positive infinity become negative infinity and vice versa.</W>
     </div>},
   ]},
   { id:"2.4", name:"Exponential Function Manipulation", slides:[
@@ -1531,6 +1625,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Product Property", content:<div>
       <Q>Rewrite each expression with a single base of 2 using bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾.</Q>
+      <Strategy>For each expression, we need everything written as a power of 2. If a number is not already a power of 2, we convert it first (e.g., 16 = 2 to the 4th, 4 = 2 squared). Once all bases match, we add the exponents using the product property. This is the fundamental technique for simplifying exponential expressions.</Strategy>
       <Wh>Why can we add exponents when multiplying same-base powers? Because exponents count repeated multiplication. 2³ means 2·2·2 (three 2s) and 2⁵ means 2·2·2·2·2 (five 2s). Multiply them together and you get 2·2·2·2·2·2·2·2 — that is eight 2s, or 2⁸. So 2³ · 2⁽³⁺⁵⁾ is just counting how many times 2 appears in the product.</Wh>
       <FmUsed>bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾ — when bases match, ADD the exponents</FmUsed>
       <WB>
@@ -1556,6 +1651,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Power Property & Change of Base", content:<div>
       <Q>Rewrite using power property (bᵐ)ⁿ = b⁽ᵐⁿ⁾ to change the base.</Q>
+      <Strategy>For each expression, we apply the power property: multiply the exponents together. For the change-of-base parts, we regroup the result as (new base) to the x, which reveals the new base. This technique is essential because horizontal dilations of exponentials are equivalent to changing the base.</Strategy>
       <Wh>Why does raising a power to a power MULTIPLY the exponents? Think of it as repeated application. (5³)⁶ means "take 5³ and multiply it by itself 6 times." That is 5³ · 5³ · 5³ · 5³ · 5³ · 5³. By the product property, we add the exponents: 3+3+3+3+3+3 = 3 × 6 = 18. So (5³)⁶ = 5¹⁸. Raising to a power is repeated multiplication of the base, and repeated addition of the exponent is just multiplication!</Wh>
       <FmUsed>(bᵐ)ⁿ = b⁽ᵐ·ⁿ⁾ — power of a power: MULTIPLY the exponents</FmUsed>
       <WB>
@@ -1579,6 +1675,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Negative Exponents & Unit Fractions", content:<div>
       <Q>Rewrite using negative exponent property and unit fractions.</Q>
+      <Strategy>We handle negative exponents and fractional exponents separately. For negatives, flip to a fraction (reciprocal). For unit fractions like 1/3, take the corresponding root. The key insight: a negative exponent does NOT make the answer negative; it makes it a fraction. A fractional exponent does NOT mean regular division; it means taking a root.</Strategy>
       <Wh>A <B>negative exponent</B> means "take the reciprocal." Why? Consider the pattern: 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1. Each time the exponent decreases by 1, we divide by 2. Continuing: 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8. So b⁻ⁿ = 1/bⁿ. The negative sign does NOT make the result negative — it flips the number to a fraction!</Wh>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Negative Exponents:</b></MathLine>
@@ -1608,18 +1705,24 @@ const unit2Topics = [
     { title:"Concept — Building Exponential Models", content:<div>
       <Fm label="Without Technology">Find the ratio r from table → f(x) = a·rˣ (where a = f(0))</Fm>
       <Fm label="With Technology (Regression)">Enter data → STAT → ExpReg → y = abˣ</Fm>
-      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Building a Model Without Technology</Tt><Sm>
+      <Accordion title="Building a Model Without Technology (Step-by-Step)" defaultOpen={true}>
+      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Sm>
         <B>Step 1:</B> Check that input intervals are equal-length<br/>
         <B>Step 2:</B> Divide consecutive outputs to find the ratio r<br/>
         <B>Step 3:</B> Use f(0) as the initial value a, OR use any known point with the "from kth term" formula<br/>
         <B>Step 4:</B> Write f(x) = a·rˣ
       </Sm></Box>
-      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Tt c="#be185d">Building from Two Points</Tt><Sm>
+      <Wh>Why do we check equal-length input intervals first? Because the constant-ratio test only works when the x-values are equally spaced. If the spacing is unequal, you need to adjust by raising the ratio to the appropriate power for each interval width.</Wh>
+      </Accordion>
+      <Accordion title="Building from Two Points (System of Equations)">
+      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Sm>
         If given f(x) = c·bˣ + d with two points:<br/>
         <B>Step 1:</B> Plug both points in to create a system of two equations<br/>
         <B>Step 2:</B> Solve for d first (often using the x=0 point)<br/>
         <B>Step 3:</B> Substitute d back to find b
       </Sm></Box>
+      <Tp>If one of the two points has x = 0, use it first! Since b⁰ = 1, the equation simplifies dramatically and lets you find d immediately.</Tp>
+      </Accordion>
       <Box bg="#ecfdf5" border="2px solid #86efac"><Tt c="#166534">The Number e (Euler's Number)</Tt><Sm>
         • <B c="#166534">e ≈ 2.718</B> — an irrational number, like π<br/>
         • Used for <B c="#166534">continuous growth/decay</B> models<br/>
@@ -1635,6 +1738,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Model from Table (No Tech)", content:<div>
       <Q>The function f is decreasing. Write an exponential function to model the data in the table.</Q>
+      <Strategy>To build an exponential model from a table: (1) verify the data is exponential by checking that consecutive output ratios are constant, (2) identify a = f(0) as the initial value, and (3) use the common ratio as the base b. Since f is decreasing, we expect b to be between 0 and 1.</Strategy>
       <FmUsed>f(x) = a · bˣ where a = f(0) and b = common ratio (divide any output by the previous)</FmUsed>
       <Tb h={["x","0","1","2","3"]} r={[["f(x)","25","15","9","27/5"]]}/>
       <WB>
@@ -1653,6 +1757,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Model from Two Points", content:<div>
       <Q>The function g(x) = 5·bˣ + d contains the points (0, 7) and (3, 137). Find b and d, then write the complete model.</Q>
+      <Strategy>We have two unknowns (b and d) and two points, so we set up a system of equations. The trick is to use x = 0 first because b to the 0 = 1, which eliminates b from that equation and lets us find d immediately. Then substitute d back into the second equation to solve for b.</Strategy>
       <FmUsed>Plug each point into g(x) = 5bˣ + d to create a system of two equations with two unknowns.</FmUsed>
       <WB>
         <Arrow text="Step 1: Plug in the point (0, 7)"/>
@@ -1671,6 +1776,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Bacteria Doubling (Days & Weeks)", content:<div>
       <Q>920 bacteria double every day. a) Write b(t) in days. b) Find b(5). c) When does b reach 10,000? d) Rewrite for weeks.</Q>
+      <Strategy>For part (a), the initial value is 920 and it doubles (times 2) each day. For (b) and (c) we substitute. For (d), we convert time units by raising the daily base to the 7th power, since 7 days = 1 week. The key formula for time conversion: if the base is b per small unit and there are k small units per big unit, the new base is b to the k.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> b(t) = 920 · 2ᵗ</MathLine>
         <MathLine size={14} color="#4338ca"><b>b)</b> b(5) = 920 · 2⁵ = 920 · 32 = <MathBox>29,440</MathBox></MathLine>
@@ -1681,6 +1787,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Continuous Growth with e", content:<div>
       <Q>A weed is 6 inches tall and grows according to the model w(t) = 6·e^(t/4), where t is in weeks. Find the height at 1 week and 4 weeks.</Q>
+      <Strategy>We substitute t = 1 and t = 4 into the model and evaluate using a calculator. The exponent t/4 means the characteristic growth cycle is 4 weeks. At t = 4, the exponent becomes exactly 1, giving us 6 times e, a nice reference point.</Strategy>
       <FmUsed>w(t) = a·e^(kt) where e ≈ 2.718 — evaluate by substituting t, then compute e^(power) on calculator</FmUsed>
       <WB>
         <Arrow text="Step 1: Find height at t = 1 week"/>
@@ -1700,6 +1807,7 @@ const unit2Topics = [
   { id:"2.6", name:"Competing Function Model Validation", slides:[
     { title:"Concept — Identifying Model Type from Data", content:<div>
       <Fm label="Big Idea">Given data, determine whether it's LINEAR, QUADRATIC, or EXPONENTIAL</Fm>
+      <Wh>On the AP exam, you will frequently be given a table and asked to determine the best model type. This classification skill is the foundation for all data modeling questions. Getting the model type wrong means every subsequent calculation is wrong too.</Wh>
       <Tb h={["Model Type","What to Test","How to Test","If Constant →"]} r={[
         ["Linear","1st differences","Subtract consecutive outputs","Linear (degree 1)"],
         ["Quadratic","2nd differences","Find differences of the 1st differences","Quadratic (degree 2)"],
@@ -1715,6 +1823,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Classify Three Functions", content:<div>
       <Q>Determine which function is linear, quadratic, and exponential.</Q>
+      <Strategy>We apply the classification algorithm: first check 1st differences (subtract consecutive outputs). If constant, it is linear. If not, check 2nd differences. If constant, it is quadratic. If neither works, check ratios. If constant, it is exponential. Always verify x-values are equally spaced before starting.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(x): Check differences</b></MathLine>
         <Tb h={["x","−1","0","1","2"]} r={[["f(x)","−2","0","−2","−8"]]}/>
@@ -1739,6 +1848,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Residual Plot Analysis", content:<div>
       <Q>Determine whether each residual plot shows a pattern. Is the model appropriate?</Q>
+      <Strategy>For each residual plot, we look for any recognizable pattern. Random scatter around y = 0 means the model fits well. Any systematic shape (U-shape, wave, trend) means the model is wrong for this data. The shape of the pattern often hints at what model to try instead.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Plot 1:</b> Points scattered randomly around y=0</MathLine>
         <Arrow text="Ask: do the points form any recognizable pattern?"/>
@@ -1779,23 +1889,30 @@ const unit2Topics = [
     </div>},
     { title:"Example — Analytical Composition", content:<div>
       <Q>Given f(x) = √x and g(x) = 1/(x−4). Find f(g(x)), f(g(6)), g(f(x)), g(f(9)). State domains.</Q>
+      <Strategy>For each composition, we work INSIDE OUT. For f(g(x)), compute g(x) first, then feed that into f. For numerical evaluations, compute the inner function at the given number, then plug into the outer. For domains, both the inner function must be defined AND the output of the inner must be in the domain of the outer.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(g(x)):</b> replace x in f with g(x)</MathLine>
-        <MathLine size={14}>f(g(x)) = f(1/(x−4)) = <MathBox color="#22c55e">√(1/(x−4))</MathBox></MathLine>
+        <Arrow text="Step 1: Compute g(x), then feed result into f"/>
+        <MathLine size={14}>f(g(x)) = f(1/(x−4)) = <MathBox color="#22c55e">√(1/(x−4))</MathBox><Annotate>replace x in √x with the output of g</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>f(g(6)):</b></MathLine>
-        <MathLine size={14}>g(6) = 1/(6−4) = 1/2, then f(1/2) = √(1/2) = <MathBox>1/√2</MathBox></MathLine>
+        <Arrow text="Inner first: evaluate g(6), then plug into f"/>
+        <MathLine size={14}>g(6) = 1/(6−4) = 1/2, then f(1/2) = √(1/2) = <MathBox>1/√2</MathBox><Annotate>inner → outer</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>g(f(x)):</b> replace x in g with f(x)</MathLine>
-        <MathLine size={14}>g(f(x)) = g(√x) = <MathBox color="#22c55e">1/(√x − 4)</MathBox></MathLine>
+        <Arrow text="Now the other direction: f is inner, g is outer"/>
+        <MathLine size={14}>g(f(x)) = g(√x) = <MathBox color="#22c55e">1/(√x − 4)</MathBox><Annotate>replace x in 1/(x−4) with √x</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>g(f(9)):</b></MathLine>
-        <MathLine size={14}>f(9) = √9 = 3, then g(3) = 1/(3−4) = <MathBox>−1</MathBox></MathLine>
+        <Arrow text="Inner first: evaluate f(9), then plug into g"/>
+        <MathLine size={14}>f(9) = √9 = 3, then g(3) = 1/(3−4) = <MathBox>−1</MathBox><Annotate>3 − 4 = −1, so 1/(−1) = −1</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Domains:</b></MathLine>
-        <MathLine size={14}>h(x) = f(g(x)): x ≠ 4<Annotate>g undefined at x=4</Annotate></MathLine>
-        <MathLine size={14}>j(x) = g(f(x)): x ≥ 0 and x ≠ 16<Annotate>need √x defined AND √x ≠ 4</Annotate></MathLine>
+        <Arrow text="For each composition, check BOTH the inner domain AND that the inner output lands in the outer domain"/>
+        <MathLine size={14}>h(x) = f(g(x)): x ≠ 4<Annotate>g undefined at x=4, and we need g(x) ≥ 0 for √</Annotate></MathLine>
+        <MathLine size={14}>j(x) = g(f(x)): x ≥ 0 and x ≠ 16<Annotate>need √x defined AND √x ≠ 4 (since g has VA at 4)</Annotate></MathLine>
       </WB>
       <W>f(g(x)) ≠ g(f(x)) in general! Order matters!</W>
     </div>},
     { title:"Example — Decomposition", content:<div>
       <Q>If h(x) = f(g(x)), decompose h(x) = ³√(2x−5) into f and g.</Q>
+      <Strategy>To decompose, we identify the two layers of operations. The innermost expression (2x - 5) is what happens first, so that becomes g(x). The outer operation (cube root) is what we do to the result, so that becomes f(x). We always verify by recomposing: f(g(x)) should give back h(x).</Strategy>
       <Wh>Decomposition is the REVERSE of composition. Instead of combining two functions, you BREAK one complex function into two simpler parts. Think of it like reverse-engineering a machine: if the machine takes x, does something to it, then does something else — what are those two steps? The inner function g(x) is what happens FIRST, and the outer function f(x) is what happens SECOND (what you do to the result of g).</Wh>
       <WB>
         <MathLine size={14}>h(x) = ³√(2x − 5)</MathLine>
@@ -1813,6 +1930,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Composition from Tables", content:<div>
       <Q>Using the tables, find f(g(3)) and g(f(1)).</Q>
+      <Strategy>For table-based composition, work inside out. For f(g(3)): first look up 3 in the g-table to get g(3), then use that result as input in the f-table. For g(f(1)): first look up 1 in the f-table, then use that result in the g-table.</Strategy>
       <G l={<Tb h={["x","f(x)"]} r={[["−1","−4"],["0","1"],["1","3"],["2","5"]]}/>}
         r={<Tb h={["x","g(x)"]} r={[["−2","0"],["1","1"],["3","2"],["6","4"]]}/>}/>
       <WB>
@@ -1829,6 +1947,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Mixed Representations (Graph + Equation)", content:<div>
       <Q>f is piecewise-linear on [−5,4] with points (−5,2),(−3,4),(3,2),(4,4). g(x)=x+1. Find f(g(2)) and g(f(−3)).</Q>
+      <Strategy>This combines a graph (for f) with an equation (for g). Still work inside out. For f(g(2)): evaluate g(2) = 3 using the equation, then read f(3) from the graph. For g(f(-3)): read f(-3) from the graph, then plug into g(x) = x+1.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(g(2)):</b></MathLine>
         <MathLine size={14}>g(2) = 2+1 = <MathBox color="#6366f1">3</MathBox></MathLine>
@@ -1839,29 +1958,36 @@ const unit2Topics = [
         <MathLine size={14}>g(4) = 4+1 = <MathBox color="#22c55e">5</MathBox></MathLine>
         <Ans>g(f(−3)) = 5</Ans>
       </WB>
+      <Tp>When mixing representations (graph + equation, table + equation), always identify which function is inner and which tool you use to evaluate it.</Tp>
     </div>},
   ]},
   { id:"2.8", name:"Inverse Functions", slides:[
     { title:"Concept — Inverse Functions", content:<div>
       <Fm label="Definition">An inverse function REVERSES the mapping: if f(a) = b, then f⁻¹(b) = a</Fm>
-      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">When Does a Function Have an Inverse?</Tt><Sm>
+      <Accordion title="When Does a Function Have an Inverse?" defaultOpen={true}>
+      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Sm>
         A function is <B>invertible</B> (has an inverse) if and only if it is <B>one-to-one</B>:<br/>
         each output value comes from exactly ONE input value.<br/><br/>
         <B>Why is one-to-one required?</B> Think of it this way: an inverse is supposed to take an output and tell you which input produced it. If f(2) = 9 AND f(-2) = 9, then when the inverse is asked "what input gives 9?" it has two answers — and a function can only give ONE answer. The inverse would not know whether to return 2 or -2, so it simply cannot exist as a function. This is exactly what x² does: both 3 and -3 give 9, which is why x² needs a domain restriction (like x &gt;= 0) before it can have an inverse.<br/><br/>
         <B>Horizontal Line Test:</B> if any horizontal line crosses the graph more than once, the function is NOT one-to-one and does NOT have an inverse (unless you restrict the domain).
       </Sm></Box>
-      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Tt c="#be185d">Notation & Properties</Tt><Sm>
+      </Accordion>
+      <Accordion title="Notation & Properties">
+      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Sm>
         • <B c="#be185d">Notation:</B> f⁻¹(x) means "the inverse of f" (NOT 1/f(x)!)<br/>
         • <B c="#be185d">Composition check:</B> f(f⁻¹(x)) = x AND f⁻¹(f(x)) = x<br/>
         • <B c="#be185d">Domain/Range swap:</B> Domain of f = Range of f⁻¹ and vice versa<br/>
         • <B c="#be185d">Graphically:</B> f and f⁻¹ are reflections over the line y = x
       </Sm></Box>
-      <Box bg="#ecfdf5" border="2px solid #86efac"><Tt c="#166534">How to Find f⁻¹(x) Algebraically</Tt><Sm>
+      </Accordion>
+      <Accordion title="How to Find f⁻¹(x) Algebraically (4 Steps)">
+      <Box bg="#ecfdf5" border="2px solid #86efac"><Sm>
         <B c="#166534">Step 1:</B> Write y = f(x)<br/>
         <B c="#166534">Step 2:</B> Swap x and y (replace every x with y and every y with x)<br/>
         <B c="#166534">Step 3:</B> Solve for y<br/>
         <B c="#166534">Step 4:</B> Write f⁻¹(x) = your answer
       </Sm></Box>
+      </Accordion>
       <svg width="100%" height="100" viewBox="0 0 300 100">
         <line x1="10" y1="90" x2="290" y2="90" stroke="#ddd" strokeWidth="1"/>
         <line x1="10" y1="90" x2="10" y2="5" stroke="#ddd" strokeWidth="1"/>
@@ -1877,46 +2003,62 @@ const unit2Topics = [
     </div>},
     { title:"Example — Finding Inverse Algebraically", content:<div>
       <Q>Find the inverse of f(x) = 2x² + 1 for x ≥ 0.</Q>
+      <Strategy>To find the inverse algebraically: (1) write y = 2x squared + 1, (2) swap x and y, (3) solve for y. The domain restriction x {"≥"} 0 is crucial because it tells us to take the positive square root only. Without it, the function would not be one-to-one and the inverse would not exist as a function.</Strategy>
       <FmUsed>Swap x and y, then solve for y</FmUsed>
       <WB>
         <MathLine size={14}>y = 2x² + 1</MathLine>
-        <Arrow text="Swap x and y"/>
-        <MathLine size={14}>x = 2y² + 1</MathLine>
-        <Arrow text="Solve for y"/>
-        <MathLine size={14}>x − 1 = 2y²</MathLine>
-        <MathLine size={14}>(x−1)/2 = y²</MathLine>
+        <Arrow text="Step 1: Swap x and y"/>
+        <MathLine size={14}>x = 2y² + 1<Annotate>every x becomes y and every y becomes x</Annotate></MathLine>
+        <Arrow text="Step 2: Isolate y² by undoing operations"/>
+        <MathLine size={14}>x − 1 = 2y²<Annotate>subtract 1 from both sides</Annotate></MathLine>
+        <MathLine size={14}>(x−1)/2 = y²<Annotate>divide both sides by 2</Annotate></MathLine>
+        <Arrow text="Step 3: Take square root — choose positive root because of domain restriction"/>
         <MathLine size={14}>y = √((x−1)/2)<Annotate>positive root since original domain x ≥ 0</Annotate></MathLine>
         <Ans>f⁻¹(x) = √((x−1)/2) for x ≥ 1</Ans>
       </WB>
+      <W>Without the restriction x {"≥"} 0, this function is NOT one-to-one. The domain restriction makes the inverse possible.</W>
+      <Tp>The domain of the inverse (x {"≥"} 1) equals the range of the original. Since f(0) = 1 is the minimum, the inverse starts at x = 1.</Tp>
     </div>},
     { title:"Example — Finding Inverse of Rational Function", content:<div>
       <Q>Find the inverse of g(x) = 2x/(x+1), x ≠ −1.</Q>
+      <Strategy>We swap x and y, then solve for y. With rational functions, y appears in multiple places after swapping. We multiply both sides by (y+1) to clear the denominator, collect all y-terms on one side, factor out y, and divide.</Strategy>
       <WB>
         <MathLine size={14}>y = 2x/(x+1)</MathLine>
-        <Arrow text="Swap x and y"/>
-        <MathLine size={14}>x = 2y/(y+1)</MathLine>
-        <Arrow text="Multiply both sides by (y+1)"/>
-        <MathLine size={14}>x(y+1) = 2y → xy + x = 2y</MathLine>
-        <Arrow text="Collect y terms on one side"/>
-        <MathLine size={14}>xy − 2y = −x → y(x−2) = −x</MathLine>
-        <MathLine size={14}>y = −x/(x−2) = <MathBox color="#22c55e">x/(2−x)</MathBox></MathLine>
+        <Arrow text="Step 1: Swap x and y"/>
+        <MathLine size={14}>x = 2y/(y+1)<Annotate>x and y swapped</Annotate></MathLine>
+        <Arrow text="Step 2: Multiply both sides by (y+1) to clear the denominator"/>
+        <MathLine size={14}>x(y+1) = 2y → xy + x = 2y<Annotate>distribute x on the left</Annotate></MathLine>
+        <Arrow text="Step 3: Collect all y terms on one side, constants on the other"/>
+        <MathLine size={14}>xy − 2y = −x → y(x−2) = −x<Annotate>factor out y</Annotate></MathLine>
+        <Arrow text="Step 4: Divide to isolate y"/>
+        <MathLine size={14}>y = −x/(x−2) = <MathBox color="#22c55e">x/(2−x)</MathBox><Annotate>multiply numerator and denominator by −1 to simplify</Annotate></MathLine>
         <Ans>g⁻¹(x) = x/(2−x), x ≠ 2</Ans>
       </WB>
+      <W>When solving for y in a rational inverse, collect ALL y-terms on one side before factoring. If y appears in two separate places, you must rearrange to get them together first.</W>
+      <Tp>The excluded value x = 2 in the inverse corresponds to the horizontal asymptote of the original function. The HA of g becomes the VA of the inverse.</Tp>
     </div>},
     { title:"Example — Verifying Inverses by Composition", content:<div>
       <Q>f(x) = (2x+1)/3 and g(x) = (3x−1)/2. Show f and g are inverses.</Q>
+      <Strategy>To verify two functions are inverses, compute BOTH compositions: f(g(x)) and g(f(x)). If both simplify to just x, the functions are inverses. We must check both directions for a complete proof.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(g(x)):</b></MathLine>
-        <MathLine size={14}>f((3x−1)/2) = (2·(3x−1)/2 + 1)/3</MathLine>
-        <MathLine size={14}>= ((3x−1) + 1)/3 = 3x/3 = <MathBox color="#22c55e">x</MathBox> ✓</MathLine>
+        <Arrow text="Plug g(x) = (3x−1)/2 into f, replacing every x in f with (3x−1)/2"/>
+        <MathLine size={14}>f((3x−1)/2) = (2·(3x−1)/2 + 1)/3<Annotate>substitute g into f's formula</Annotate></MathLine>
+        <Arrow text="Simplify: the 2 in numerator and 2 in denominator cancel"/>
+        <MathLine size={14}>= ((3x−1) + 1)/3 = 3x/3 = <MathBox color="#22c55e">x</MathBox> ✓<Annotate>−1 and +1 cancel, then 3x/3 = x</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>g(f(x)):</b></MathLine>
-        <MathLine size={14}>g((2x+1)/3) = (3·(2x+1)/3 − 1)/2</MathLine>
-        <MathLine size={14}>= ((2x+1) − 1)/2 = 2x/2 = <MathBox color="#22c55e">x</MathBox> ✓</MathLine>
+        <Arrow text="Plug f(x) = (2x+1)/3 into g, replacing every x in g with (2x+1)/3"/>
+        <MathLine size={14}>g((2x+1)/3) = (3·(2x+1)/3 − 1)/2<Annotate>substitute f into g's formula</Annotate></MathLine>
+        <Arrow text="Simplify: the 3 in numerator and 3 in denominator cancel"/>
+        <MathLine size={14}>= ((2x+1) − 1)/2 = 2x/2 = <MathBox color="#22c55e">x</MathBox> ✓<Annotate>+1 and −1 cancel, then 2x/2 = x</Annotate></MathLine>
         <Ans>Both compositions = x → f and g are inverses ✓</Ans>
       </WB>
+      <Tp>On the AP exam, you MUST show BOTH directions (f(g(x)) = x AND g(f(x)) = x) for full credit. Showing only one direction is not a complete proof — it is possible for one direction to work but not the other if the domains don't match up.</Tp>
+      <W>Do not confuse "verifying inverses" with "finding an inverse." To verify, you compose both ways and check for x. To find, you swap x and y and solve. They are different tasks!</W>
     </div>},
     { title:"Example — Inverse from Table & Graph", content:<div>
       <Q>Given the table for f(x), write a complete table of values for f⁻¹(x). Explain the relationship between f and f⁻¹.</Q>
+      <Strategy>Finding an inverse from a table is straightforward: swap every (input, output) pair. Each (a, b) becomes (b, a). The outputs of f become the inputs of the inverse, and vice versa. Then verify the table is still a function (each input maps to exactly one output).</Strategy>
       <FmUsed>To find f⁻¹: swap every (input, output) pair → (output, input). Point (a,b) on f becomes (b,a) on f⁻¹.</FmUsed>
       <Tb h={["x","−3","−1","0","2","4","5"]} r={[["f(x)","−11","−8","−4","0","3","4"]]}/>
       <WB>
@@ -1954,6 +2096,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Converting Between Forms", content:<div>
       <Q>Convert 3⁴ = 81 to logarithmic form, and convert log₇(49) = 2 to exponential form.</Q>
+      <Strategy>Converting between forms is just repositioning three numbers: base, exponent, and result. In exponential form b to the a = c, the base stays the base in log form, the result goes inside the log, and the exponent becomes the answer. No computation needed.</Strategy>
       <Wh>Exponential and logarithmic forms say the SAME thing using different arrangements. bᵃ = c answers "what do I get when I raise b to power a?" while log_b(c) = a answers "what power of b gives me c?" Converting between them is just rearranging three numbers — no computation needed.</Wh>
       <FmUsed>bᵃ = c ↔ log_b(c) = a — the base stays the base, the exponent becomes the answer</FmUsed>
       <WB>
@@ -1978,13 +2121,16 @@ const unit2Topics = [
     </div>},
     { title:"Example — Evaluating Logarithms (No Calculator)", content:<div>
       <Q>Find each logarithm without technology.</Q>
+      <Strategy>For each log, ask: "the base to WHAT power gives me this number?" We need to recognize common powers: 5 cubed = 125, 8 to the 1/3 = 2, 10 to the 4th = 10000, etc. If the answer is a fraction (like log base 8 of 2), think about which root of 8 gives 2.</Strategy>
       <WB>
+        <Arrow text="For each: rephrase as 'base to WHAT power = this number?'"/>
         <MathLine size={14}>log₅(125) = ?<Annotate>Ask: 5 to what power = 125?</Annotate></MathLine>
-        <MathLine size={14}>5³ = 125, so log₅(125) = <MathBox color="#22c55e">3</MathBox></MathLine>
+        <MathLine size={14}>5³ = 125, so log₅(125) = <MathBox color="#22c55e">3</MathBox><Annotate>5 × 5 × 5 = 125</Annotate></MathLine>
         <MathLine size={14}>log₈(2) = ?<Annotate>Ask: 8 to what power = 2?</Annotate></MathLine>
-        <MathLine size={14}>8^(1/3) = 2, so log₈(2) = <MathBox color="#22c55e">1/3</MathBox></MathLine>
+        <Arrow text="Since 2 is the cube root of 8, the exponent is 1/3"/>
+        <MathLine size={14}>8^(1/3) = 2, so log₈(2) = <MathBox color="#22c55e">1/3</MathBox><Annotate>cube root of 8 = 2</Annotate></MathLine>
         <MathLine size={14}>log(10000) = ?<Annotate>base 10: 10 to what power = 10000?</Annotate></MathLine>
-        <MathLine size={14}>10⁴ = 10000, so log(10000) = <MathBox color="#22c55e">4</MathBox></MathLine>
+        <MathLine size={14}>10⁴ = 10000, so log(10000) = <MathBox color="#22c55e">4</MathBox><Annotate>count the zeros: 4 zeros</Annotate></MathLine>
         <MathLine size={14}>log(1/100) = ?<Annotate>1/100 = 10⁻²</Annotate></MathLine>
         <MathLine size={14}>10⁻² = 1/100, so log(1/100) = <MathBox color="#22c55e">−2</MathBox></MathLine>
       </WB>
@@ -1992,11 +2138,13 @@ const unit2Topics = [
     </div>},
     { title:"Example — Evaluating Logarithms (With Calculator)", content:<div>
       <Q>Use technology to evaluate each logarithm.</Q>
+      <Strategy>When the answer is not a nice integer, use a calculator. For logs with non-standard bases, apply the change of base formula: log base b of x = log(x)/log(b). Most calculators also have a logBASE function.</Strategy>
       <WB>
-        <MathLine size={14}>log₅(27) = <MathBox color="#22c55e">2.048</MathBox></MathLine>
-        <MathLine size={14}>log₈(5) = <MathBox color="#22c55e">0.774</MathBox></MathLine>
-        <MathLine size={14}>log(110) = <MathBox color="#22c55e">2.041</MathBox></MathLine>
-        <MathLine size={14}>log(5.4) = <MathBox color="#22c55e">0.732</MathBox></MathLine>
+        <Arrow text="Use change of base or calculator's logBASE function"/>
+        <MathLine size={14}>log₅(27) = log(27)/log(5) = <MathBox color="#22c55e">2.048</MathBox><Annotate>between 2 and 3 since 5² = 25 and 5³ = 125</Annotate></MathLine>
+        <MathLine size={14}>log₈(5) = log(5)/log(8) = <MathBox color="#22c55e">0.774</MathBox><Annotate>less than 1 since 5 {"<"} 8¹</Annotate></MathLine>
+        <MathLine size={14}>log(110) = <MathBox color="#22c55e">2.041</MathBox><Annotate>just above 2 since 10² = 100</Annotate></MathLine>
+        <MathLine size={14}>log(5.4) = <MathBox color="#22c55e">0.732</MathBox><Annotate>between 0 and 1 since 1 {"<"} 5.4 {"<"} 10</Annotate></MathLine>
       </WB>
       <Wh>On most calculators, use the logBASE( function or change of base: log_b(x) = log(x)/log(b).</Wh>
     </div>},
@@ -2029,13 +2177,16 @@ const unit2Topics = [
     </div>},
     { title:"Example — Graphing log₂(x) from 2ˣ", content:<div>
       <Q>Given g(x) = 2ˣ. Make a table and graph f(x) = log₂(x).</Q>
+      <Strategy>Since log base 2 is the inverse of 2 to the x, we build its table by swapping x and y values from the exponential table. Every point (a, b) on 2 to the x becomes (b, a) on log base 2 of x. This reinforces the inverse relationship visually.</Strategy>
       <WB>
+        <Arrow text="Every point (a, b) on 2ˣ becomes (b, a) on log₂(x)"/>
         <MathLine size={14} color="#4338ca"><b>Swap the x and y values from 2ˣ:</b></MathLine>
       </WB>
       <Tb h={["x","1/4","1/2","1","2","4","8"]} r={[["f(x) = log₂(x)","−2","−1","0","1","2","3"]]}/>
       <WB>
-        <MathLine size={14}>Key point: log_b(1) = <MathBox color="#6366f1">0</MathBox> always<Annotate>b⁰ = 1 for any base</Annotate></MathLine>
-        <MathLine size={14}>Key point: log_b(b) = <MathBox color="#6366f1">1</MathBox> always<Annotate>b¹ = b</Annotate></MathLine>
+        <Arrow text="Two key reference points to memorize for ANY log base"/>
+        <MathLine size={14}>Key point: log_b(1) = <MathBox color="#6366f1">0</MathBox> always<Annotate>b⁰ = 1 for any base — the x-intercept is always at (1, 0)</Annotate></MathLine>
+        <MathLine size={14}>Key point: log_b(b) = <MathBox color="#6366f1">1</MathBox> always<Annotate>b¹ = b — the point (b, 1) is always on the graph</Annotate></MathLine>
       </WB>
       <Wh>The exponential 2ˣ passes through (0,1) and (1,2). Its inverse log₂(x) passes through (1,0) and (2,1) — same points, swapped!</Wh>
     </div>},
@@ -2072,41 +2223,58 @@ const unit2Topics = [
     </div>},
     { title:"Example — End Behavior of Log Functions", content:<div>
       <Q>For each logarithmic function, write the end behavior limits.</Q>
+      <Strategy>For each function, check two things: the sign of coefficient a, and whether base b is greater than 1 or between 0 and 1. The VA is always at x = 0 for basic log functions. Positive a with b greater than 1 gives the standard increasing log shape.</Strategy>
       <FmUsed>Check sign of a and base b → use the end behavior table</FmUsed>
       <WB>
+        <Arrow text="Standard case: positive a, base greater than 1 → increasing log"/>
         <MathLine size={14} color="#4338ca"><b>f(x) = 4·log₅(x)</b> (a{">"}0, b{">"}1)</MathLine>
-        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox></MathLine>
+        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox><Annotate>standard increasing log shape</Annotate></MathLine>
+        <Arrow text="Negative a flips the graph over the x-axis"/>
         <MathLine size={14} color="#4338ca"><b>g(x) = −2·log₃(x)</b> (a{"<"}0, b{">"}1)</MathLine>
-        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
+        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox><Annotate>reflected over x-axis: limits swap signs</Annotate></MathLine>
+        <Arrow text="Base between 0 and 1 reverses the direction of the log"/>
         <MathLine size={14} color="#4338ca"><b>h(x) = 3·log_(1/2)(x)</b> (a{">"}0, 0{"<"}b{"<"}1)</MathLine>
-        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox></MathLine>
+        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#22c55e">∞</MathBox> · lim(x→∞) = <MathBox color="#ef4444">−∞</MathBox><Annotate>decreasing log: small base flips direction</Annotate></MathLine>
+        <Arrow text="Both negative a AND small base: double flip = same as standard"/>
         <MathLine size={14} color="#4338ca"><b>k(x) = −2·log_(1/4)(x)</b> (a{"<"}0, 0{"<"}b{"<"}1)</MathLine>
-        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox></MathLine>
+        <MathLine size={14}>lim(x→0⁺) = <MathBox color="#ef4444">−∞</MathBox> · lim(x→∞) = <MathBox color="#22c55e">∞</MathBox><Annotate>two reflections cancel out</Annotate></MathLine>
       </WB>
+      <Tp>Quick pattern: for b {">"} 1 and a {">"} 0 (standard case), the log goes to −∞ near the VA (x → 0⁺) and to +∞ as x → ∞. Flipping a (negative a) or flipping b (0 {"<"} b {"<"} 1) reverses the directions.</Tp>
+      <W>Unlike exponentials which have a HORIZONTAL asymptote, log functions have a VERTICAL asymptote at x = 0. Do not mix these up — the asymptote switches orientation because the axes swap when you take an inverse.</W>
     </div>},
     { title:"Example — Graphing Log Functions", content:<div>
       <Q>Sketch f(x) = 2·log₃(x). State properties.</Q>
+      <Strategy>To sketch a log function, evaluate at three key x-values: x = 1/b (gives -a), x = 1 (always gives 0), and x = b (gives a). Since a = 2 is positive and b = 3 is greater than 1, the graph increases and is concave down with VA at x = 0.</Strategy>
       <WB>
-        <MathLine size={14}>f(1/3) = 2·log₃(1/3) = 2·(−1) = <MathBox color="#6366f1">−2</MathBox><Annotate>point (1/3, −2)</Annotate></MathLine>
-        <MathLine size={14}>f(1) = 2·log₃(1) = 2·0 = <MathBox color="#6366f1">0</MathBox><Annotate>x-intercept (1, 0)</Annotate></MathLine>
-        <MathLine size={14}>f(3) = 2·log₃(3) = 2·1 = <MathBox color="#6366f1">2</MathBox><Annotate>point (3, 2)</Annotate></MathLine>
-        <MathLine size={14}>Always <MathBox color="#22c55e">increasing</MathBox>, concave <MathBox color="#ef4444">down</MathBox></MathLine>
-        <MathLine size={14}>Domain: (0,∞), Range: all reals, VA: x = 0</MathLine>
+        <Arrow text="Evaluate at x = 1/b, x = 1, and x = b for the three key points"/>
+        <MathLine size={14}>f(1/3) = 2·log₃(1/3) = 2·(−1) = <MathBox color="#6366f1">−2</MathBox><Annotate>log₃(1/3) = −1 because 3⁻¹ = 1/3</Annotate></MathLine>
+        <MathLine size={14}>f(1) = 2·log₃(1) = 2·0 = <MathBox color="#6366f1">0</MathBox><Annotate>x-intercept: log of 1 is always 0</Annotate></MathLine>
+        <MathLine size={14}>f(3) = 2·log₃(3) = 2·1 = <MathBox color="#6366f1">2</MathBox><Annotate>log₃(3) = 1 because 3¹ = 3</Annotate></MathLine>
+        <Arrow text="Determine shape from a and b"/>
+        <MathLine size={14}>Always <MathBox color="#22c55e">increasing</MathBox>, concave <MathBox color="#ef4444">down</MathBox><Annotate>a {">"} 0 and b {">"} 1 → increasing, concave down</Annotate></MathLine>
+        <MathLine size={14}>Domain: (0,∞), Range: all reals, VA: x = 0<Annotate>log is only defined for positive inputs</Annotate></MathLine>
       </WB>
+      <W>Students often forget that log functions are ALWAYS concave down (for b {">"} 1, a {">"} 0). Even though the function is increasing, it bends downward — the rate of increase slows as x gets larger. This is the opposite of exponentials, which are concave up.</W>
+      <Tp>To sketch any log function quickly: plot three key points — f(1/b), f(1), f(b). The x-intercept is ALWAYS at x = 1 because log_b(1) = 0 for any base. Then draw the curve approaching the VA at x = 0.</Tp>
     </div>},
   ]},
   { id:"2.12", name:"Logarithmic Function Manipulation", slides:[
     { title:"Concept — Log Properties (Product, Quotient, Power, Change of Base)", content:<div>
       <Sm>Here is the secret that makes all log properties click: since a logarithm IS an exponent, log properties are just exponent rules wearing a different outfit. Every single property below comes directly from a rule you already know about exponents.</Sm>
+      <Accordion title="The Four Log Properties" defaultOpen={true}>
       <Fm label="Product Property">log_b(xy) = log_b(x) + log_b(y) — log of a product = SUM of logs</Fm>
       <Fm label="Quotient Property">log_b(x/y) = log_b(x) − log_b(y) — log of a quotient = DIFFERENCE of logs</Fm>
       <Fm label="Power Property">log_b(xⁿ) = n·log_b(x) — exponent comes DOWN as a multiplier</Fm>
       <Fm label="Change of Base">log_b(x) = log_a(x) / log_a(b) — convert to ANY base you want</Fm>
-      <Box bg="#ecfdf5" border="2px solid #86efac"><Tt c="#166534">Key Equivalences for Exponential/Log Graphs</Tt><Sm>
+      <Wh>These four properties are the ONLY tools you need for ALL log manipulation on the AP exam. Product and quotient let you combine or split logs. Power lets you move exponents in and out. Change of base lets you convert between any bases. Master these four and you can handle any log problem.</Wh>
+      </Accordion>
+      <Accordion title="Key Equivalences for Graphs">
+      <Box bg="#ecfdf5" border="2px solid #86efac"><Sm>
         • <B c="#166534">Horizontal dilation of log = vertical translation:</B> log₂(8x) = log₂(8) + log₂(x) = 3 + log₂(x)<br/>
         • <B c="#166534">Power input = vertical dilation:</B> log₂(x²) = 2·log₂(x)<br/>
         • <B c="#166534">All log functions are vertical dilations of each other</B> (change of base proves it)
       </Sm></Box>
+      </Accordion>
       <Box bg="#faf5ff" border="2px solid #c4b5fd"><Tt c="#7c3aed">Natural Logarithm (ln)</Tt><Sm>
         log_e(x) is written as <B c="#7c3aed">ln(x)</B><br/>
         The base is e ≈ 2.718 (Euler's number)<br/>
@@ -2118,28 +2286,40 @@ const unit2Topics = [
     </div>},
     { title:"Example — Combining & Expanding Logs", content:<div>
       <Q>Rewrite each logarithmic expression.</Q>
+      <Strategy>Combining logs means using product/quotient properties in reverse: addition outside becomes multiplication inside, subtraction becomes division. Expanding is the opposite: products inside split into sums outside. Coefficients move up as exponents via the power property.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Combine into single log:</b></MathLine>
-        <MathLine size={14}>log₂(4) + log₂(8) = log₂(4·8) = log₂(32) = <MathBox color="#22c55e">5</MathBox></MathLine>
-        <MathLine size={14}>log₂(3) + log₂(x) = <MathBox color="#22c55e">log₂(3x)</MathBox></MathLine>
-        <MathLine size={14}>log₂(x) + log₂(y) − log₂(z) = <MathBox color="#22c55e">log₂(xy/z)</MathBox></MathLine>
+        <Arrow text="Product property: add logs → multiply inside"/>
+        <MathLine size={14}>log₂(4) + log₂(8) = log₂(4·8) = log₂(32) = <MathBox color="#22c55e">5</MathBox><Annotate>2⁵ = 32</Annotate></MathLine>
+        <MathLine size={14}>log₂(3) + log₂(x) = <MathBox color="#22c55e">log₂(3x)</MathBox><Annotate>add outside = multiply inside</Annotate></MathLine>
+        <Arrow text="Subtraction uses quotient property: subtract logs → divide inside"/>
+        <MathLine size={14}>log₂(x) + log₂(y) − log₂(z) = <MathBox color="#22c55e">log₂(xy/z)</MathBox><Annotate>x·y in numerator, z in denominator</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Expand into sum/difference:</b></MathLine>
-        <MathLine size={14}>log₅(4x) = log₅(4) + log₅(x)</MathLine>
-        <MathLine size={14}>log₇(4/x) = log₇(4) − log₇(x)</MathLine>
+        <Arrow text="Product property in reverse: product inside → sum outside"/>
+        <MathLine size={14}>log₅(4x) = log₅(4) + log₅(x)<Annotate>split the product into two logs</Annotate></MathLine>
+        <MathLine size={14}>log₇(4/x) = log₇(4) − log₇(x)<Annotate>quotient inside → subtraction outside</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Power property:</b></MathLine>
-        <MathLine size={14}>log₅(x³) = <MathBox color="#22c55e">3·log₅(x)</MathBox></MathLine>
-        <MathLine size={14}>5·log(y) = <MathBox color="#22c55e">log(y⁵)</MathBox></MathLine>
+        <Arrow text="Exponent inside the log comes down as a coefficient"/>
+        <MathLine size={14}>log₅(x³) = <MathBox color="#22c55e">3·log₅(x)</MathBox><Annotate>exponent 3 moves to the front</Annotate></MathLine>
+        <Arrow text="Coefficient outside goes up as an exponent (reverse direction)"/>
+        <MathLine size={14}>5·log(y) = <MathBox color="#22c55e">log(y⁵)</MathBox><Annotate>coefficient 5 moves up as exponent</Annotate></MathLine>
       </WB>
+      <W>The most common mistake: log(x + y) ≠ log(x) + log(y)! There is NO property for the log of a SUM. The product property says log(x·y) = log(x) + log(y) — the addition is OUTSIDE the log, and the multiplication is INSIDE. Students who try to "distribute" the log over addition will get wrong answers every time.</W>
+      <Tp>Direction matters: combining logs (adding outside → multiplying inside) is useful for solving equations. Expanding logs (splitting a product/quotient into separate logs) is useful for simplification and for the power property. Know when to use each direction!</Tp>
     </div>},
     { title:"Example — Change of Base & Relationship Between Logs", content:<div>
       <Q>Change base. Describe relationship between f(x) = log₅(x) and g(x) = log₁₂₅(x).</Q>
+      <Strategy>We use the change of base formula to rewrite log base 125 in terms of log base 5. Since 125 = 5 cubed, log base 5 of 125 = 3, so g(x) = f(x)/3 = (1/3) times f(x). This reveals that all log functions with related bases are just vertical dilations of each other.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Change to base 10:</b></MathLine>
-        <MathLine size={14}>log₃(x) = log(x)/log(3)</MathLine>
+        <Arrow text="Apply change of base: log_b(x) = log(x)/log(b)"/>
+        <MathLine size={14}>log₃(x) = log(x)/log(3)<Annotate>numerator: log of the argument, denominator: log of the base</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Change to base 2:</b></MathLine>
-        <MathLine size={14}>log₃(8) = log₂(8)/log₂(3) = 3/log₂(3)</MathLine>
+        <Arrow text="Same formula but using base 2 logs"/>
+        <MathLine size={14}>log₃(8) = log₂(8)/log₂(3) = 3/log₂(3)<Annotate>log₂(8) = 3 because 2³ = 8</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>Relationship:</b></MathLine>
-        <MathLine size={14}>g(x) = log₁₂₅(x) = log₅(x)/log₅(125) = log₅(x)/3</MathLine>
+        <Arrow text="Use change of base to express g in terms of f"/>
+        <MathLine size={14}>g(x) = log₁₂₅(x) = log₅(x)/log₅(125) = log₅(x)/3<Annotate>log₅(125) = 3 because 5³ = 125</Annotate></MathLine>
         <Ans>g(x) = (1/3)·f(x) — vertical dilation by 1/3!</Ans>
       </WB>
       <Tp>All log functions are vertical dilations of each other. Change of base proves it!</Tp>
@@ -2147,7 +2327,8 @@ const unit2Topics = [
   ]},
   { id:"2.13", name:"Exponential & Logarithmic Equations & Inequalities", slides:[
     { title:"Concept — Solving Strategies", content:<div>
-      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Solving Exponential Equations</Tt><Sm>
+      <Accordion title="Solving Exponential Equations (3 Methods)" defaultOpen={true}>
+      <Box bg="#eef2ff" border="2px solid #a5b4fc"><Sm>
         <B>Method 1 — Same Base:</B> Get both sides to the same base, then set exponents equal.<br/>
         Example: 2⁽ˣ⁺¹⁾ = 8 → 2⁽ˣ⁺¹⁾ = 2³ → x+1 = 3 → x = 2<br/><br/>
         <B>Method 2 — Take a Log:</B> When you can't match bases, take log of both sides.<br/>
@@ -2155,13 +2336,18 @@ const unit2Topics = [
         <B>Method 3 — Substitution:</B> For equations like e²ˣ + eˣ − 6 = 0, let u = eˣ to get a quadratic: u² + u − 6 = 0.<br/><br/>
         <B>Key identity:</B> bˣ = c^((log_c b)·x) — lets you rewrite any base in terms of another.
       </Sm></Box>
-      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Tt c="#be185d">Solving Logarithmic Equations</Tt><Sm>
+      <Wh>How do you choose which method? If you can recognize both sides as powers of the same base (like 8 = 2³), use Method 1 — it is the fastest. If the numbers do not share a common base, use Method 2 — take log of both sides. If the equation looks like a polynomial in eˣ or bˣ, use Method 3 — substitution to create a quadratic.</Wh>
+      </Accordion>
+      <Accordion title="Solving Logarithmic Equations (3 Methods)">
+      <Box bg="#fce7f3" border="2px solid #f9a8d4"><Sm>
         <B>Method 1 — Convert to Exponential:</B> log_b(x) = a → bᵃ = x<br/>
         Example: log₂(x) = 5 → x = 2⁵ = 32<br/><br/>
         <B>Method 2 — Combine Logs:</B> Use product/quotient properties to combine into one log, then convert.<br/>
         Example: log(x) + log(3) = 2 → log(3x) = 2 → 3x = 100 → x = 100/3<br/><br/>
         <B>Method 3 — If log_b(A) = log_b(B), then A = B</B>
       </Sm></Box>
+      <Wh>The key decision: how many log terms are there? If one log = a number, use Method 1 (convert to exponential). If multiple logs on one side, use Method 2 (combine first, then convert). If log = log on both sides with the same base, use Method 3 (set arguments equal).</Wh>
+      </Accordion>
       <W>ALWAYS check for extraneous solutions! For logs: the argument must be POSITIVE. For exponentials: eˣ is ALWAYS positive (eˣ = −3 has NO solution).</W>
     </div>},
     { title:"Concept — Constructing Inverses of Exp & Log Functions", content:<div>
@@ -2185,34 +2371,48 @@ const unit2Topics = [
     </div>},
     { title:"Example — Solving Exponential Equations", content:<div>
       <Q>Solve for x: a) 3·2⁽ˣ⁺¹⁾ = 24  b) 4⁽⁵ˣ⁻³⁾ = 3^(2·log₃4·x)  c) e²ˣ + eˣ − 6 = 0</Q>
+      <Strategy>Three different methods for three types: (a) isolate the exponential, match bases, set exponents equal. (b) Convert both sides to the same base using change-of-base identity, then equate exponents. (c) Substitution: let u = e to the x to create a quadratic, solve for u, then solve for x. Always check for extraneous solutions.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> 3·2⁽ˣ⁺¹⁾ = 24</MathLine>
+        <Arrow text="Isolate the exponential, then match bases"/>
         <MathLine size={14}>2⁽ˣ⁺¹⁾ = 8 = 2³<Annotate>divide by 3, recognize 8 = 2³</Annotate></MathLine>
-        <MathLine size={14}>x + 1 = 3 → <MathBox>x = 2</MathBox></MathLine>
+        <Arrow text="Same base → set exponents equal"/>
+        <MathLine size={14}>x + 1 = 3 → <MathBox>x = 2</MathBox><Annotate>subtract 1 from both sides</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>b)</b> 4⁽⁵ˣ⁻³⁾ = 3^(log₃16·x) = 16ˣ = 4²ˣ</MathLine>
-        <MathLine size={14}>5x−3 = 2x → 3x = 3 → <MathBox>x = 1</MathBox></MathLine>
+        <Arrow text="Both sides now have base 4 → set exponents equal"/>
+        <MathLine size={14}>5x−3 = 2x → 3x = 3 → <MathBox>x = 1</MathBox><Annotate>subtract 2x, then divide by 3</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>c)</b> Let u = eˣ: u² + u − 6 = 0</MathLine>
-        <MathLine size={14}>(eˣ + 3)(eˣ − 2) = 0</MathLine>
-        <MathLine size={14}>eˣ = −3 (impossible!) or eˣ = 2 → <MathBox>x = ln(2)</MathBox></MathLine>
+        <Arrow text="Substitution turns this into a factorable quadratic"/>
+        <MathLine size={14}>(eˣ + 3)(eˣ − 2) = 0<Annotate>factor: what two numbers multiply to −6 and add to 1?</Annotate></MathLine>
+        <Arrow text="Set each factor to zero and check feasibility"/>
+        <MathLine size={14}>eˣ = −3 (impossible!) or eˣ = 2 → <MathBox>x = ln(2)</MathBox><Annotate>eˣ is always positive, so −3 is rejected</Annotate></MathLine>
       </WB>
       <W>eˣ is ALWAYS positive! So eˣ = −3 has no solution. Always check!</W>
     </div>},
     { title:"Example — Solving Logarithmic Equations", content:<div>
       <Q>Solve: a) log(x) + log(2) = 1  b) log₃(2x + 1) − log₃(x − 1) = log₃(5). Check for extraneous solutions.</Q>
+      <Strategy>For (a), combine logs using the product property, then convert to exponential form. For (b), combine using the quotient property, then since both sides are log base 3, set the arguments equal. Always check that answers do not make any log argument negative or zero.</Strategy>
       <FmUsed>Product property: log(a) + log(b) = log(ab) · Quotient: log(a) − log(b) = log(a/b)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>a)</b> log(x) + log(2) = 1</MathLine>
-        <MathLine size={14}>log(2x) = 1 → 10¹ = 2x → <MathBox>x = 5</MathBox></MathLine>
-        <MathLine size={14}>Check: log(5) + log(2) = log(10) = 1 ✓</MathLine>
+        <Arrow text="Product property: add logs = log of product"/>
+        <MathLine size={14}>log(2x) = 1<Annotate>log(x) + log(2) = log(x·2) = log(2x)</Annotate></MathLine>
+        <Arrow text="Convert to exponential form: log(2x) = 1 means 10¹ = 2x"/>
+        <MathLine size={14}>10¹ = 2x → <MathBox>x = 5</MathBox><Annotate>divide both sides by 2</Annotate></MathLine>
+        <MathLine size={14}>Check: log(5) + log(2) = log(10) = 1 ✓<Annotate color="#22c55e">both log arguments positive ✓</Annotate></MathLine>
         <MathLine size={14} color="#4338ca"><b>b)</b> log₃(2x+1) − log₃(x−1) = log₃(5)</MathLine>
-        <MathLine size={14}>log₃((2x+1)/(x−1)) = log₃(5)</MathLine>
+        <Arrow text="Quotient property: subtract logs = log of quotient"/>
+        <MathLine size={14}>log₃((2x+1)/(x−1)) = log₃(5)<Annotate>log(a) − log(b) = log(a/b)</Annotate></MathLine>
         <Arrow text="Same base logs equal → arguments equal"/>
         <MathLine size={14}>(2x+1)/(x−1) = 5 → 2x+1 = 5x−5 → 6 = 3x</MathLine>
         <MathLine size={14}><MathBox>x = 2</MathBox> · Check: x−1 = 1 {">"} 0 ✓ (no extraneous solutions)</MathLine>
       </WB>
+      <W>ALWAYS check your answers in the ORIGINAL equation! For log equations, verify that every argument is positive. If x = 2, then (2x+1) = 5 {">"} 0 ✓ and (x−1) = 1 {">"} 0 ✓. If a solution makes any log argument negative or zero, it is extraneous and must be thrown out.</W>
+      <Tp>For part (a), once you combine to a single log, convert to exponential form: log(2x) = 1 means 10¹ = 2x. For part (b), if both sides are log-base-same, just set the arguments equal — much faster than converting to exponential.</Tp>
     </div>},
     { title:"Example — Constructing Inverses of Exp & Log Functions", content:<div>
       <Q>Find the inverse of f(x) = 3·5⁽ˣ⁺¹⁾ − 4.</Q>
+      <Strategy>To invert an exponential, swap x and y, then undo each operation in reverse order: add 4, divide by 3, take log base 5, subtract 1. The inverse of an exponential is always a logarithm. Think of "unwrapping" the function layer by layer.</Strategy>
       <FmUsed>Swap x and y → undo operations in reverse order</FmUsed>
       <WB>
         <MathLine size={14}>y = 3·5⁽ˣ⁺¹⁾ − 4</MathLine>
@@ -2247,16 +2447,23 @@ const unit2Topics = [
     </div>},
     { title:"Example — Log Model from Table", content:<div>
       <Q>Write a logarithmic function f(x) = a·log₂(x) to model the data.</Q>
+      <Strategy>Look for the log signature pattern: inputs that multiply by the same factor while outputs increase by equal amounts. The input multiplier gives us the base (2), and the output increment gives us the coefficient a (3). Then verify with the table values.</Strategy>
       <Tb h={["x","1","2","4","8","16"]} r={[["f(x)","0","3","6","9","12"]]}/>
       <WB>
-        <MathLine size={14}>Outputs increase by 3 each time (equal intervals)<Annotate>0,3,6,9,12</Annotate></MathLine>
-        <MathLine size={14}>Inputs are proportional: ×2 each time<Annotate>1,2,4,8,16</Annotate></MathLine>
-        <MathLine size={14}>a = 3 (output change per interval), base = 2 (input multiplier)</MathLine>
+        <Arrow text="Step 1: Check output pattern — are they equally spaced?"/>
+        <MathLine size={14}>Outputs increase by 3 each time (equal intervals)<Annotate>0,3,6,9,12 → differences are all 3</Annotate></MathLine>
+        <Arrow text="Step 2: Check input pattern — are they proportional?"/>
+        <MathLine size={14}>Inputs are proportional: ×2 each time<Annotate>1,2,4,8,16 → ratios are all 2</Annotate></MathLine>
+        <Arrow text="Step 3: Equal output spacing + proportional inputs = logarithmic"/>
+        <MathLine size={14}>a = 3 (output change per interval), base = 2 (input multiplier)<Annotate>coefficient = output step, base = input ratio</Annotate></MathLine>
         <Ans>f(x) = 3·log₂(x)</Ans>
       </WB>
+      <Wh>The "log signature" in a table: outputs go up by equal amounts (here +3) while inputs multiply by the same factor (here ×2). This is the REVERSE of exponential's signature (inputs go up equally, outputs multiply). If you see this reverse pattern, the data is logarithmic.</Wh>
+      <Tp>On the AP exam, if a table has proportional inputs and equally spaced outputs, immediately recognize it as logarithmic. The input multiplier is the base, and the output spacing is the coefficient a.</Tp>
     </div>},
     { title:"Example — Applying Log Models (Bacteria Inverse)", content:<div>
       <Q>800 bacteria double daily. Write f(b) for time in days given population b. When does it reach 20,000?</Q>
+      <Strategy>Start with the exponential model b = 800 times 2 to the t, then solve for t to get the inverse. Divide by 800 first, then take log base 2. This gives a function where we input a population and get back the time. Then plug in 20,000.</Strategy>
       <FmUsed>Exponential: b = 800·2ᵗ → Inverse: t = log₂(b/800)</FmUsed>
       <WB>
         <MathLine size={14}>Exponential model: b = 800·2ᵗ</MathLine>
@@ -2266,9 +2473,12 @@ const unit2Topics = [
         <MathLine size={14} color="#4338ca"><b>When b = 20,000:</b></MathLine>
         <MathLine size={14}>f(20000) = log₂(20000/800) = log₂(25) ≈ <MathBox>4.644 days</MathBox></MathLine>
       </WB>
+      <W>When computing log₂(25), you need change of base: log₂(25) = log(25)/log(2) ≈ 1.398/0.301 ≈ 4.644. Do NOT try to estimate logs in your head on the AP exam — use the calculator and change of base formula.</W>
+      <Tp>Log models are perfect for answering "when does it reach ___?" questions. Exponential tells you "how much at time t." Its inverse (the log) tells you "what time for amount b." Same relationship, opposite directions.</Tp>
     </div>},
     { title:"Example — Continuous Growth Inverse (Natural Log)", content:<div>
       <Q>An app's downloads follow D(t) = 50·e^(0.3t) where t is months. Write the inverse t(D) that gives time from downloads. How many months to reach 10,000 downloads?</Q>
+      <Strategy>To find the inverse of an exponential with base e: isolate the exponential term (divide by 50), take ln of both sides to bring down the exponent, then solve for t by dividing by the coefficient 0.3. The inverse of e to the x is ln(x).</Strategy>
       <FmUsed>D = a·eᵏᵗ → solve for t → t = ln(D/a) / k</FmUsed>
       <WB>
         <MathLine size={14}>D = 50·e^(0.3t)</MathLine>
@@ -2306,6 +2516,7 @@ const unit2Topics = [
     </div>},
     { title:"Example — Plotting & Linearizing", content:<div>
       <Q>Given f(x) = 2·7ˣ. Complete the table. Write the linear model for the semi-log plot.</Q>
+      <Strategy>Evaluate f(x) at each x-value to fill the table. Then to find the semi-log linear model, take log of both sides: log(f) = log(2) + x times log(7). This has the form y = mx + c where m = log(7) and c = log(2).</Strategy>
       <Tb h={["x","0","1","2","3","4"]} r={[["f(x)","2","14","98","686","4802"]]}/>
       <WB>
         <MathLine size={14}>f(0)=2·7⁰=2, f(1)=2·7¹=14, f(2)=2·7²=98</MathLine>
@@ -2313,9 +2524,12 @@ const unit2Topics = [
         <MathLine size={14} color="#4338ca"><b>Points on semi-log plot are LINEAR ✓</b></MathLine>
         <Ans>y = (log 7)x + log 2 ≈ 0.845x + 0.301</Ans>
       </WB>
+      <Wh>When we take the log of both sides of f(x) = 2·7ˣ, we transform the curved exponential into a straight line. The slope of that line (log 7 ≈ 0.845) encodes the base, and the y-intercept (log 2 ≈ 0.301) encodes the initial value. This is why semi-log plots are so powerful: they make exponential relationships visible as simple straight lines.</Wh>
+      <Tp>To recover the original exponential from a semi-log line y = mx + c: the base is b = 10^m and the initial value is a = 10^c. Here b = 10^0.845 ≈ 7 and a = 10^0.301 ≈ 2.</Tp>
     </div>},
     { title:"Example — Is Exponential Appropriate?", content:<div>
       <Q>Plot the data on a semi-log plot. Is an exponential model appropriate for this data?</Q>
+      <Strategy>Take the log of each output and plot against x. If the log-values form a straight line, the data is exponential. Check by computing differences between consecutive log values: if roughly constant, the points are collinear and exponential fits.</Strategy>
       <FmUsed>If data is exponential, it appears as a STRAIGHT LINE on a semi-log plot. If it curves or scatters, exponential is NOT appropriate.</FmUsed>
       <Tb h={["x","0","1","2","3","4"]} r={[["f(x)","0.1","0.5","90","400","700"]]}/>
       <WB>
@@ -2333,12 +2547,15 @@ const unit2Topics = [
     </div>},
     { title:"Example — Bacteria from Semi-log Plot", content:<div>
       <Q>Bacteria measured every 5 days. From the semi-log plot, (10,100) and (15,200) are points. Find B(t).</Q>
+      <Strategy>From the two points, the population doubles (100 to 200) over 5 days, so the base for a 5-day period is 2. Write B(t) = a times 2 to the (t/5), then use one point to solve for a. Using (10, 100): 100 = a times 2 to the 2, so a = 25.</Strategy>
       <WB>
-        <MathLine size={14}>Data doubles every 5 days: ratio = 2, period = 5</MathLine>
-        <MathLine size={14}>B(t) = a·(2)^(t/5)</MathLine>
-        <Arrow text="Use point (10, 100) to find a"/>
-        <MathLine size={14}>100 = a·2^(10/5) = a·2² = 4a</MathLine>
-        <MathLine size={14}>a = 100/4 = <MathBox color="#6366f1">25</MathBox></MathLine>
+        <Arrow text="Step 1: Determine the growth factor from the two points"/>
+        <MathLine size={14}>Data doubles every 5 days: ratio = 200/100 = 2, period = 15−10 = 5<Annotate>population went from 100 to 200 over 5 days</Annotate></MathLine>
+        <Arrow text="Step 2: Write the general form with base 2 and period 5"/>
+        <MathLine size={14}>B(t) = a·(2)^(t/5)<Annotate>dividing t by 5 ensures we double every 5 days, not every 1 day</Annotate></MathLine>
+        <Arrow text="Step 3: Use point (10, 100) to find a"/>
+        <MathLine size={14}>100 = a·2^(10/5) = a·2² = 4a<Annotate>10/5 = 2, so 2² = 4</Annotate></MathLine>
+        <MathLine size={14}>a = 100/4 = <MathBox color="#6366f1">25</MathBox><Annotate>divide both sides by 4</Annotate></MathLine>
         <Ans>B(t) = 25·(2)^(t/5)</Ans>
       </WB>
       <Tp>On a semi-log plot, a straight line CONFIRMS exponential data. The slope gives log(b) and the y-intercept gives log(a).</Tp>
@@ -2358,9 +2575,12 @@ const unit2Topics = [
         <B c="#92400e">3.</B> If the points appear <B c="#ef4444">curved</B> → exponential model is NOT appropriate
       </Sm></Box>
       <Q>f(x) = 2·7ˣ. Write the corresponding linear model for the semi-log plot.</Q>
+      <Strategy>Apply the linearization formula directly: take log of f(x) = a times b to the x to get log(f) = x times log(b) + log(a). This is y = mx + c where m = log(b) is the slope and c = log(a) is the y-intercept.</Strategy>
       <WB>
-        <MathLine size={14}>y = (log b)·x + log a</MathLine>
-        <MathLine size={14}>y = (log 7)·x + log 2</MathLine>
+        <Arrow text="Apply the semi-log linearization formula"/>
+        <MathLine size={14}>y = (log b)·x + log a<Annotate>general semi-log linear model</Annotate></MathLine>
+        <Arrow text="Substitute a = 2 and b = 7"/>
+        <MathLine size={14}>y = (log 7)·x + log 2<Annotate>slope = log 7, y-intercept = log 2</Annotate></MathLine>
         <Ans>y = (log 7)x + log 2 ≈ 0.845x + 0.301</Ans>
       </WB>
       <Tp>On the AP exam, they may give you a semi-log plot and ask if exponential is appropriate. If the points look LINEAR on the semi-log plot → YES. If curved → NO.</Tp>
@@ -3041,6 +3261,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Fan Blade & Periodic Graph", content:<div>
       <Q>A box fan completes 2 rotations per second. Point A is at a blade tip, 18 inches from the floor at t=0. The lowest point is 2 inches from the floor. Find P, Q, R coordinates and the period.</Q>
+      <Strategy>We are given a frequency (rotations per second) and need to find the period and key points. Our approach: first convert frequency to period using Period = 1/Frequency. Then find the amplitude and midline from the max and min heights. Finally, use the fact that key points on a sinusoidal curve are evenly spaced within each period — the minimum is always half a period after the maximum, and the next maximum is a full period after the first.</Strategy>
       <Wh>A spinning fan blade traces a periodic function because the tip moves in a circle, and the height above the floor repeats with every full rotation. Frequency tells you how many cycles happen per unit time, and the period is how long ONE cycle takes. They are reciprocals: Period = 1 / Frequency.</Wh>
       <WB>
         <Arrow text="Step 1: Find the period from the frequency"/>
@@ -3072,6 +3293,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Reading Period & Predicting Values", content:<div>
       <Q>A periodic function has period 4. Find f(10) and f(12).</Q>
+      <Strategy>Since the function repeats every 4 units, we can subtract the period repeatedly until we land in the first cycle [0, 4). We will use the property f(x) = f(x - k) where k = 4. This is the go-to technique for evaluating periodic functions at large inputs — keep rewinding until you reach a value you can read directly from the given information.</Strategy>
       <Wh>The defining property of a periodic function is that f(x + k) = f(x) for all x, where k is the period. This means you can always shift backward (or forward) by one full period and get the same output. Subtracting the period repeatedly is like rewinding a looping video -- you always land on the same frame.</Wh>
       <FmUsed>f(x + k) = f(x) where k = period. Equivalently: f(x) = f(x - k) = f(x - 2k) = ...</FmUsed>
       <WB>
@@ -3138,6 +3360,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Trig Ratios from a Point (Q1)", content:<div>
       <Q>Point P(3, 4) is on the terminal ray of angle θ in standard position. The radius of the circle is 5. Find sin θ, cos θ, and tan θ.</Q>
+      <Strategy>We have a point on the terminal ray and the radius. We will use the core definitions sin θ = y/r, cos θ = x/r, and tan θ = y/x. First we verify r with the Pythagorean theorem, then determine the quadrant from the signs of x and y, and finally plug into each formula. The signs of x and y automatically determine the signs of each trig ratio.</Strategy>
       <FmUsed>sin θ = y/r · cos θ = x/r · tan θ = y/x = sin θ/cos θ</FmUsed>
       <WB>
         <Arrow text="Step 1: Identify x, y, and r from the point and radius"/>
@@ -3156,6 +3379,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Trig Ratios from a Point (Q2)", content:<div>
       <Q>Point P(−12, 5) is on the terminal ray of angle θ. The radius is 13. Find sin θ, cos θ, and tan θ, and identify the quadrant.</Q>
+      <Strategy>Same approach as the Q1 example, but now x is negative. We will identify the quadrant from the signs of x and y, verify r with the Pythagorean theorem, then apply the same three formulas. The key difference is that the negative x-coordinate will make cos θ and tan θ negative — we do not need to memorize sign rules because they follow automatically from plugging in the signed coordinates.</Strategy>
       <FmUsed>sin θ = y/r · cos θ = x/r · tan θ = y/x · r is always positive</FmUsed>
       <WB>
         <Arrow text="Step 1: Identify x, y, and r"/>
@@ -3194,6 +3418,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Evaluating Special Angles", content:<div>
       <Q>Evaluate without a calculator.</Q>
+      <Strategy>We will use the two-step reference angle method for every trig evaluation: (1) find the reference angle to determine the absolute value from our memorized special angles (π/6, π/4, π/3), and (2) use the ASTC quadrant rule to determine the sign. For negative angles, we first add 2π to find a coterminal positive angle.</Strategy>
       <FmUsed>Two-step method: (1) Find the reference angle to get the VALUE. (2) Use the quadrant to determine the SIGN.</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Multiples of π/4:</b></MathLine>
@@ -3236,6 +3461,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Coordinates on a Circle of Radius 8", content:<div>
       <Q>An angle of π/4 radians in standard position intersects a circle of radius 8. Find the exact (x, y) coordinates of the intersection point.</Q>
+      <Strategy>The unit circle gives us coordinates for a circle of radius 1. To scale to any circle of radius r, we multiply: x = r·cos θ and y = r·sin θ. We recall the unit circle values at π/4 and multiply each coordinate by 8.</Strategy>
       <FmUsed>x = r · cos θ and y = r · sin θ (multiply unit circle values by radius)</FmUsed>
       <WB>
         <Arrow text="Step 1: Identify r and θ"/>
@@ -3252,6 +3478,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Finding Radius and Angle from a Point", content:<div>
       <Q>The terminal ray of angle θ intersects a circle at the point (−12, −12√3). Find the radius r of the circle and the exact angle θ.</Q>
+      <Strategy>We work backwards from coordinates to find r and θ. First, the Pythagorean theorem gives r = √(x² + y²). Then we determine the quadrant from the signs of x and y, find the reference angle using |x|/r, and adjust for the correct quadrant using Q3: θ = π + ref.</Strategy>
       <FmUsed>r = √(x² + y²) for the radius · Use reference angle + quadrant to find θ</FmUsed>
       <WB>
         <Arrow text="Step 1: Find r using the Pythagorean theorem"/>
@@ -3317,6 +3544,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Sketching Key Points and Identifying Properties", content:<div>
       <Q>Complete the table for both sin θ and cos θ, then identify where each function is increasing, decreasing, concave up, and concave down on [0, 2π].</Q>
+      <Strategy>We evaluate sin and cos at the five key angles (0, π/2, π, 3π/2, 2π), then use the wave shape to identify intervals of increase/decrease and concavity. Sine and cosine have identical shapes shifted by π/2, so their properties occur at offset intervals.</Strategy>
       <WB>
         <Tb h={["θ","0","π/2","π","3π/2","2π"]} r={[["sin θ","0","1","0","−1","0"],["cos θ","1","0","−1","0","1"]]}/>
         <MathLine size={14} color="#4338ca"><b>sin θ:</b></MathLine>
@@ -3367,6 +3595,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Finding Period, Amplitude, Midline from Graph", content:<div>
       <Q>A sinusoidal function has a max at (1, 4) and a min at (5, −2). Find all properties.</Q>
+      <Strategy>With just a max and a min point, we can extract all four sinusoidal properties. Amplitude = (max − min)/2, midline = (max + min)/2, and the horizontal distance from max to min is exactly HALF the period. From the period, frequency = 1/period.</Strategy>
       <FmUsed>Amplitude = (max - min)/2 · Midline = (max + min)/2 · Period = 2 x (max-to-min distance)</FmUsed>
       <WB>
         <Arrow text="Step 1: Find the Amplitude"/>
@@ -3396,6 +3625,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Even/Odd Symmetry and Properties", content:<div>
       <Q>Determine whether each function is even, odd, or neither. What symmetry does each have?</Q>
+      <Strategy>To test even/odd, we replace θ with −θ and simplify. If f(−θ) = f(θ) it is even (y-axis symmetry). If f(−θ) = −f(θ) it is odd (origin symmetry). We use the known identities sin(−θ) = −sin(θ) and cos(−θ) = cos(θ).</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>f(θ) = sin θ:</b></MathLine>
         <MathLine size={14}>sin(−θ) = −sin(θ) → <MathBox color="#6366f1">ODD function</MathBox></MathLine>
@@ -3424,6 +3654,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Applying Transformations Step by Step", content:<div>
       <Q>Start with f(θ) = sin θ. Apply these transformations in order: phase shift left π, amplitude 5, and reflection over the x-axis. Write the final function.</Q>
+      <Strategy>We apply each transformation one at a time, building the equation step by step. Horizontal changes first (phase shift), then vertical changes (amplitude, reflection). Each transformation modifies a specific parameter in f(θ) = a·sin(b(θ + c)) + d.</Strategy>
       <FmUsed>g(θ) = a · sin(b(θ + c)) + d — apply each transformation one at a time</FmUsed>
       <WB>
         <Arrow text="Step 1: Start with the parent function"/>
@@ -3444,6 +3675,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Writing a Sinusoidal Function from Graph Properties", content:<div>
       <Q>A sinusoidal graph has amplitude 3, period π, is reflected over the x-axis, and has midline y = 1. Write the function.</Q>
+      <Strategy>We map each property to a parameter: amplitude gives |a|, reflection sets the sign of a, period = 2π/|b| lets us solve for b, and midline = d. We assemble f(θ) = a·sin(bθ) + d piece by piece.</Strategy>
       <FmUsed>f(θ) = a · sin(bθ) + d where |a| = amplitude, period = 2π/|b|, d = midline</FmUsed>
       <WB>
         <Arrow text="Step 1: Determine a (amplitude + reflection)"/>
@@ -3479,6 +3711,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Model from Max/Min Data", content:<div>
       <Q>Function oscillates between −1 and 7. At x=0, f(0)=−1. At x=2π, f(2π)=7. At x=4π, f(4π)=−1.</Q>
+      <Strategy>We extract each parameter from the data: amplitude from max and min, midline from their average, period from the x-distance of one full cycle (min-to-max-to-min = 4π). Since the function starts at its minimum, we choose −cos to avoid a phase shift.</Strategy>
       <FmUsed>f(x) = a·sin(b(x − c)) + d or f(x) = a·cos(b(x − c)) + d</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Find the amplitude</b></MathLine>
@@ -3504,6 +3737,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Merry-go-round Context Problem", content:<div>
       <Q>Child is 6 ft from parents when closest, 24 ft when farthest. Rotation takes 30 sec. At t=0, child is closest.</Q>
+      <Strategy>This real-world problem maps to a sinusoidal model. Closest = min, farthest = max, rotation time = period. We compute amplitude, midline, and b from these quantities, then choose −cos since the child starts at minimum distance, avoiding a phase shift.</Strategy>
       <FmUsed>m(t) = a·sin(b(t − c)) + d or m(t) = −a·cos(bt) + d</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Identify max, min, and period from context</b></MathLine>
@@ -3557,6 +3791,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Tangent with Stretch and Phase Shift", content:<div>
       <Q>For f(θ) = 3tan(θ − π/8), find the period and describe every transformation applied to the parent function tan θ.</Q>
+      <Strategy>We compare to the general form f(θ) = a·tan(b(θ + c)) + d, identifying each parameter. The period uses π/|b| (NOT 2π/|b| — tangent has a different period). We describe each parameter’s effect on the parent graph.</Strategy>
       <FmUsed>f(θ) = a · tan(b(θ + c)) + d — tangent period = π/|b| (NOT 2π/|b|!)</FmUsed>
       <WB>
         <Arrow text="Step 1: Identify each parameter by comparing to the general form"/>
@@ -3575,6 +3810,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Tangent with Horizontal Dilation", content:<div>
       <Q>For f(θ) = tan(θ/2), find the period and describe the horizontal dilation. How does this graph compare to the parent function tan θ?</Q>
+      <Strategy>We rewrite tan(θ/2) as tan((1/2)·θ) to identify b = 1/2. Since b is less than 1, the graph stretches horizontally (wider, longer period). We compute the new period using π/|b| and describe how VAs move outward by the same stretch factor.</Strategy>
       <FmUsed>Period = π/|b| · Horizontal dilation stretches/compresses the graph</FmUsed>
       <WB>
         <Arrow text="Step 1: Rewrite to identify b clearly"/>
@@ -3605,6 +3841,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Evaluating Inverse Trig", content:<div>
       <Q>Evaluate sin⁻¹(1/2) and cos⁻¹(−√3/2). Give exact answers in radians.</Q>
+      <Strategy>For each inverse trig evaluation, we ask: "What angle IN THE RESTRICTED RANGE has this trig value?" For sin⁻¹ the range is [−π/2, π/2]. For cos⁻¹ the range is [0, π]. We find the reference angle from the unit circle, then select the correct angle within the allowed range.</Strategy>
       <FmUsed>sin⁻¹ range: [−π/2, π/2] · cos⁻¹ range: [0, π] — ask "what angle in the range has this value?"</FmUsed>
       <WB>
         <Arrow text="Part 1: sin⁻¹(1/2)"/>
@@ -3655,6 +3892,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Transformed Inverse Trig Functions", content:<div>
       <Q>For f(x) = 2sin⁻¹(x), describe the transformation and find the domain and range.</Q>
+      <Strategy>Vertical transformations (multiplying outside) change the RANGE but not the domain. Horizontal transformations (inside the function) change the DOMAIN. Vertical shifts add/subtract from each endpoint of the range. We apply these rules to each transformed function.</Strategy>
       <WB>
         <Arrow text="Step 1: Identify the transformation"/>
         <MathLine size={14}>f(x) = <MathBox color="#6366f1">2</MathBox> · sin⁻¹(x)<Annotate>vertical stretch by factor of 2</Annotate></MathLine>
@@ -3693,6 +3931,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Solving on an Interval & All Solutions", content:<div>
       <Q>a) Solve 2sin x − 1 = 0 on [0, 2π].  b) Find ALL solutions.</Q>
+      <Strategy>Our four-step strategy: (1) isolate the trig function, (2) find the reference angle from the unit circle, (3) identify which quadrants have positive sine (Q1 and Q2 via ASTC), giving exactly 2 solutions per period, and (4) for all solutions, add 2kπ to each.</Strategy>
       <FmUsed>Isolate sin x, find the reference angle, then determine which quadrants give solutions.</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Isolate the trig function</b></MathLine>
@@ -3752,6 +3991,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Evaluating Reciprocal Functions", content:<div>
       <Q>Evaluate without a calculator: sec(π/4), csc(5π/4), and cot(7π/6). Show each step.</Q>
+      <Strategy>For each reciprocal trig value: (1) write the reciprocal definition (sec = 1/cos, csc = 1/sin, cot = cos/sin), (2) evaluate the base function using reference angle + ASTC, (3) compute the reciprocal and rationalize if needed.</Strategy>
       <FmUsed>sec θ = 1/cos θ · csc θ = 1/sin θ · cot θ = cos θ/sin θ</FmUsed>
       <WB>
         <Arrow text="Part 1: sec(π/4) — reciprocal of cosine"/>
@@ -3805,6 +4045,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Period & Asymptotes of Reciprocal Functions", content:<div>
       <Q>For each transformed function, find the period and equations of the vertical asymptotes.</Q>
+      <Strategy>Sec and csc use period = 2π/|b| (like sin/cos). Cot uses period = π/|b| (like tan). To find VA locations, set the INSIDE equal to the parent function’s VA angles, then solve for θ.</Strategy>
       <WB>
         <MathLine size={14} color="#4338ca"><b>1. f(θ) = sec(θ/2)</b></MathLine>
         <MathLine size={14}>Period of sec θ = 2π. With b = 1/2: period = 2π/|1/2| = <MathBox color="#22c55e">4π</MathBox></MathLine>
@@ -3835,6 +4076,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Simplifying with the Pythagorean Identity", content:<div>
       <Q>Use a Pythagorean identity to express 3cos³x / (1 − sin²x) in terms of only cos x.</Q>
+      <Strategy>The expression "1 − sin²x" is a dead giveaway for the Pythagorean identity: since sin²θ + cos²θ = 1, we know 1 − sin²x = cos²x. After substituting, we simplify using exponent rules for dividing like bases.</Strategy>
       <FmUsed>sin²θ + cos²θ = 1 → rearranged: 1 − sin²θ = cos²θ</FmUsed>
       <WB>
         <Arrow text="Step 1: Look at the denominator — recognize a Pythagorean identity"/>
@@ -3850,6 +4092,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Solving a Double Angle Equation", content:<div>
       <Q>Solve the equation sin(2x) + 2cos(x) = 0 on the interval [0, 2π). Find all solutions.</Q>
+      <Strategy>When we see sin(2x), we expand using sin(2x) = 2sin(x)cos(x). This rewrites everything in terms of sin x and cos x, letting us factor out a common term. Then the Zero Product Property gives us each factor = 0 to solve separately.</Strategy>
       <FmUsed>sin(2θ) = 2sin θ · cos θ (double angle identity for sine)</FmUsed>
       <WB>
         <Arrow text="Step 1: Replace sin(2x) using the double angle identity"/>
@@ -3890,6 +4133,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Polar to Rectangular Conversion", content:<div>
       <Q>Convert the polar coordinates (3, π/6) to rectangular coordinates (x, y).</Q>
+      <Strategy>Polar-to-rectangular conversion is a direct application of x = r·cos θ and y = r·sin θ. We identify r and θ, recall the sin and cos values at that angle from the unit circle, and multiply.</Strategy>
       <FmUsed>x = r · cos θ and y = r · sin θ</FmUsed>
       <WB>
         <Arrow text="Step 1: Identify r and θ"/>
@@ -3906,6 +4150,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Rectangular to Polar Conversion", content:<div>
       <Q>Convert the rectangular coordinates (−5, −12) to polar coordinates (r, θ). Make sure θ is in the correct quadrant.</Q>
+      <Strategy>We find r via the Pythagorean theorem: r = √(x² + y²). Then we carefully find θ: arctan(y/x) only gives Q1/Q4 angles, so for Q2/Q3 points we must add π. Always check the quadrant from the signs of x and y.</Strategy>
       <FmUsed>r = √(x² + y²) · θ = arctan(y/x) then ADJUST for quadrant</FmUsed>
       <WB>
         <Arrow text="Step 1: Find r using the Pythagorean theorem"/>
@@ -3960,6 +4205,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Graphing r = 4cos(θ)", content:<div>
       <Q>Complete the table for r(θ) = 4cos(θ) on 0 ≤ θ ≤ π and describe the graph.</Q>
+      <Strategy>We build a table at key angles, then analyze where r is positive vs negative. Positive r is plotted normally; negative r is reflected through the origin. The form r = a·cos(θ) always produces a circle — we determine its center and radius from the table values.</Strategy>
       <FmUsed>r(θ) = 4cos(θ)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
@@ -3976,6 +4222,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Graphing a Limaçon with Inner Loop", content:<div>
       <Q>Complete the table for r(θ) = 2 − 4cos(θ) on 0 ≤ θ ≤ π. Identify where the inner loop occurs.</Q>
+      <Strategy>For limaçons r = a + b·cos(θ), when |a| is less than |b|, there is an inner loop where r is negative. We build a table, find angles where r = 0 (the boundary), and identify the inner loop interval where r is negative.</Strategy>
       <FmUsed>r(θ) = 2 − 4cos(θ) — limaçon since |a| {"<"} |b| (2 {"<"} 4)</FmUsed>
       <WB>
         <Tb h={["θ","0","π/6","π/3","π/2","2π/3","5π/6","π"]} r={[
@@ -3992,6 +4239,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Rose Curves", content:<div>
       <Q>Describe the graph of r(θ) = 4sin(2θ) on 0 ≤ θ ≤ 2π. How many petals does it have?</Q>
+      <Strategy>For rose curves r = a·sin(bθ): even b gives 2b petals, odd b gives b petals. We determine the petal count, find where each petal tip occurs (where |r| is maximized), and identify the required domain. Maximum |r| = |a| is the petal length.</Strategy>
       <FmUsed>r(θ) = a·sin(bθ) — Rose curve with a = 4, b = 2</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Determine the number of petals</b></MathLine>
@@ -4051,6 +4299,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Analyzing Distance from Origin", content:<div>
       <Q>Given r(θ) = 4sin(θ) on 0 ≤ θ ≤ π. Describe the distance from the origin and find the point farthest from the origin.</Q>
+      <Strategy>Distance = |r(θ)|. Since sin(θ) ≥ 0 on [0, π], r is non-negative here, so distance = r directly. We build a table, then analyze where r increases (moving away from origin) vs decreases (moving toward origin). The farthest point is at the maximum of r.</Strategy>
       <FmUsed>Distance from origin = |r(θ)|. When r is positive, distance increases when r increases and decreases when r decreases.</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Build a table of values</b></MathLine>
@@ -4075,6 +4324,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Negative r and Distance", content:<div>
       <Q>Given r(θ) = 4cos(2θ). On π/4 ≤ θ ≤ 3π/4, describe the distance from the origin and find the farthest distance.</Q>
+      <Strategy>This is the tricky negative-r case! On this interval r is negative. Distance = |r|, NOT r. When r is negative and decreasing (more negative), |r| INCREASES — the point moves farther away. We build a table showing both r and |r| to see the true distance behavior.</Strategy>
       <FmUsed>Distance = |r(θ)|. When r is NEGATIVE: r decreasing (more negative) means distance INCREASING. r increasing (less negative) means distance DECREASING.</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Step 1: Build a table of values</b></MathLine>
@@ -4100,6 +4350,7 @@ const unit3Topics = [
     </div>},
     { title:"Example — Average Rate of Change and Estimation", content:<div>
       <Q>Given r(θ) = 3 + 3sin(θ) where r is in cm. Find the AROC on [0.4, 0.6], use it to estimate r(0.5), and compare with the actual value.</Q>
+      <Strategy>Three-part AROC workflow: (1) evaluate r at both endpoints, (2) apply AROC = [r(θ2) − r(θ1)] / [θ2 − θ1], (3) use linear approximation r(θ) ≈ r(θ1) + AROC·(θ − θ1) to estimate a nearby value. This works well over small intervals because curves look nearly straight when zoomed in.</Strategy>
       <FmUsed>AROC = [r(θ₂) − r(θ₁)] / [θ₂ − θ₁] · Estimation: r(θ) ≈ r(θ₁) + AROC · (θ − θ₁)</FmUsed>
       <WB>
         <MathLine size={14} color="#4338ca"><b>Part (a): Find AROC on [0.4, 0.6]</b></MathLine>
@@ -4368,6 +4619,8 @@ const FormulaSheet = ({unit})=>{
         <B>Concave up (cup shape ☕)</B> → the AROC values are <B c="#166534">increasing</B> over consecutive equal-length intervals. The function bends upward — it's speeding up.<br/><br/>
         <B>Concave down (frown shape ☹️)</B> → the AROC values are <B c="#991b1b">decreasing</B> over consecutive equal-length intervals. The function bends downward — it's slowing down.
       </Sm></Box>
+      <Tp>On the AP exam, always include UNITS when computing AROC. The units are (output units) / (input units). For example: feet/second, dollars/year, people/hour.</Tp>
+      <Wh>AROC is the foundation of calculus. The derivative (instantaneous rate of change) is just AROC with the interval shrunk to nearly zero. Mastering AROC now sets you up for success in AP Calculus.</Wh>
     </Accordion>
     <Accordion title="📊 Identifying Function Types from Tables">
       <Box bg="#f0fdf4" border="2px solid #86efac"><Tt c="#166534">Successive Differences Test</Tt><Sm>
@@ -4377,6 +4630,8 @@ const FormulaSheet = ({unit})=>{
         <B>nᵗʰ differences constant</B> → <B c="#166534">Polynomial of degree n</B><br/><br/>
         <B c="#ef4444">Critical requirement: This test ONLY works when x-values are equally spaced!</B> If x goes 1, 2, 3, 4 — that works. If x goes 1, 3, 7, 10 — the test is invalid.
       </Sm></Box>
+      <Sm>For <B>piecewise linear</B> data: look for a "break point" where the constant rate of change switches to a different constant rate. The data is linear on each piece, but with different slopes.</Sm>
+      <Tp>On the AP exam free-response, always state your justification: "The first differences are constant at 5, so a linear model is appropriate" or "The second differences are constant at -6, indicating a quadratic model."</Tp>
     </Accordion>
     <Accordion title="📈 Polynomial Functions">
       <Fm label="Polynomial Standard Form">p(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + … + a₁x + a₀</Fm>
@@ -4396,6 +4651,19 @@ const FormulaSheet = ({unit})=>{
         <B>Odd degree + negative LC</B> → left UP, right DOWN ↑↓ (think −x³)<br/><br/>
         <B c="#be185d">Quick trick:</B> Look at the RIGHT end first. Positive LC → right goes UP. Negative LC → right goes DOWN. Then: even degree means left matches, odd degree means left is opposite.
       </Sm></Box>
+      <Box bg="#fef3c7" border="2px solid #fcd34d"><Tt c="#92400e">Even vs Odd Functions</Tt><Sm>
+        <B>Even function:</B> f(-x) = f(x). Symmetric over the y-axis. All exponents are even (including constants, since x⁰ is even).<br/><br/>
+        <B>Odd function:</B> f(-x) = -f(x). Symmetric about the origin. All exponents are odd.<br/><br/>
+        <B>Neither:</B> if exponents are mixed (like x³ + x²), the function is neither even nor odd.
+      </Sm></Box>
+      <Box bg="#f0fdf4" border="2px solid #86efac"><Tt c="#166534">Extrema, Turning Points, and Inflection</Tt><Sm>
+        <B>Local maximum:</B> function switches from increasing to decreasing (peak).<br/>
+        <B>Local minimum:</B> function switches from decreasing to increasing (valley).<br/>
+        <B>Global max/min:</B> the largest/smallest output among all local extrema and endpoints.<br/>
+        <B>A degree-n polynomial has at most n - 1 turning points.</B><br/><br/>
+        <B>Point of inflection:</B> where concavity changes (up to down or vice versa). NOT an extremum.
+      </Sm></Box>
+      <Tp>Use limit notation on the AP exam: write lim(x to infinity) p(x) = infinity, NOT just "goes up." A degree-n polynomial has exactly n zeros (counting complex zeros and multiplicity).</Tp>
     </Accordion>
     <Accordion title="📉 Rational Functions">
       <Fm label="Rational Function">r(x) = p(x) / q(x), where q(x) ≠ 0</Fm>
@@ -4411,6 +4679,13 @@ const FormulaSheet = ({unit})=>{
         <B>Zeros (x-intercepts):</B> numerator = 0 at values where the denominator ≠ 0<br/><br/>
         <B>y-intercept:</B> plug in x = 0 (as long as x = 0 is in the domain)
       </Sm></Box>
+      <Box bg="#faf5ff" border="2px solid #c4b5fd"><Tt c="#7c3aed">VA Multiplicity and One-Sided Limits</Tt><Sm>
+        <B>Odd multiplicity VA</B> (factor appears 1, 3, 5... times in den): function goes in <B>opposite directions</B> on each side.<br/><br/>
+        <B>Even multiplicity VA</B> (factor appears 2, 4, 6... times in den): function goes in the <B>same direction</B> on both sides.
+      </Sm></Box>
+      <Sm><B>Polynomial Long Division:</B> f(x) = g(x) · q(x) + r(x). The quotient q(x) gives the slant asymptote when numerator degree exceeds denominator degree by 1. Process: Divide, Multiply, Subtract, Repeat.</Sm>
+      <Sm><B>Inverse Variation:</B> y = k/x, where k = x · y is the constant of proportionality. As x increases, y decreases. The graph is a hyperbola with asymptotes at x = 0 and y = 0.</Sm>
+      <Tp>The graph CAN cross a horizontal asymptote in the middle of its domain — the HA only controls behavior at the far left and far right extremes.</Tp>
     </Accordion>
     <Accordion title="🔄 Transformations of Functions">
       <Fm label="General Transformation Form">g(x) = a · f( b(x − h) ) + k</Fm>
@@ -4425,6 +4700,8 @@ const FormulaSheet = ({unit})=>{
         <B c="#92400e">①</B> Horizontal dilation (apply b) → <B c="#92400e">②</B> Horizontal shift (apply h) → <B c="#92400e">③</B> Vertical dilation (apply a) → <B c="#92400e">④</B> Vertical shift (apply k)
       </Sm></Box>
     </Accordion>
+    <Accordion title="📝 Binomial Theorem"><Sm>Pascal's Triangle row n for coefficients. Powers of a: n→0, b: 0→n. Negative b = alternating signs.</Sm></Accordion>
+    <Accordion title="📐 Models"><Sm>Area(2D)=quadratic. Volume(3D)=cubic. Regression: calculator best fit. Residual=Actual-Predicted. Inverse: y=k/x.</Sm></Accordion>
   </div>);
 
   if(unit===1) return (<div>
@@ -4433,7 +4710,8 @@ const FormulaSheet = ({unit})=>{
         An arithmetic sequence adds the <B>same value (d)</B> each time. Its graph forms discrete points on a <B>straight line</B>, making it the discrete version of a linear function.<br/><br/>
         <B>Formula from initial term:</B> aₙ = a₀ + d·n<br/>
         <B>Formula from any known term:</B> aₙ = aₖ + d·(n − k)<br/>
-        <B>Finding d:</B> subtract any two consecutive terms: d = aₙ₊₁ − aₙ
+        <B>Finding d:</B> subtract any two consecutive terms: d = aₙ₊₁ − aₙ<br/><br/>
+        <Sm>Remember: d can be positive (increasing) or negative (decreasing). The from-any-known-term formula is especially useful when the problem gives you a₁ instead of a₀.</Sm>
       </Sm></Box>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Geometric Sequences — Multiplication Pattern</Tt><Sm>
         A geometric sequence multiplies by the <B>same value (r)</B> each time. Its graph forms discrete points on an <B>exponential curve</B>, making it the discrete version of an exponential function.<br/><br/>
@@ -4442,6 +4720,7 @@ const FormulaSheet = ({unit})=>{
         <B>Finding r:</B> divide any term by the previous: r = gₙ₊₁ / gₙ<br/><br/>
         <B>r {">"} 1</B> → exponential growth · <B>0 {"<"} r {"<"} 1</B> → exponential decay · <B>r {"<"} 0</B> → alternating signs
       </Sm></Box>
+      <Tp>Classification shortcut: given a table with equal x-spacing, check 1st differences (linear?), then ratios (exponential?), then 2nd differences (quadratic?). Work from simplest to most complex.</Tp>
     </Accordion>
     <Accordion title="📈 Exponential Functions & Exponent Rules">
       <Fm label="Exponential Function">f(x) = a · bˣ</Fm>
@@ -4453,7 +4732,9 @@ const FormulaSheet = ({unit})=>{
         → <B>0 {"<"} b {"<"} 1</B> means exponential DECAY (outputs get smaller)<br/>
         → <B>Growth rate</B> = b − 1 (as decimal). Example: b = 1.07 means 7% growth per unit<br/><br/>
         <B>Domain:</B> all real numbers · <B>Range:</B> (0, ∞) if a {">"} 0 · <B>HA:</B> y = 0<br/>
-        <B>With vertical shift:</B> f(x) = a·bˣ + k shifts the HA to y = k and range becomes (k, ∞)
+        <B>With vertical shift:</B> f(x) = a·bˣ + k shifts the HA to y = k and range becomes (k, ∞)<br/><br/>
+        <B>Horizontal shift equivalence:</B> f(x) = a·b^(x+h) = (a·b^h)·bˣ — horizontal translation equals vertical dilation<br/>
+        <B>Time unit conversion:</B> To convert from small unit to big unit, raise the base to the conversion factor
       </Sm></Box>
       <Box bg="#eef2ff" border="2px solid #a5b4fc"><Tt c="#4338ca">Exponent Rules — Your Toolkit</Tt><Sm>
         <B>Product rule:</B> bᵐ · bⁿ = b⁽ᵐ⁺ⁿ⁾ — same base? Add exponents<br/><br/>
@@ -4462,6 +4743,12 @@ const FormulaSheet = ({unit})=>{
         <B>Negative exponent:</B> b⁻ⁿ = 1/bⁿ — flip it to the denominator<br/><br/>
         <B>Zero exponent:</B> b⁰ = 1 (for any b ≠ 0) — everything to the zero is 1<br/><br/>
         <B>Fractional exponent:</B> b^(1/n) = ⁿ√b — fractional powers are roots
+      </Sm></Box>
+      <Box bg="#ecfdf5" border="2px solid #86efac"><Tt c="#166534">The Number e (Euler's Number)</Tt><Sm>
+        <B>e ≈ 2.718</B> — an irrational number used for continuous growth/decay models<br/><br/>
+        <B>f(x) = eˣ</B> is the natural exponential function. Key points: (0, 1) and (1, e ≈ 2.718)<br/><br/>
+        <B>Continuous growth model:</B> f(t) = a·e^(kt) where k is the continuous growth rate<br/><br/>
+        <B>Inverse:</B> The natural log ln(x) = log_e(x) undoes e to the x
       </Sm></Box>
     </Accordion>
     <Accordion title="📝 Logarithms — Definition, Properties & Rules">
@@ -4481,6 +4768,12 @@ const FormulaSheet = ({unit})=>{
         <B>Change of base:</B> log_b(x) = log(x) / log(b) = ln(x) / ln(b) — convert to any base<br/><br/>
         <B c="#ef4444">CRITICAL WARNING: log(A + B) ≠ log A + log B</B> — there is absolutely NO rule for the log of a sum! This is the #1 log mistake on the AP exam.
       </Sm></Box>
+      <Tp>When solving log equations, always check for extraneous solutions. The argument of a log MUST be positive. If your answer makes any log argument negative or zero, discard it.</Tp>
+      <Box bg="#fef3c7" border="2px solid #fcd34d"><Tt c="#92400e">Inverse Relationships Summary</Tt><Sm>
+        <B>Exponential to Log inverse:</B> f(x) = a·b^(x+h) + k → f⁻¹(x) = log_b((x-k)/a) - h<br/><br/>
+        <B>Log to Exponential inverse:</B> f(x) = a·log_b(x+h) + k → f⁻¹(x) = b^((x-k)/a) - h<br/><br/>
+        <B>Key principle:</B> To invert an exponential, use log. To invert a log, use exponential. They undo each other.
+      </Sm></Box>
     </Accordion>
     <Accordion title="📉 Semi-Log Plots">
       <Sm>A semi-log plot has a logarithmic y-axis and a regular (linear) x-axis. The key insight is that <B>exponential data appears as a straight line</B> on a semi-log plot. This makes it easy to determine whether data is truly exponential.</Sm><br/>
@@ -4492,6 +4785,8 @@ const FormulaSheet = ({unit})=>{
         <B>Testing model fit:</B> If data points form a straight line on the semi-log plot → exponential model IS appropriate. If they curve or scatter → exponential is NOT appropriate.<br/><br/>
         <B>Residuals:</B> actual − predicted. Random scatter → good fit. Clear pattern (U-shape, wave) → wrong model type.
       </Sm></Box>
+      <Tp>To recover the exponential model from a semi-log linear equation: if slope = m, then b = 10^m. If y-intercept = c, then a = 10^c. So f(x) = 10^c times (10^m)^x.</Tp>
+      <Wh>Semi-log plots are used in science and medicine to visualize data spanning many orders of magnitude. Earthquake magnitudes (Richter scale), sound intensity (decibels), and pH are all logarithmic scales.</Wh>
     </Accordion>
   </div>);
 
@@ -4530,6 +4825,13 @@ const FormulaSheet = ({unit})=>{
         <B>c = Phase shift</B> — shifts the graph horizontally. Positive c shifts LEFT, negative c shifts RIGHT (same opposite-direction rule as other transformations).<br/><br/>
         <B>d = Midline (vertical shift)</B> — the horizontal line the wave oscillates around. Calculated as (max + min) / 2. The range becomes [d − |a|, d + |a|].
       </Sm></Box>
+      <Box bg="#f0fdf4" border="2px solid #86efac"><Tt c="#166534">Building Sinusoidal Models from Data</Tt><Sm>
+        <B>Step 1:</B> Find amplitude = (max − min) / 2<br/>
+        <B>Step 2:</B> Find midline d = (max + min) / 2<br/>
+        <B>Step 3:</B> Find period from data, then b = 2π / period<br/>
+        <B>Step 4:</B> Choose sin vs cos: starts at max → cos · at min → −cos · at midline going up → sin · at midline going down → −sin
+      </Sm></Box>
+      <Tp>Max to NEXT max = full period. Max to min = only HALF the period. This is the #1 AP exam trap!</Tp>
     </Accordion>
     <Accordion title="📐 Tangent, Reciprocals & Inverse Trig">
       <Box bg="#fffbeb" border="2px solid #fcd34d"><Tt c="#92400e">Tangent Function</Tt><Sm>
@@ -4590,6 +4892,8 @@ const FormulaSheet = ({unit})=>{
         <B>AROC in polar:</B> [r(θ₂) − r(θ₁)] / (θ₂ − θ₁)<br/>
         <B>Linear estimation:</B> r(θ) ≈ r(θ₁) + AROC · (θ − θ₁)
       </Sm></Box>
+      <Wh>The key insight: distance from origin = |r|, not r. When r is negative and getting MORE negative, the actual distance is INCREASING. Always think about |r| when asked about distance.</Wh>
+      <Tp>On the AP exam, always specify units for polar AROC: (distance units) per radian. The linear estimation formula is just a tangent line approximation — it works best over small intervals.</Tp>
     </Accordion>
   </div>);
 
@@ -4635,75 +4939,75 @@ export default function App(){
   const isSlideTab=tab==="learn"||tab==="examples";
 
   return(
-    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"10px 8px",boxSizing:"border-box"}}>
-      <div style={{maxWidth:940,margin:"0 auto"}}>
+    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#f1f5f9,#e2e8f0)",fontFamily:"'Segoe UI','Helvetica Neue',sans-serif",padding:"14px 10px",boxSizing:"border-box"}}>
+      <div style={{maxWidth:960,margin:"0 auto"}}>
         {/* Unit Selector */}
-        <div style={{display:"flex",gap:6,marginBottom:8}}>
+        <div style={{display:"flex",gap:8,marginBottom:10}}>
           {allUnits.map((u,i)=>(
-            <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"10px 8px",border:ui===i?`2px solid ${unitColors[i]}`:"2px solid #cbd5e1",borderRadius:12,background:ui===i?"#1a1a2e":"#fff",color:ui===i?"#fff":"#333",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.2s",boxShadow:ui===i?"0 4px 12px rgba(0,0,0,0.15)":"0 1px 3px rgba(0,0,0,0.05)"}}>
+            <button key={i} onClick={()=>switchUnit(i)} style={{flex:1,padding:"12px 10px",border:ui===i?`2px solid ${unitColors[i]}`:"2px solid #cbd5e1",borderRadius:12,background:ui===i?"#1a1a2e":"#fff",color:ui===i?"#fff":"#333",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.2s",boxShadow:ui===i?"0 4px 12px rgba(0,0,0,0.15)":"0 1px 3px rgba(0,0,0,0.05)"}}>
               Unit {u.id}: {u.name}
             </button>
           ))}
         </div>
-        {/* Tab Selector */}
-        <div style={{display:"flex",gap:0,marginBottom:8}}>
-          {tabList.map(([k,l],idx)=>
-            <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"12px",border:"none",borderRadius:idx===0?"12px 0 0 12px":idx===tabList.length-1?"0 12px 12px 0":"0",background:tab===k?unitColors[ui]:"#c7d2de",color:tab===k?"#fff":"#4338ca",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.15s",boxShadow:tab===k?"0 2px 8px rgba(0,0,0,0.15)":"none"}}>{l}</button>)}
-        </div>
-        {/* Progress Bar */}
-        {isSlideTab&&activeSlides.length>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:8}}>
-          <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#ec4899)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Practice Progress Bar */}
-        {tab==="practice"&&totalProblems>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:8}}>
-          <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#22c55e)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
-        {/* Formula Sheet */}
-        {tab==="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"14px 22px"}}>
-            <div style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",marginBottom:2}}>Reference Sheet</div>
-            <div style={{color:"#fff",fontSize:18,fontWeight:700}}>📋 Unit {unit.id}: {unit.name} — All Formulas & Key Concepts</div>
-          </div>
-          <div style={{padding:"18px 22px",maxHeight:"78vh",overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
-        </div>}
-        {/* Topic Dropdown */}
-        {tab!=="formulas"&&<div style={{position:"relative",marginBottom:8}}>
-          <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"12px 18px",background:"#1a1a2e",color:"#fff",border:"none",borderRadius:12,fontSize:14,fontWeight:700,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"0 2px 8px rgba(0,0,0,0.12)"}}>
+        {/* Topic Dropdown — ABOVE tabs */}
+        {tab!=="formulas"&&<div style={{position:"relative",marginBottom:10}}>
+          <button onClick={()=>setMo(!mo)} style={{width:"100%",padding:"14px 20px",background:"#1a1a2e",color:"#fff",border:"none",borderRadius:12,fontSize:15,fontWeight:700,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"0 2px 8px rgba(0,0,0,0.12)"}}>
             <span>📚 {t.id} — {t.name} {isSlideTab?`(${activeSlides.length} slides)`:tab==="practice"?`(${totalProblems} problems)`:""}</span><span style={{fontSize:16}}>{mo?"▲":"▼"}</span>
           </button>
-          {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",borderRadius:12,boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:380,overflowY:"auto",marginTop:4,border:"1px solid #e2e8f0"}}>
+          {mo&&<div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",borderRadius:12,boxShadow:"0 12px 40px rgba(0,0,0,0.18)",zIndex:10,maxHeight:400,overflowY:"auto",marginTop:4,border:"1px solid #e2e8f0"}}>
             {topics.map((x,i)=>{const cnt=isSlideTab?getSlides(x,tab).length:x.slides.length;return(
-              <div key={i} onClick={()=>sel(i)} style={{padding:"11px 18px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#eef2ff":"#fff",fontSize:14,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
+              <div key={i} onClick={()=>sel(i)} style={{padding:"13px 20px",cursor:"pointer",borderBottom:"1px solid #f1f5f9",background:i===ti?"#eef2ff":"#fff",fontSize:14,display:"flex",justifyContent:"space-between",transition:"background 0.15s"}}>
               <span style={{fontWeight:i===ti?700:500,color:i===ti?"#4338ca":"#333"}}>{x.id} — {x.name}</span>
               {isSlideTab&&<span style={{fontSize:12,color:"#94a3b8",fontWeight:600}}>{cnt} slides</span>}
             </div>)})}
           </div>}
         </div>}
+        {/* Tab Selector — BELOW topic dropdown */}
+        <div style={{display:"flex",gap:0,marginBottom:10}}>
+          {tabList.map(([k,l],idx)=>
+            <button key={k} onClick={()=>{setTab(k);setSi(0);setPi(0);}} style={{flex:1,padding:"13px",border:"none",borderRadius:idx===0?"12px 0 0 12px":idx===tabList.length-1?"0 12px 12px 0":"0",background:tab===k?unitColors[ui]:"#c7d2de",color:tab===k?"#fff":"#4338ca",fontWeight:700,fontSize:14,cursor:"pointer",transition:"all 0.15s",boxShadow:tab===k?"0 2px 8px rgba(0,0,0,0.15)":"none"}}>{l}</button>)}
+        </div>
+        {/* Progress Bar */}
+        {isSlideTab&&activeSlides.length>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
+          <div style={{width:`${(si/Math.max(activeSlides.length-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#ec4899)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
+        {/* Practice Progress Bar */}
+        {tab==="practice"&&totalProblems>0&&<div style={{height:5,background:"#cbd5e1",borderRadius:3,overflow:"hidden",marginBottom:10}}>
+          <div style={{width:`${(pi/Math.max(totalProblems-1,1))*100}%`,height:"100%",background:`linear-gradient(90deg,${unitColors[ui]},#22c55e)`,borderRadius:3,transition:"width 0.3s"}}/></div>}
+        {/* Formula Sheet */}
+        {tab==="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
+          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px"}}>
+            <div style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",marginBottom:2}}>Reference Sheet</div>
+            <div style={{color:"#fff",fontSize:18,fontWeight:700}}>📋 Unit {unit.id}: {unit.name} — All Formulas & Key Concepts</div>
+          </div>
+          <div style={{padding:"22px 26px",maxHeight:"78vh",overflowY:"auto"}}><FormulaSheet unit={ui}/></div>
+        </div>}
         {/* Content Card */}
         {tab!=="formulas"&&<div style={{background:"#fff",borderRadius:16,boxShadow:"0 5px 25px rgba(0,0,0,0.06)",overflow:"hidden"}}>
-          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"14px 22px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",padding:"16px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <div><span style={{color:"#818cf8",fontSize:11,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase"}}>TOPIC {t.id}</span>
               <div style={{color:"#fff",fontSize:18,fontWeight:700,marginTop:2}}>{isSlideTab?s.title:tab==="practice"?`Practice — ${t.name}`:s.title}</div></div>
             {isSlideTab&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>{si+1} / {activeSlides.length}</div>}
             {tab==="practice"&&totalProblems>0&&<div style={{color:"#94a3b8",fontSize:12,textAlign:"right",fontWeight:600}}>Problem {pi+1} / {totalProblems}</div>}
           </div>
-          <div style={{padding:"20px 24px",maxHeight:"72vh",overflowY:"auto"}}>
+          <div style={{padding:"24px 28px",maxHeight:"72vh",overflowY:"auto"}}>
             {tab==="practice"?<div>
-              <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:12,padding:"14px 18px",marginBottom:18,border:"1px solid #c7d2fe"}}>
+              <div style={{background:"linear-gradient(135deg,#f0f0ff,#eef2ff)",borderRadius:12,padding:"16px 20px",marginBottom:20,border:"1px solid #c7d2fe"}}>
                 <div style={{fontSize:15,color:"#4338ca",fontWeight:600,lineHeight:1.7}}>Work each problem on paper first, just like the whiteboard examples. When you're ready, reveal the answer to check your work, then view the full worked solution.</div>
               </div>
               {totalProblems>0&&Array.isArray(practiceProblems)?practiceProblems[pi]:practiceProblems}
             </div>:s.content}
           </div>
           {/* Slide Navigation */}
-          {isSlideTab&&<div style={{padding:"12px 22px 16px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={prev} disabled={si===0} style={{padding:"10px 24px",borderRadius:10,border:"none",background:si===0?"#e2e8f0":unitColors[ui],color:si===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===0?"default":"pointer",boxShadow:si===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Back</button>
-            <div style={{display:"flex",gap:4}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?22:8,height:8,borderRadius:5,background:i===si?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"10px 24px",borderRadius:10,border:"none",background:si===activeSlides.length-1?"#e2e8f0":unitColors[ui],color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===activeSlides.length-1?"default":"pointer",boxShadow:si===activeSlides.length-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
+          {isSlideTab&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
+            <button onClick={prev} disabled={si===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===0?"#e2e8f0":unitColors[ui],color:si===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===0?"default":"pointer",boxShadow:si===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Back</button>
+            <div style={{display:"flex",gap:5}}>{activeSlides.map((_,i)=><div key={i} onClick={()=>setSi(i)} style={{width:i===si?24:9,height:9,borderRadius:5,background:i===si?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+            <button onClick={next} disabled={si===activeSlides.length-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:si===activeSlides.length-1?"#e2e8f0":unitColors[ui],color:si===activeSlides.length-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:si===activeSlides.length-1?"default":"pointer",boxShadow:si===activeSlides.length-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
           </div>}
           {/* Practice Navigation */}
-          {tab==="practice"&&totalProblems>1&&<div style={{padding:"12px 22px 16px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
-            <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"10px 24px",borderRadius:10,border:"none",background:pi===0?"#e2e8f0":unitColors[ui],color:pi===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===0?"default":"pointer",boxShadow:pi===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Previous</button>
-            <div style={{display:"flex",gap:4}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?22:8,height:8,borderRadius:5,background:i===pi?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
-            <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"10px 24px",borderRadius:10,border:"none",background:pi===totalProblems-1?"#e2e8f0":unitColors[ui],color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===totalProblems-1?"default":"pointer",boxShadow:pi===totalProblems-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
+          {tab==="practice"&&totalProblems>1&&<div style={{padding:"14px 24px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",borderTop:"2px solid #f1f5f9"}}>
+            <button onClick={()=>setPi(Math.max(0,pi-1))} disabled={pi===0} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===0?"#e2e8f0":unitColors[ui],color:pi===0?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===0?"default":"pointer",boxShadow:pi===0?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>← Previous</button>
+            <div style={{display:"flex",gap:5}}>{Array.from({length:totalProblems}).map((_,i)=><div key={i} onClick={()=>setPi(i)} style={{width:i===pi?24:9,height:9,borderRadius:5,background:i===pi?unitColors[ui]:"#cbd5e1",cursor:"pointer",transition:"all 0.2s"}}/>)}</div>
+            <button onClick={()=>setPi(Math.min(totalProblems-1,pi+1))} disabled={pi===totalProblems-1} style={{padding:"11px 26px",borderRadius:10,border:"none",background:pi===totalProblems-1?"#e2e8f0":unitColors[ui],color:pi===totalProblems-1?"#94a3b8":"#fff",fontWeight:700,fontSize:14,cursor:pi===totalProblems-1?"default":"pointer",boxShadow:pi===totalProblems-1?"none":"0 2px 8px rgba(0,0,0,0.15)",transition:"all 0.2s"}}>Next →</button>
           </div>}
         </div>}
       </div>
